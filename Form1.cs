@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CDCatalog
+﻿namespace CDCatalog
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Forms;
+
     public partial class FormMain : Form
     {
         public FormMain()
@@ -36,6 +30,8 @@ namespace CDCatalog
         {
             tabControlMain.Width = this.ClientSize.Width;
             tabControlMain.Height = this.ClientSize.Height;
+            dataGridViewSongs.Width = this.ClientSize.Width;
+            dataGridViewSongs.Height = this.ClientSize.Height;
         }
     }
 }
