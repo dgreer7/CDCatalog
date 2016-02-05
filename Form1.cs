@@ -45,7 +45,21 @@
 
             if (NotNull(nonNullableTextBoxes))
             {
+                using (CDCatalogEntities CDCatalogEntity = new CDCatalogEntities())
+                {
+                    Artist artist = new Artist { ArtistName = addSongTxtBoxArtist.Text.Trim() };
 
+                    Song song = new Song
+                    {
+                        Title = addSongTxtBoxTitle.Text.Trim(),
+                        Rating = Int32.Parse(addSongTxtBoxRating.Text.Trim()),
+                        Artist = artist
+                        //Album
+                        //TrackNumber
+                    };
+
+                    CDCatalogEntity.Songs.Add(song);
+                }
             }
         }
 
@@ -53,7 +67,7 @@
         {
             foreach (TextBox txtBox in nonNullableTextBoxes)
             {
-                if (txtBox.Text.Trim().Length == 0)
+                if (txtBox.Text.Trim().Length == 0 || txtBox == null)
                     return false;
             }
             return true;
