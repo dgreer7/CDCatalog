@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Windows.Forms;
 
     public partial class FormMain : Form
@@ -14,11 +15,6 @@
         private void Form1_Load(object sender, EventArgs e)
         {
             KeepTabSizedWithWindow();
-
-            using (CDCatalogEntities CDCatalogEntity = new CDCatalogEntities())
-            {
-
-            }
         }
 
         private void FormMain_Resize(object sender, EventArgs e)
@@ -45,25 +41,84 @@
 
             if (NotNull(nonNullableTextBoxes))
             {
+                Artist artist = FindOrCreateArtist(addSongTxtBoxArtist.Text.Trim());
+
+                nonNullableTextBoxes.Clear();
+                nonNullableTextBoxes.Add(addSongTxtBoxAlbum);
+                nonNullableTextBoxes.Add(addSongTxtBoxTrackNumber);
+
+                Album album = null ;
+
+                if (NotNull(nonNullableTextBoxes))
+                {
+                    album = FindOrCreateAlbum(addSongTxtBoxAlbum.Text.Trim());
+                }
+
                 using (CDCatalogEntities CDCatalogEntity = new CDCatalogEntities())
                 {
-                    Artist artist = new Artist { ArtistName = addSongTxtBoxArtist.Text.Trim() };
-
                     Song song = new Song
                     {
                         Title = addSongTxtBoxTitle.Text.Trim(),
                         Rating = Int32.Parse(addSongTxtBoxRating.Text.Trim()),
                         Artist = artist
-                        //Album
-                        //TrackNumber
                     };
+
+                    if (album != null)
+                    {
+                        song.Album = album;
+                        song.TrackNumber = Int32.Parse(addSongLblTrackNumber.Text.Trim());
+                    }
 
                     CDCatalogEntity.Songs.Add(song);
                 }
             }
         }
 
-        public bool NotNull(List<TextBox> nonNullableTextBoxes)
+        private Album FindOrCreateAlbum(string albumText)
+        {
+            Album album;
+
+            using (CDCatalogEntities CDCatalogEntity = new CDCatalogEntities())
+            {
+                album = CDCatalogEntity.Albums.Where(a => a.Title == albumText).First();
+
+                if (album == null)
+                {
+                    album = new Album
+                    {
+                        Title = albumText
+                    };
+
+                    CDCatalogEntity.Albums.Add(album);
+                }
+            }
+
+            return album;
+        }
+
+        private Artist FindOrCreateArtist(string artistText)
+        {
+            Artist artist;
+
+            using (CDCatalogEntities CDCatalogEntity = new CDCatalogEntities())
+            {
+                artist = CDCatalogEntity.Artists.Where(a => a.ArtistName == artistText).First();
+
+                if (artist == null)
+                {
+                    artist = new Artist
+                    {
+                        ArtistName = artistText
+                    };
+
+                    CDCatalogEntity.Artists.Add(artist);
+                }
+            }
+
+            return artist;
+        }
+
+        private bool NotNull(List<TextBox> nonNullableTextBoxes)
         {
             foreach (TextBox txtBox in nonNullableTextBoxes)
             {
