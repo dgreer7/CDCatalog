@@ -44,6 +44,8 @@
             this.addSongLblRating = new System.Windows.Forms.Label();
             this.addSongTxtBoxRating = new System.Windows.Forms.TextBox();
             this.addSongButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.addSongTxtBoxTrackLength = new System.Windows.Forms.TextBox();
             this.tabControlMain.SuspendLayout();
             this.tabViewSongs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSongs)).BeginInit();
@@ -86,6 +88,8 @@
             // 
             // tabAddSong
             // 
+            this.tabAddSong.Controls.Add(this.label1);
+            this.tabAddSong.Controls.Add(this.addSongTxtBoxTrackLength);
             this.tabAddSong.Controls.Add(this.addSongButton);
             this.tabAddSong.Controls.Add(this.addSongLblRating);
             this.tabAddSong.Controls.Add(this.addSongTxtBoxRating);
@@ -119,7 +123,7 @@
             // 
             // addSongTxtBoxTitle
             // 
-            this.addSongTxtBoxTitle.Location = new System.Drawing.Point(86, 109);
+            this.addSongTxtBoxTitle.Location = new System.Drawing.Point(83, 54);
             this.addSongTxtBoxTitle.Name = "addSongTxtBoxTitle";
             this.addSongTxtBoxTitle.Size = new System.Drawing.Size(100, 22);
             this.addSongTxtBoxTitle.TabIndex = 0;
@@ -127,7 +131,7 @@
             // addSongLblTitle
             // 
             this.addSongLblTitle.AutoSize = true;
-            this.addSongLblTitle.Location = new System.Drawing.Point(86, 86);
+            this.addSongLblTitle.Location = new System.Drawing.Point(83, 31);
             this.addSongLblTitle.Name = "addSongLblTitle";
             this.addSongLblTitle.Size = new System.Drawing.Size(35, 17);
             this.addSongLblTitle.TabIndex = 1;
@@ -136,7 +140,7 @@
             // addSongLblArtist
             // 
             this.addSongLblArtist.AutoSize = true;
-            this.addSongLblArtist.Location = new System.Drawing.Point(86, 144);
+            this.addSongLblArtist.Location = new System.Drawing.Point(83, 89);
             this.addSongLblArtist.Name = "addSongLblArtist";
             this.addSongLblArtist.Size = new System.Drawing.Size(40, 17);
             this.addSongLblArtist.TabIndex = 3;
@@ -144,15 +148,15 @@
             // 
             // addSongTxtBoxArtist
             // 
-            this.addSongTxtBoxArtist.Location = new System.Drawing.Point(86, 167);
+            this.addSongTxtBoxArtist.Location = new System.Drawing.Point(83, 112);
             this.addSongTxtBoxArtist.Name = "addSongTxtBoxArtist";
             this.addSongTxtBoxArtist.Size = new System.Drawing.Size(100, 22);
-            this.addSongTxtBoxArtist.TabIndex = 2;
+            this.addSongTxtBoxArtist.TabIndex = 1;
             // 
             // addSongLblTrackNumber
             // 
             this.addSongLblTrackNumber.AutoSize = true;
-            this.addSongLblTrackNumber.Location = new System.Drawing.Point(252, 86);
+            this.addSongLblTrackNumber.Location = new System.Drawing.Point(249, 31);
             this.addSongLblTrackNumber.Name = "addSongLblTrackNumber";
             this.addSongLblTrackNumber.Size = new System.Drawing.Size(98, 17);
             this.addSongLblTrackNumber.TabIndex = 5;
@@ -160,15 +164,15 @@
             // 
             // addSongTxtBoxTrackNumber
             // 
-            this.addSongTxtBoxTrackNumber.Location = new System.Drawing.Point(252, 109);
+            this.addSongTxtBoxTrackNumber.Location = new System.Drawing.Point(249, 54);
             this.addSongTxtBoxTrackNumber.Name = "addSongTxtBoxTrackNumber";
             this.addSongTxtBoxTrackNumber.Size = new System.Drawing.Size(100, 22);
-            this.addSongTxtBoxTrackNumber.TabIndex = 4;
+            this.addSongTxtBoxTrackNumber.TabIndex = 5;
             // 
             // addSongLblAlbum
             // 
             this.addSongLblAlbum.AutoSize = true;
-            this.addSongLblAlbum.Location = new System.Drawing.Point(252, 144);
+            this.addSongLblAlbum.Location = new System.Drawing.Point(249, 89);
             this.addSongLblAlbum.Name = "addSongLblAlbum";
             this.addSongLblAlbum.Size = new System.Drawing.Size(47, 17);
             this.addSongLblAlbum.TabIndex = 7;
@@ -176,7 +180,7 @@
             // 
             // addSongTxtBoxAlbum
             // 
-            this.addSongTxtBoxAlbum.Location = new System.Drawing.Point(252, 167);
+            this.addSongTxtBoxAlbum.Location = new System.Drawing.Point(249, 112);
             this.addSongTxtBoxAlbum.Name = "addSongTxtBoxAlbum";
             this.addSongTxtBoxAlbum.Size = new System.Drawing.Size(100, 22);
             this.addSongTxtBoxAlbum.TabIndex = 6;
@@ -184,7 +188,7 @@
             // addSongLblRating
             // 
             this.addSongLblRating.AutoSize = true;
-            this.addSongLblRating.Location = new System.Drawing.Point(86, 203);
+            this.addSongLblRating.Location = new System.Drawing.Point(83, 148);
             this.addSongLblRating.Name = "addSongLblRating";
             this.addSongLblRating.Size = new System.Drawing.Size(49, 17);
             this.addSongLblRating.TabIndex = 9;
@@ -192,26 +196,43 @@
             // 
             // addSongTxtBoxRating
             // 
-            this.addSongTxtBoxRating.Location = new System.Drawing.Point(86, 226);
+            this.addSongTxtBoxRating.Location = new System.Drawing.Point(83, 171);
             this.addSongTxtBoxRating.Name = "addSongTxtBoxRating";
             this.addSongTxtBoxRating.Size = new System.Drawing.Size(100, 22);
-            this.addSongTxtBoxRating.TabIndex = 8;
+            this.addSongTxtBoxRating.TabIndex = 2;
             // 
             // addSongButton
             // 
-            this.addSongButton.Location = new System.Drawing.Point(89, 277);
+            this.addSongButton.Location = new System.Drawing.Point(83, 277);
             this.addSongButton.Name = "addSongButton";
             this.addSongButton.Size = new System.Drawing.Size(261, 41);
-            this.addSongButton.TabIndex = 10;
+            this.addSongButton.TabIndex = 4;
             this.addSongButton.Text = "Add Song";
             this.addSongButton.UseVisualStyleBackColor = true;
             this.addSongButton.Click += new System.EventHandler(this.addSongButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(80, 212);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 17);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Track Length";
+            // 
+            // addSongTxtBoxTrackLength
+            // 
+            this.addSongTxtBoxTrackLength.Location = new System.Drawing.Point(80, 235);
+            this.addSongTxtBoxTrackLength.Name = "addSongTxtBoxTrackLength";
+            this.addSongTxtBoxTrackLength.Size = new System.Drawing.Size(100, 22);
+            this.addSongTxtBoxTrackLength.TabIndex = 3;
+            // 
             // FormMain
             // 
+            this.AcceptButton = this.addSongButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 511);
+            this.ClientSize = new System.Drawing.Size(505, 436);
             this.Controls.Add(this.tabControlMain);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMain";
@@ -245,6 +266,8 @@
         private System.Windows.Forms.TextBox addSongTxtBoxArtist;
         private System.Windows.Forms.Label addSongLblTitle;
         private System.Windows.Forms.TextBox addSongTxtBoxTitle;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox addSongTxtBoxTrackLength;
     }
 }
 

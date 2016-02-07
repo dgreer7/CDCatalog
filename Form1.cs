@@ -36,7 +36,8 @@
             {
                 addSongTxtBoxTitle,
                 addSongTxtBoxRating,
-                addSongTxtBoxArtist
+                addSongTxtBoxArtist,
+                addSongTxtBoxTrackLength
             };
 
             if (NotNull(nonNullableTextBoxes))
@@ -60,7 +61,9 @@
                     {
                         Title = addSongTxtBoxTitle.Text.Trim(),
                         Rating = Int32.Parse(addSongTxtBoxRating.Text.Trim()),
-                        Artist = artist
+                        Artist = artist,
+                        TrackLengthSeconds = Int32.Parse(addSongTxtBoxTrackLength.Text.Trim()),
+                        Genre = new Genre { GenreId = 96, GenreName = "Pop/Rock" }
                     };
 
                     if (album != null)
@@ -70,6 +73,7 @@
                     }
 
                     CDCatalogEntity.Songs.Add(song);
+                    CDCatalogEntity.SaveChanges();
                 }
             }
         }
@@ -80,7 +84,7 @@
 
             using (CDCatalogEntities CDCatalogEntity = new CDCatalogEntities())
             {
-                album = CDCatalogEntity.Albums.Where(a => a.Title == albumText).First();
+                album = CDCatalogEntity.Albums.Where(a => a.Title == albumText)?.First();
 
                 if (album == null)
                 {
@@ -90,6 +94,8 @@
                     };
 
                     CDCatalogEntity.Albums.Add(album);
+                    CDCatalogEntity.SaveChanges();
+                    return album;
                 }
             }
 
@@ -98,24 +104,24 @@
 
         private Artist FindOrCreateArtist(string artistText)
         {
-            Artist artist;
-
+            
             using (CDCatalogEntities CDCatalogEntity = new CDCatalogEntities())
             {
-                artist = CDCatalogEntity.Artists.Where(a => a.ArtistName == artistText).First();
+                var artists = CDCatalogEntity.Artists.Where(a => a.ArtistName == artistText).ToList();
 
-                if (artist == null)
+                if (artists.Count < 1)
                 {
-                    artist = new Artist
-                    {
-                        ArtistName = artistText
-                    };
+                    var artist = new Artist();
+                    artist.ArtistName = artistText;
 
                     CDCatalogEntity.Artists.Add(artist);
-                }
-            }
+                    CDCatalogEntity.SaveChanges();
 
-            return artist;
+                    return artist;
+                }
+
+                return artists.First();
+            }
         }
 
         private bool NotNull(List<TextBox> nonNullableTextBoxes)
