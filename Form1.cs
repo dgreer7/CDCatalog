@@ -32,96 +32,44 @@
 
         private void addSongButton_Click(object sender, EventArgs e)
         {
-            List<TextBox> nonNullableTextBoxes = new List<TextBox>
+            try
             {
+                List<TextBox> nonNullableTextBoxes = new List<TextBox>
+                {
+                //Textboxes that are required to contain content for a song to be added
                 addSongTxtBoxTitle,
-                addSongTxtBoxRating,
                 addSongTxtBoxArtist,
-                addSongTxtBoxTrackLength
-            };
+                addSongTxtBoxTrackLength,
+                addSongTxtBoxRating,
+                addSongTxtBoxAlbum,
+                addSongTxtBoxTrackNumber
 
-            if (NotNull(nonNullableTextBoxes))
-            {
-                Artist artist = FindOrCreateArtist(addSongTxtBoxArtist.Text.Trim());
-
-                nonNullableTextBoxes.Clear();
-                nonNullableTextBoxes.Add(addSongTxtBoxAlbum);
-                nonNullableTextBoxes.Add(addSongTxtBoxTrackNumber);
-
-                Album album = null ;
+                };
 
                 if (NotNull(nonNullableTextBoxes))
                 {
-                    album = FindOrCreateAlbum(addSongTxtBoxAlbum.Text.Trim());
+                    Connector connection = new Connector();
+                    connection.AddSong(addSongTxtBoxTitle.Text.Trim(),
+                        addSongTxtBoxArtist.Text.Trim(),
+                        Int32.Parse(addSongTxtBoxRating.Text.Trim()),
+                        Int32.Parse(addSongTxtBoxTrackLength.Text.Trim()));
                 }
 
-                using (CDCatalogEntities CDCatalogEntity = new CDCatalogEntities())
-                {
-                    Song song = new Song
-                    {
-                        Title = addSongTxtBoxTitle.Text.Trim(),
-                        Rating = Int32.Parse(addSongTxtBoxRating.Text.Trim()),
-                        Artist = artist,
-                        TrackLengthSeconds = Int32.Parse(addSongTxtBoxTrackLength.Text.Trim()),
-                        Genre = new Genre { GenreId = 96, GenreName = "Pop/Rock" }
-                    };
+                ClearSongInfoTextBoxes();
+            }
+            catch
+            {
 
-                    if (album != null)
-                    {
-                        song.Album = album;
-                        song.TrackNumber = Int32.Parse(addSongLblTrackNumber.Text.Trim());
-                    }
-
-                    CDCatalogEntity.Songs.Add(song);
-                    CDCatalogEntity.SaveChanges();
-                }
             }
         }
 
-        private Album FindOrCreateAlbum(string albumText)
+        private void ClearSongInfoTextBoxes()
         {
-            Album album;
+            addSongTxtBoxTitle.Clear();
+            addSongTxtBoxTrackLength.Clear();
+            addSongTxtBoxRating.Clear();
+            addSongTxtBoxTitle.Focus();
 
-            using (CDCatalogEntities CDCatalogEntity = new CDCatalogEntities())
-            {
-                album = CDCatalogEntity.Albums.Where(a => a.Title == albumText)?.First();
-
-                if (album == null)
-                {
-                    album = new Album
-                    {
-                        Title = albumText
-                    };
-
-                    CDCatalogEntity.Albums.Add(album);
-                    CDCatalogEntity.SaveChanges();
-                    return album;
-                }
-            }
-
-            return album;
-        }
-
-        private Artist FindOrCreateArtist(string artistText)
-        {
-            
-            using (CDCatalogEntities CDCatalogEntity = new CDCatalogEntities())
-            {
-                var artists = CDCatalogEntity.Artists.Where(a => a.ArtistName == artistText).ToList();
-
-                if (artists.Count < 1)
-                {
-                    var artist = new Artist();
-                    artist.ArtistName = artistText;
-
-                    CDCatalogEntity.Artists.Add(artist);
-                    CDCatalogEntity.SaveChanges();
-
-                    return artist;
-                }
-
-                return artists.First();
-            }
         }
 
         private bool NotNull(List<TextBox> nonNullableTextBoxes)

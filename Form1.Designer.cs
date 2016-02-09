@@ -32,20 +32,20 @@
             this.tabViewSongs = new System.Windows.Forms.TabPage();
             this.dataGridViewSongs = new System.Windows.Forms.DataGridView();
             this.tabAddSong = new System.Windows.Forms.TabPage();
-            this.tabAddAlbum = new System.Windows.Forms.TabPage();
-            this.addSongTxtBoxTitle = new System.Windows.Forms.TextBox();
-            this.addSongLblTitle = new System.Windows.Forms.Label();
-            this.addSongLblArtist = new System.Windows.Forms.Label();
-            this.addSongTxtBoxArtist = new System.Windows.Forms.TextBox();
-            this.addSongLblTrackNumber = new System.Windows.Forms.Label();
-            this.addSongTxtBoxTrackNumber = new System.Windows.Forms.TextBox();
-            this.addSongLblAlbum = new System.Windows.Forms.Label();
-            this.addSongTxtBoxAlbum = new System.Windows.Forms.TextBox();
-            this.addSongLblRating = new System.Windows.Forms.Label();
-            this.addSongTxtBoxRating = new System.Windows.Forms.TextBox();
-            this.addSongButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.addSongTxtBoxTrackLength = new System.Windows.Forms.TextBox();
+            this.addSongButton = new System.Windows.Forms.Button();
+            this.addSongLblRating = new System.Windows.Forms.Label();
+            this.addSongTxtBoxRating = new System.Windows.Forms.TextBox();
+            this.addSongLblAlbum = new System.Windows.Forms.Label();
+            this.addSongTxtBoxAlbum = new System.Windows.Forms.TextBox();
+            this.addSongLblTrackNumber = new System.Windows.Forms.Label();
+            this.addSongTxtBoxTrackNumber = new System.Windows.Forms.TextBox();
+            this.addSongLblArtist = new System.Windows.Forms.Label();
+            this.addSongTxtBoxArtist = new System.Windows.Forms.TextBox();
+            this.addSongLblTitle = new System.Windows.Forms.Label();
+            this.addSongTxtBoxTitle = new System.Windows.Forms.TextBox();
+            this.tabAddAlbum = new System.Windows.Forms.TabPage();
             this.tabControlMain.SuspendLayout();
             this.tabViewSongs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSongs)).BeginInit();
@@ -61,7 +61,7 @@
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(633, 508);
+            this.tabControlMain.Size = new System.Drawing.Size(508, 439);
             this.tabControlMain.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlMain.TabIndex = 0;
             // 
@@ -69,10 +69,10 @@
             // 
             this.tabViewSongs.Controls.Add(this.dataGridViewSongs);
             this.tabViewSongs.Location = new System.Drawing.Point(4, 25);
-            this.tabViewSongs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabViewSongs.Margin = new System.Windows.Forms.Padding(4);
             this.tabViewSongs.Name = "tabViewSongs";
-            this.tabViewSongs.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabViewSongs.Size = new System.Drawing.Size(625, 479);
+            this.tabViewSongs.Padding = new System.Windows.Forms.Padding(4);
+            this.tabViewSongs.Size = new System.Drawing.Size(500, 410);
             this.tabViewSongs.TabIndex = 2;
             this.tabViewSongs.Text = "View Songs";
             this.tabViewSongs.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             // 
             this.dataGridViewSongs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSongs.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewSongs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewSongs.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewSongs.Name = "dataGridViewSongs";
             this.dataGridViewSongs.Size = new System.Drawing.Size(623, 476);
             this.dataGridViewSongs.TabIndex = 0;
@@ -105,85 +105,36 @@
             this.tabAddSong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabAddSong.Name = "tabAddSong";
             this.tabAddSong.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabAddSong.Size = new System.Drawing.Size(625, 479);
+            this.tabAddSong.Size = new System.Drawing.Size(500, 410);
             this.tabAddSong.TabIndex = 0;
             this.tabAddSong.Text = "Add Song";
             this.tabAddSong.UseVisualStyleBackColor = true;
             // 
-            // tabAddAlbum
+            // label1
             // 
-            this.tabAddAlbum.Location = new System.Drawing.Point(4, 25);
-            this.tabAddAlbum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabAddAlbum.Name = "tabAddAlbum";
-            this.tabAddAlbum.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabAddAlbum.Size = new System.Drawing.Size(625, 479);
-            this.tabAddAlbum.TabIndex = 1;
-            this.tabAddAlbum.Text = "Add Album";
-            this.tabAddAlbum.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(80, 212);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 17);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Track Length";
             // 
-            // addSongTxtBoxTitle
+            // addSongTxtBoxTrackLength
             // 
-            this.addSongTxtBoxTitle.Location = new System.Drawing.Point(83, 54);
-            this.addSongTxtBoxTitle.Name = "addSongTxtBoxTitle";
-            this.addSongTxtBoxTitle.Size = new System.Drawing.Size(100, 22);
-            this.addSongTxtBoxTitle.TabIndex = 0;
+            this.addSongTxtBoxTrackLength.Location = new System.Drawing.Point(80, 235);
+            this.addSongTxtBoxTrackLength.Name = "addSongTxtBoxTrackLength";
+            this.addSongTxtBoxTrackLength.Size = new System.Drawing.Size(100, 22);
+            this.addSongTxtBoxTrackLength.TabIndex = 3;
             // 
-            // addSongLblTitle
+            // addSongButton
             // 
-            this.addSongLblTitle.AutoSize = true;
-            this.addSongLblTitle.Location = new System.Drawing.Point(83, 31);
-            this.addSongLblTitle.Name = "addSongLblTitle";
-            this.addSongLblTitle.Size = new System.Drawing.Size(35, 17);
-            this.addSongLblTitle.TabIndex = 1;
-            this.addSongLblTitle.Text = "Title";
-            // 
-            // addSongLblArtist
-            // 
-            this.addSongLblArtist.AutoSize = true;
-            this.addSongLblArtist.Location = new System.Drawing.Point(83, 89);
-            this.addSongLblArtist.Name = "addSongLblArtist";
-            this.addSongLblArtist.Size = new System.Drawing.Size(40, 17);
-            this.addSongLblArtist.TabIndex = 3;
-            this.addSongLblArtist.Text = "Artist";
-            // 
-            // addSongTxtBoxArtist
-            // 
-            this.addSongTxtBoxArtist.Location = new System.Drawing.Point(83, 112);
-            this.addSongTxtBoxArtist.Name = "addSongTxtBoxArtist";
-            this.addSongTxtBoxArtist.Size = new System.Drawing.Size(100, 22);
-            this.addSongTxtBoxArtist.TabIndex = 1;
-            // 
-            // addSongLblTrackNumber
-            // 
-            this.addSongLblTrackNumber.AutoSize = true;
-            this.addSongLblTrackNumber.Location = new System.Drawing.Point(249, 31);
-            this.addSongLblTrackNumber.Name = "addSongLblTrackNumber";
-            this.addSongLblTrackNumber.Size = new System.Drawing.Size(98, 17);
-            this.addSongLblTrackNumber.TabIndex = 5;
-            this.addSongLblTrackNumber.Text = "Track Number";
-            // 
-            // addSongTxtBoxTrackNumber
-            // 
-            this.addSongTxtBoxTrackNumber.Location = new System.Drawing.Point(249, 54);
-            this.addSongTxtBoxTrackNumber.Name = "addSongTxtBoxTrackNumber";
-            this.addSongTxtBoxTrackNumber.Size = new System.Drawing.Size(100, 22);
-            this.addSongTxtBoxTrackNumber.TabIndex = 5;
-            // 
-            // addSongLblAlbum
-            // 
-            this.addSongLblAlbum.AutoSize = true;
-            this.addSongLblAlbum.Location = new System.Drawing.Point(249, 89);
-            this.addSongLblAlbum.Name = "addSongLblAlbum";
-            this.addSongLblAlbum.Size = new System.Drawing.Size(47, 17);
-            this.addSongLblAlbum.TabIndex = 7;
-            this.addSongLblAlbum.Text = "Album";
-            // 
-            // addSongTxtBoxAlbum
-            // 
-            this.addSongTxtBoxAlbum.Location = new System.Drawing.Point(249, 112);
-            this.addSongTxtBoxAlbum.Name = "addSongTxtBoxAlbum";
-            this.addSongTxtBoxAlbum.Size = new System.Drawing.Size(100, 22);
-            this.addSongTxtBoxAlbum.TabIndex = 6;
+            this.addSongButton.Location = new System.Drawing.Point(83, 277);
+            this.addSongButton.Name = "addSongButton";
+            this.addSongButton.Size = new System.Drawing.Size(261, 41);
+            this.addSongButton.TabIndex = 4;
+            this.addSongButton.Text = "Add Song";
+            this.addSongButton.UseVisualStyleBackColor = true;
+            this.addSongButton.Click += new System.EventHandler(this.addSongButton_Click);
             // 
             // addSongLblRating
             // 
@@ -201,31 +152,81 @@
             this.addSongTxtBoxRating.Size = new System.Drawing.Size(100, 22);
             this.addSongTxtBoxRating.TabIndex = 2;
             // 
-            // addSongButton
+            // addSongLblAlbum
             // 
-            this.addSongButton.Location = new System.Drawing.Point(83, 277);
-            this.addSongButton.Name = "addSongButton";
-            this.addSongButton.Size = new System.Drawing.Size(261, 41);
-            this.addSongButton.TabIndex = 4;
-            this.addSongButton.Text = "Add Song";
-            this.addSongButton.UseVisualStyleBackColor = true;
-            this.addSongButton.Click += new System.EventHandler(this.addSongButton_Click);
+            this.addSongLblAlbum.AutoSize = true;
+            this.addSongLblAlbum.Location = new System.Drawing.Point(249, 89);
+            this.addSongLblAlbum.Name = "addSongLblAlbum";
+            this.addSongLblAlbum.Size = new System.Drawing.Size(47, 17);
+            this.addSongLblAlbum.TabIndex = 7;
+            this.addSongLblAlbum.Text = "Album";
             // 
-            // label1
+            // addSongTxtBoxAlbum
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 212);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Track Length";
+            this.addSongTxtBoxAlbum.Location = new System.Drawing.Point(249, 112);
+            this.addSongTxtBoxAlbum.Name = "addSongTxtBoxAlbum";
+            this.addSongTxtBoxAlbum.Size = new System.Drawing.Size(100, 22);
+            this.addSongTxtBoxAlbum.TabIndex = 6;
             // 
-            // addSongTxtBoxTrackLength
+            // addSongLblTrackNumber
             // 
-            this.addSongTxtBoxTrackLength.Location = new System.Drawing.Point(80, 235);
-            this.addSongTxtBoxTrackLength.Name = "addSongTxtBoxTrackLength";
-            this.addSongTxtBoxTrackLength.Size = new System.Drawing.Size(100, 22);
-            this.addSongTxtBoxTrackLength.TabIndex = 3;
+            this.addSongLblTrackNumber.AutoSize = true;
+            this.addSongLblTrackNumber.Location = new System.Drawing.Point(249, 31);
+            this.addSongLblTrackNumber.Name = "addSongLblTrackNumber";
+            this.addSongLblTrackNumber.Size = new System.Drawing.Size(98, 17);
+            this.addSongLblTrackNumber.TabIndex = 5;
+            this.addSongLblTrackNumber.Text = "Track Number";
+            // 
+            // addSongTxtBoxTrackNumber
+            // 
+            this.addSongTxtBoxTrackNumber.Location = new System.Drawing.Point(249, 54);
+            this.addSongTxtBoxTrackNumber.Name = "addSongTxtBoxTrackNumber";
+            this.addSongTxtBoxTrackNumber.Size = new System.Drawing.Size(100, 22);
+            this.addSongTxtBoxTrackNumber.TabIndex = 5;
+            // 
+            // addSongLblArtist
+            // 
+            this.addSongLblArtist.AutoSize = true;
+            this.addSongLblArtist.Location = new System.Drawing.Point(83, 89);
+            this.addSongLblArtist.Name = "addSongLblArtist";
+            this.addSongLblArtist.Size = new System.Drawing.Size(40, 17);
+            this.addSongLblArtist.TabIndex = 3;
+            this.addSongLblArtist.Text = "Artist";
+            // 
+            // addSongTxtBoxArtist
+            // 
+            this.addSongTxtBoxArtist.Location = new System.Drawing.Point(83, 112);
+            this.addSongTxtBoxArtist.Name = "addSongTxtBoxArtist";
+            this.addSongTxtBoxArtist.Size = new System.Drawing.Size(100, 22);
+            this.addSongTxtBoxArtist.TabIndex = 1;
+            this.addSongTxtBoxArtist.Text = "Phoenix";
+            // 
+            // addSongLblTitle
+            // 
+            this.addSongLblTitle.AutoSize = true;
+            this.addSongLblTitle.Location = new System.Drawing.Point(83, 31);
+            this.addSongLblTitle.Name = "addSongLblTitle";
+            this.addSongLblTitle.Size = new System.Drawing.Size(35, 17);
+            this.addSongLblTitle.TabIndex = 1;
+            this.addSongLblTitle.Text = "Title";
+            // 
+            // addSongTxtBoxTitle
+            // 
+            this.addSongTxtBoxTitle.Location = new System.Drawing.Point(83, 54);
+            this.addSongTxtBoxTitle.Name = "addSongTxtBoxTitle";
+            this.addSongTxtBoxTitle.Size = new System.Drawing.Size(100, 22);
+            this.addSongTxtBoxTitle.TabIndex = 0;
+            // 
+            // tabAddAlbum
+            // 
+            this.tabAddAlbum.Location = new System.Drawing.Point(4, 25);
+            this.tabAddAlbum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabAddAlbum.Name = "tabAddAlbum";
+            this.tabAddAlbum.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabAddAlbum.Size = new System.Drawing.Size(500, 410);
+            this.tabAddAlbum.TabIndex = 1;
+            this.tabAddAlbum.Text = "Add Album";
+            this.tabAddAlbum.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
