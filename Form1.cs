@@ -39,20 +39,23 @@
                 //Textboxes that are required to contain content for a song to be added
                 addSongTxtBoxTitle,
                 addSongTxtBoxArtist,
-                addSongTxtBoxTrackLength,
-                addSongTxtBoxRating,
+                addSongTxtBoxSongLength,
+                addSongTxtBoxSongRating,
                 addSongTxtBoxAlbum,
-                addSongTxtBoxTrackNumber
-
+                addSongTxtBoxTrackNumber,
+                addSongTxtBoxSongGenre,
+                addSongTxtBoxAlbumYear,
+                addSongTxtBoxAlbumRating
                 };
 
                 if (NotNull(nonNullableTextBoxes))
                 {
                     Connector connection = new Connector();
-                    connection.AddSong(addSongTxtBoxTitle.Text.Trim(),
-                        addSongTxtBoxArtist.Text.Trim(),
-                        Int32.Parse(addSongTxtBoxRating.Text.Trim()),
-                        Int32.Parse(addSongTxtBoxTrackLength.Text.Trim()));
+                    connection.AddSong(addSongTxtBoxTitle.Text.Trim(), addSongTxtBoxArtist.Text.Trim(),
+                        Int32.Parse(addSongTxtBoxSongRating.Text.Trim()), addSongTxtBoxSongGenre.Text.Trim(),
+                        Int32.Parse(addSongTxtBoxSongLength.Text.Trim()), Int32.Parse(addSongTxtBoxTrackNumber.Text.Trim()),
+                        addSongTxtBoxAlbum.Text.Trim(), Int32.Parse(addSongTxtBoxAlbumYear.Text.Trim()), 
+                        Int32.Parse(addSongTxtBoxAlbumRating.Text.Trim()));
                 }
 
                 ClearSongInfoTextBoxes();
@@ -66,8 +69,9 @@
         private void ClearSongInfoTextBoxes()
         {
             addSongTxtBoxTitle.Clear();
-            addSongTxtBoxTrackLength.Clear();
-            addSongTxtBoxRating.Clear();
+            addSongTxtBoxSongLength.Clear();
+            addSongTxtBoxSongRating.Clear();
+            addSongTxtBoxTrackNumber.Text = (Int32.Parse(addSongTxtBoxTrackNumber.Text) + 1).ToString();
             addSongTxtBoxTitle.Focus();
 
         }

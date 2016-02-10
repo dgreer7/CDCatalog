@@ -1,52 +1,68 @@
 ﻿namespace CDCatalog
 {
-    using System;
     using System.Linq;
 
     class Connector
     {
-        internal void AddSong(string SongTitle, string ArtistName, int SongRating, int SongLength)
+        internal void AddSong(string songTitle, string artistName, int songRating, string songGenre, 
+            int songLength, int trackNumber, string albumName, int albumYear, int albumRating)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                Song song = new Song
-                {
-                    Title = SongTitle,
-                    Rating = SongRating,
-                    Artist = FindArtist(context) ?? CreateArtist(context, ArtistName),
-                    TrackLengthSeconds = SongLength,
-                    Genre = new Genre { GenreId = 96, GenreName = "Pop/Rock" }
-                };
-
+                Song song = new Song();
+                song.Title = songTitle;
+                song.Artist = FindArtist(context, artistName) ?? CreateArtist(context, artistName);
+                song.Rating = songRating;
+                song.Genre = FindGenre(context, songGenre) ?? CreateGenre(context, songGenre);
+                song.TrackLengthSeconds = songLength;
+                song.TrackNumber = trackNumber;
+                song.Album = FindAlbum(context, albumName, albumYear) ?? 
+                    CreateAlbum(context, albumName, albumYear, albumRating, song.Artist);
                 context.Songs.Add(song);
                 context.SaveChanges();
             }
         }
 
-        internal void AddAlbum(string albumName, int year, int albumRating, string artist)
+        #region Genre Methods
+        private Genre CreateGenre(CDCatalogEntities context, string genreName)
         {
-            using (CDCatalogEntities context = new CDCatalogEntities())
-            {
-                Album album = FindAlbum(context, albumName);
-
-                if (album == null)
-                {
-                    album = new Album
-                    {
-                        Title = albumName
-                    };
-
-                    context.Albums.Add(album);
-                    context.SaveChanges();
-                }
-            }
+            var genre = new Genre();
+            genre.GenreName = genreName;
+            context.Genres.Add(genre);
+            context.SaveChanges();
+            return genre;
         }
 
-        private Artist FindArtist(CDCatalogEntities context)
+        private Genre FindGenre(CDCatalogEntities context, string genreName)
         {
-            return context.Artists.Where(a => a.ArtistId == 5).FirstOrDefault();
+            return context.Genres.Where(g => g.GenreName == genreName).FirstOrDefault();
+        }
+        #endregion
+
+        #region Album Methods
+        private Album CreateAlbum(CDCatalogEntities context, string albumTitle, int albumYear, int albumRating, Artist artist)
+        {
+            var album = new Album();
+            album.Title = albumTitle;
+            album.Year = albumYear;
+            album.Rating = albumRating;
+            album.Artist = artist;
+            context.Albums.Add(album);
+            context.SaveChanges();
+            return album;
         }
 
+        private Album FindAlbum(CDCatalogEntities context, string albumTitle, int year)
+        {
+            return context.Albums.Where(a => a.Title == albumTitle && a.Year == year).FirstOrDefault();
+        }
+        #endregion
+
+        #region Artist Methods
+        private Artist FindArtist(CDCatalogEntities context, string artistName)
+        {
+            return context.Artists.Where(a => a.ArtistName == artistName).FirstOrDefault();
+        }
 
         private Artist CreateArtist(CDCatalogEntities context, string artistName)
         {
@@ -56,10 +72,6 @@
             context.SaveChanges();
             return artist;
         }
-
-        private Album FindAlbum(CDCatalogEntities context, string albumName)
-        {
-            return context.Albums.Where(a => a.Title == albumName).FirstOrDefault();
-        }
+        #endregion
     }
 }
