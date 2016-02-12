@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Windows.Forms;
 
     public partial class FormMain : Form
@@ -14,11 +13,13 @@
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Upon load, keep tabs sized with the window
             KeepTabSizedWithWindow();
         }
 
         private void FormMain_Resize(object sender, EventArgs e)
         {
+            //Upon resizing of form, keep tabs sized with the window
             KeepTabSizedWithWindow();
         }
 
@@ -34,7 +35,7 @@
         {
             try
             {
-                List<TextBox> nonNullableTextBoxes = new List<TextBox>
+                var nonNullableTextBoxes = new List<TextBox>
                 {
                 //Textboxes that are required to contain content for a song to be added
                 addSongTxtBoxTitle,
@@ -51,14 +52,20 @@
                 if (NotNull(nonNullableTextBoxes))
                 {
                     Connector connection = new Connector();
+
+                    //Sends form data to be added to db
                     connection.AddSong(addSongTxtBoxTitle.Text.Trim(), addSongTxtBoxArtist.Text.Trim(),
-                        Int32.Parse(addSongTxtBoxSongRating.Text.Trim()), addSongTxtBoxSongGenre.Text.Trim(),
-                        Int32.Parse(addSongTxtBoxSongLength.Text.Trim()), Int32.Parse(addSongTxtBoxTrackNumber.Text.Trim()),
-                        addSongTxtBoxAlbum.Text.Trim(), Int32.Parse(addSongTxtBoxAlbumYear.Text.Trim()), 
-                        Int32.Parse(addSongTxtBoxAlbumRating.Text.Trim()));
+                    Int32.Parse(addSongTxtBoxSongRating.Text.Trim()), addSongTxtBoxSongGenre.Text.Trim(),
+                    Int32.Parse(addSongTxtBoxSongLength.Text.Trim()), Int32.Parse(addSongTxtBoxTrackNumber.Text.Trim()),
+                    addSongTxtBoxAlbum.Text.Trim(), Int32.Parse(addSongTxtBoxAlbumYear.Text.Trim()),
+                    Int32.Parse(addSongTxtBoxAlbumRating.Text.Trim()));
                 }
 
                 ClearSongInfoTextBoxes();
+
+                //increment track number and set focus to title field
+                addSongTxtBoxTrackNumber.Text = (Int32.Parse(addSongTxtBoxTrackNumber.Text) + 1).ToString();
+                addSongTxtBoxTitle.Focus();
             }
             catch
             {
@@ -71,9 +78,6 @@
             addSongTxtBoxTitle.Clear();
             addSongTxtBoxSongLength.Clear();
             addSongTxtBoxSongRating.Clear();
-            addSongTxtBoxTrackNumber.Text = (Int32.Parse(addSongTxtBoxTrackNumber.Text) + 1).ToString();
-            addSongTxtBoxTitle.Focus();
-
         }
 
         private bool NotNull(List<TextBox> nonNullableTextBoxes)
