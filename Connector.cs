@@ -4,6 +4,14 @@
 
     class Connector
     {
+
+        #region Song Methods
+        private Song FindSong(CDCatalogEntities context, string songTitle, string artistName)
+        {
+            //locates the first case insensitive match of album name
+            return context.Songs.FirstOrDefault(s => s.Title.ToLower() == songTitle.ToLower() && s.Artist.ArtistName.ToLower() == artistName.ToLower());
+        }
+
         internal void AddSong(string songTitle, string artistName, int songRating, string songGenre, 
             int songLength, int trackNumber, string albumName, int albumYear, int albumRating)
         {
@@ -25,8 +33,15 @@
                 context.SaveChanges();
             }
         }
+        #endregion
 
         #region Genre Methods
+        private Genre FindGenre(CDCatalogEntities context, string genreName)
+        {
+            //locates the first case insensitive match of genre name
+            return context.Genres.FirstOrDefault(g => g.GenreName.ToLower() == genreName.ToLower());
+        }
+
         private Genre CreateGenre(CDCatalogEntities context, string genreName)
         {
             var genre = new Genre();
@@ -35,15 +50,15 @@
             context.SaveChanges();
             return genre;
         }
-
-        private Genre FindGenre(CDCatalogEntities context, string genreName)
-        {
-            //locates the first case insensitive match of genre name
-            return context.Genres.Where(g => g.GenreName.ToLower() == genreName.ToLower()).FirstOrDefault();
-        }
         #endregion
 
         #region Album Methods
+        private Album FindAlbum(CDCatalogEntities context, string albumTitle, int year)
+        {
+            //locates the first case insensitive match of album name
+            return context.Albums.FirstOrDefault(a => a.Title.ToLower() == albumTitle.ToLower() && a.Year == year);
+        }
+
         private Album CreateAlbum(CDCatalogEntities context, string albumTitle, int albumYear, int albumRating, Artist artist)
         {
             var album = new Album();
@@ -55,19 +70,13 @@
             context.SaveChanges();
             return album;
         }
-
-        private Album FindAlbum(CDCatalogEntities context, string albumTitle, int year)
-        {
-            //locates the first case insensitive match of album name
-            return context.Albums.Where(a => a.Title == albumTitle && a.Year == year).FirstOrDefault();
-        }
         #endregion
 
         #region Artist Methods
         private Artist FindArtist(CDCatalogEntities context, string artistName)
         {
             //locates the first case insensitive match of artist name
-            return context.Artists.Where(a => a.ArtistName == artistName).FirstOrDefault();
+            return context.Artists.FirstOrDefault(a => a.ArtistName.ToLower() == artistName.ToLower());
         }
 
         private Artist CreateArtist(CDCatalogEntities context, string artistName)
