@@ -1,4 +1,6 @@
-﻿namespace CDCatalog
+﻿using System.Data.Entity.Migrations.Sql;
+
+namespace CDCatalog
 {
     using System;
     using System.Collections.Generic;
@@ -6,6 +8,10 @@
 
     public partial class FormMain : Form
     {
+        /*
+         * Allow all ratings to be nullable
+         */
+
         public FormMain()
         {
             InitializeComponent();
@@ -31,7 +37,7 @@
             dataGridViewSongs.Height = this.ClientSize.Height;
         }
 
-        private void addSongButton_Click(object sender, EventArgs e)
+        private void btnAddSong_Click(object sender, EventArgs e)
         {
             try
             {
@@ -67,9 +73,26 @@
                 addSongTxtBoxTrackNumber.Text = (Int32.Parse(addSongTxtBoxTrackNumber.Text) + 1).ToString();
                 addSongTxtBoxTitle.Focus();
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("An error has occured: ", ex.Message);
+            }
+        }
 
+        private void btnRateFindSong_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (CDCatalogEntities context = new CDCatalogEntities())
+                {
+                    Connector connector = new Connector();
+                    List<Song> songs = connector.FindSongs(context, "text");
+                    //rateDataGridView.
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occured: ", ex.Message);
             }
         }
 

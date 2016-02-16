@@ -1,5 +1,6 @@
 ﻿namespace CDCatalog
 {
+    using System.Collections.Generic;
     using System.Linq;
 
     class Connector
@@ -10,6 +11,12 @@
         {
             //locates the first case insensitive match of album name
             return context.Songs.FirstOrDefault(s => s.Title.ToLower() == songTitle.ToLower() && s.Artist.ArtistName.ToLower() == artistName.ToLower());
+        }
+
+        internal List<Song> FindSongs(CDCatalogEntities context, string songTitle)
+        {
+            //locates the first case insensitive match of album name
+            return context.Songs.Where(s => s.Title.ToLower() == songTitle.ToLower()).ToList();
         }
 
         internal void AddSong(string songTitle, string artistName, int songRating, string songGenre, 
