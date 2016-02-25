@@ -8,10 +8,6 @@ namespace CDCatalog
 
     public partial class FormMain : Form
     {
-        /*
-         * Allow all ratings to be nullable
-         */
-
         public FormMain()
         {
             InitializeComponent();
@@ -21,6 +17,14 @@ namespace CDCatalog
         {
             //Upon load, keep tabs sized with the window
             KeepTabSizedWithWindow();
+
+            //experiment with dataGrid
+            //using (CDCatalogEntities entity = new CDCatalogEntities())
+            //{
+            //    var query = entity.Songs.Distinct();
+            //    dataGridViewSongs.DataSource = query.ToList();
+            //}
+
         }
 
         private void FormMain_Resize(object sender, EventArgs e)

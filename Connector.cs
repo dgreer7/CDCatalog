@@ -9,7 +9,7 @@
         #region Song Methods
         private Song FindSong(CDCatalogEntities context, string songTitle, string artistName)
         {
-            //locates the first case insensitive match of album name
+            //locates the first case insensitive match of song name
             return context.Songs.FirstOrDefault(s => s.Title.ToLower() == songTitle.ToLower() && s.Artist.ArtistName.ToLower() == artistName.ToLower());
         }
 
