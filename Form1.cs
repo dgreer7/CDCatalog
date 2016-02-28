@@ -90,8 +90,8 @@ namespace CDCatalog
                 using (CDCatalogEntities context = new CDCatalogEntities())
                 {
                     Connector connector = new Connector();
-                    List<Song> songs = connector.FindSongs(context, "text");
-                    //rateDataGridView.
+                    List<Song> songs = connector.FindSongsContainingMatch(context, rateTxtBoxSongTitle.Text);
+                    rateDataGridView.DataSource = songs;
                 }
             }
             catch (Exception ex)

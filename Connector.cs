@@ -13,10 +13,16 @@
             return context.Songs.FirstOrDefault(s => s.Title.ToLower() == songTitle.ToLower() && s.Artist.ArtistName.ToLower() == artistName.ToLower());
         }
 
-        internal List<Song> FindSongs(CDCatalogEntities context, string songTitle)
+        internal List<Song> FindSongsExactMatch(CDCatalogEntities context, string songTitle)
         {
-            //locates the first case insensitive match of album name
+            //locates the all case insensitive exact match of song name
             return context.Songs.Where(s => s.Title.ToLower() == songTitle.ToLower()).ToList();
+        }
+
+        internal List<Song> FindSongsContainingMatch(CDCatalogEntities context, string songTitle)
+        {
+            //locates the all case insensitive match of song name containing query
+            return context.Songs.Where(s => s.Title.ToLower().Contains(songTitle.ToLower())).ToList();
         }
 
         internal void AddSong(string songTitle, string artistName, int songRating, string songGenre, 
