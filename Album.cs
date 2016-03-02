@@ -23,7 +23,7 @@ namespace CDCatalog
         public int AlbumId { get; set; }
         public string Title { get; set; }
         public int Year { get; set; }
-        public int Rating { get; set; }
+        public Nullable<int> Rating { get; set; }
         public int ArtistId { get; set; }
     
         public virtual Artist Artist { get; set; }

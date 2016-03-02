@@ -4,15 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CDCatalogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CDCatalogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Album">
           <Key>
             <PropertyRef Name="AlbumId" />
           </Key>
-          <Property Name="AlbumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlbumId" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Year" Type="int" Nullable="false" />
-          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="int" />
           <Property Name="ArtistId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Artist">
@@ -33,13 +33,13 @@
           <Key>
             <PropertyRef Name="SongID" />
           </Key>
-          <Property Name="SongID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SongID" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ArtistId" Type="int" Nullable="false" />
-          <Property Name="TrackNumber" Type="int" />
+          <Property Name="TrackNumber" Type="int" Nullable="false" />
           <Property Name="GenreId" Type="int" Nullable="false" />
           <Property Name="TrackLengthSeconds" Type="int" Nullable="false" />
-          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="int" />
           <Property Name="AlbumId" Type="int" />
         </EntityType>
         <Association Name="FK_Album_Artist">
@@ -123,7 +123,7 @@
           <Property Name="AlbumId" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Year" Type="Int32" Nullable="false" />
-          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Int32" />
           <Property Name="ArtistId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Artist" Relationship="Self.FK_Album_Artist" FromRole="Album" ToRole="Artist" />
           <NavigationProperty Name="Songs" Relationship="Self.FK_Song_Album" FromRole="Album" ToRole="Song" />
@@ -152,10 +152,10 @@
           <Property Name="SongID" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ArtistId" Type="Int32" Nullable="false" />
-          <Property Name="TrackNumber" Type="Int32" />
+          <Property Name="TrackNumber" Type="Int32" Nullable="false" />
           <Property Name="GenreId" Type="Int32" Nullable="false" />
           <Property Name="TrackLengthSeconds" Type="Int32" Nullable="false" />
-          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Int32" />
           <Property Name="AlbumId" Type="Int32" />
           <NavigationProperty Name="Album" Relationship="Self.FK_Song_Album" FromRole="Song" ToRole="Album" />
           <NavigationProperty Name="Artist" Relationship="Self.FK_Song_Artist" FromRole="Song" ToRole="Artist" />
