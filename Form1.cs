@@ -65,22 +65,27 @@ namespace CDCatalog
 
                     //Sends form data to be added to db
                     connection.AddSong(addSongTxtBoxTitle.Text.Trim(), addSongTxtBoxArtist.Text.Trim(),
-                    Int32.Parse(addSongTxtBoxSongRating.Text.Trim()), addSongTxtBoxSongGenre.Text.Trim(),
-                    Int32.Parse(addSongTxtBoxSongLength.Text.Trim()), Int32.Parse(addSongTxtBoxTrackNumber.Text.Trim()),
-                    addSongTxtBoxAlbum.Text.Trim(), Int32.Parse(addSongTxtBoxAlbumYear.Text.Trim()),
-                    Int32.Parse(addSongTxtBoxAlbumRating.Text.Trim()));
+                    GetIntFromTextBox(addSongTxtBoxSongRating), addSongTxtBoxSongGenre.Text.Trim(),
+                    GetIntFromTextBox(addSongTxtBoxSongLength), GetIntFromTextBox(addSongTxtBoxTrackNumber),
+                    addSongTxtBoxAlbum.Text.Trim(), GetIntFromTextBox(addSongTxtBoxAlbumYear),
+                    GetIntFromTextBox(addSongTxtBoxAlbumRating));
                 }
 
                 ClearSongInfoTextBoxes();
 
                 //increment track number and set focus to title field
-                addSongTxtBoxTrackNumber.Text = (Int32.Parse(addSongTxtBoxTrackNumber.Text) + 1).ToString();
+                addSongTxtBoxTrackNumber.Text = (GetIntFromTextBox(addSongTxtBoxTrackNumber) + 1).ToString();
                 addSongTxtBoxTitle.Focus();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error has occured: ", ex.Message);
             }
+        }
+
+        private int GetIntFromTextBox(TextBox textbox)
+        {
+            return Int32.Parse(textbox.Text);
         }
 
         private void btnRateFindSong_Click(object sender, EventArgs e)
