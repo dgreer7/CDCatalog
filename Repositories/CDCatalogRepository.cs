@@ -38,7 +38,7 @@
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
                 var genre = new Genre();
-                genre.GenreName = genreName;
+                genre.GenreName = name;
                 context.Genres.Add(genre);
                 context.SaveChanges();
                 return genre;
