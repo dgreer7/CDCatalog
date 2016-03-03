@@ -17,10 +17,10 @@ namespace CDCatalog
         public int SongID { get; set; }
         public string Title { get; set; }
         public int ArtistId { get; set; }
-        public Nullable<int> TrackNumber { get; set; }
+        public int TrackNumber { get; set; }
         public int GenreId { get; set; }
         public int TrackLengthSeconds { get; set; }
-        public int Rating { get; set; }
+        public Nullable<int> Rating { get; set; }
         public Nullable<int> AlbumId { get; set; }
     
         public virtual Album Album { get; set; }
