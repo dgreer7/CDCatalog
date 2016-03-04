@@ -1,6 +1,4 @@
-﻿using System.Data.Entity.Migrations.Sql;
-
-namespace CDCatalog
+﻿namespace CDCatalog
 {
     using System;
     using System.Collections.Generic;

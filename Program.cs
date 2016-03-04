@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CDCatalog
+﻿namespace CDCatalog
 {
+    using System;
+    using System.Windows.Forms;
+
     static class Program
     {
         /// <summary>
@@ -16,7 +13,7 @@ namespace CDCatalog
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            Application.Run(new MainForm());
         }
     }
 }
