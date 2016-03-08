@@ -35,6 +35,7 @@
 
         Song GetSongByID(int songId);
         Album GetAlbumByID(int albumId);
+        Artist GetArtistByID(int aritstID);
         List<Song> GetSongsByAlbumID(int albumId);
 
         List<Song> GeneratePlaylist(int lengthMinutes);

@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAlbum));
             this.addGenrePanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.addAlbumTxtBoxAlbumYear = new System.Windows.Forms.TextBox();
+            this.addAlbumLabelAlbumYear = new System.Windows.Forms.Label();
+            this.addAlbumTextBoxAlbumYear = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.addAlbumTextBoxRating = new System.Windows.Forms.TextBox();
             this.addAlbumButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.addAlbumLabelAlbumName = new System.Windows.Forms.Label();
             this.addAlbumTxtBoxAlbumName = new System.Windows.Forms.TextBox();
             this.addAlbumComboBoxArtist = new System.Windows.Forms.ComboBox();
             this.addGenrePanel.SuspendLayout();
@@ -46,12 +46,12 @@
             // 
             this.addGenrePanel.Controls.Add(this.addAlbumComboBoxArtist);
             this.addGenrePanel.Controls.Add(this.label4);
-            this.addGenrePanel.Controls.Add(this.label2);
-            this.addGenrePanel.Controls.Add(this.addAlbumTxtBoxAlbumYear);
+            this.addGenrePanel.Controls.Add(this.addAlbumLabelAlbumYear);
+            this.addGenrePanel.Controls.Add(this.addAlbumTextBoxAlbumYear);
             this.addGenrePanel.Controls.Add(this.label1);
             this.addGenrePanel.Controls.Add(this.addAlbumTextBoxRating);
             this.addGenrePanel.Controls.Add(this.addAlbumButton);
-            this.addGenrePanel.Controls.Add(this.label3);
+            this.addGenrePanel.Controls.Add(this.addAlbumLabelAlbumName);
             this.addGenrePanel.Controls.Add(this.addAlbumTxtBoxAlbumName);
             this.addGenrePanel.Location = new System.Drawing.Point(12, 12);
             this.addGenrePanel.Name = "addGenrePanel";
@@ -69,25 +69,25 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Artist";
             // 
-            // label2
+            // addAlbumLabelAlbumYear
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(2, 51);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 22);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Album Year";
+            this.addAlbumLabelAlbumYear.AutoSize = true;
+            this.addAlbumLabelAlbumYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAlbumLabelAlbumYear.Location = new System.Drawing.Point(2, 51);
+            this.addAlbumLabelAlbumYear.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addAlbumLabelAlbumYear.Name = "addAlbumLabelAlbumYear";
+            this.addAlbumLabelAlbumYear.Size = new System.Drawing.Size(103, 22);
+            this.addAlbumLabelAlbumYear.TabIndex = 23;
+            this.addAlbumLabelAlbumYear.Text = "Album Year";
             // 
             // addAlbumTxtBoxAlbumYear
             // 
-            this.addAlbumTxtBoxAlbumYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAlbumTxtBoxAlbumYear.Location = new System.Drawing.Point(157, 46);
-            this.addAlbumTxtBoxAlbumYear.Margin = new System.Windows.Forms.Padding(2);
-            this.addAlbumTxtBoxAlbumYear.Name = "addAlbumTxtBoxAlbumYear";
-            this.addAlbumTxtBoxAlbumYear.Size = new System.Drawing.Size(147, 27);
-            this.addAlbumTxtBoxAlbumYear.TabIndex = 1;
+            this.addAlbumTextBoxAlbumYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAlbumTextBoxAlbumYear.Location = new System.Drawing.Point(157, 46);
+            this.addAlbumTextBoxAlbumYear.Margin = new System.Windows.Forms.Padding(2);
+            this.addAlbumTextBoxAlbumYear.Name = "addAlbumTxtBoxAlbumYear";
+            this.addAlbumTextBoxAlbumYear.Size = new System.Drawing.Size(147, 27);
+            this.addAlbumTextBoxAlbumYear.TabIndex = 1;
             // 
             // label1
             // 
@@ -118,17 +118,18 @@
             this.addAlbumButton.TabIndex = 5;
             this.addAlbumButton.Text = "Add";
             this.addAlbumButton.UseVisualStyleBackColor = true;
+            this.addAlbumButton.Click += new System.EventHandler(this.addAlbumButton_Click);
             // 
-            // label3
+            // addAlbumLabelAlbumName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(2, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 22);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Album Name";
+            this.addAlbumLabelAlbumName.AutoSize = true;
+            this.addAlbumLabelAlbumName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAlbumLabelAlbumName.Location = new System.Drawing.Point(2, 17);
+            this.addAlbumLabelAlbumName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addAlbumLabelAlbumName.Name = "addAlbumLabelAlbumName";
+            this.addAlbumLabelAlbumName.Size = new System.Drawing.Size(112, 22);
+            this.addAlbumLabelAlbumName.TabIndex = 18;
+            this.addAlbumLabelAlbumName.Text = "Album Name";
             // 
             // addAlbumTxtBoxAlbumName
             // 
@@ -168,11 +169,11 @@
 
         private System.Windows.Forms.Panel addGenrePanel;
         private System.Windows.Forms.Button addAlbumButton;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label addAlbumLabelAlbumName;
         private System.Windows.Forms.TextBox addAlbumTxtBoxAlbumName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox addAlbumTxtBoxAlbumYear;
+        private System.Windows.Forms.Label addAlbumLabelAlbumYear;
+        private System.Windows.Forms.TextBox addAlbumTextBoxAlbumYear;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox addAlbumTextBoxRating;
         private System.Windows.Forms.ComboBox addAlbumComboBoxArtist;

@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="AlbumId" />
           </Key>
-          <Property Name="AlbumId" Type="int" Nullable="false" />
+          <Property Name="AlbumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Year" Type="int" Nullable="false" />
           <Property Name="Rating" Type="int" />
@@ -33,7 +33,7 @@
           <Key>
             <PropertyRef Name="SongID" />
           </Key>
-          <Property Name="SongID" Type="int" Nullable="false" />
+          <Property Name="SongID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ArtistId" Type="int" Nullable="false" />
           <Property Name="TrackNumber" Type="int" Nullable="false" />

@@ -14,7 +14,7 @@
                 album.Title = albumTitle;
                 album.Year = albumYear;
                 album.Rating = albumRating;
-                album.Artist = albumArtist;
+                album.ArtistId =  albumArtist.ArtistId;
                 context.Albums.Add(album);
                 context.SaveChanges();
                 return album;
@@ -69,6 +69,14 @@
             }
         }
 
+        public Artist GetArtistByID(int artistID)
+        {
+            using (CDCatalogEntities context = new CDCatalogEntities())
+            {
+                return context.Artists.FirstOrDefault(a => a.ArtistId == artistID);
+            }
+        }
+
         public List<Album> GetAllAlbums()
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
@@ -81,7 +89,11 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.Set<Artist>().ToList();
+                //return context.Set<Artist>().ToList();
+                return context.Artists.OrderBy(a => a.ArtistName).ToList();
+                //return (from artist in context.Artists
+                //        orderby artist.ArtistName
+                //        select artist).ToList();
             }
         }
 

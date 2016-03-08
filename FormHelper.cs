@@ -18,7 +18,16 @@
 
         internal int GetIntFromTextBox(TextBox textbox)
         {
-            return Int32.Parse(textbox.Text);
+            try
+            {
+                return Int32.Parse(textbox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Value provided must be a number.");
+                return -1;
+            }
+            
         }
     }
 }
