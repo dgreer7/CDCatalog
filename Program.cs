@@ -1,5 +1,6 @@
 ﻿namespace CDCatalog
 {
+    using CDCatalog.Forms;
     using System;
     using System.Windows.Forms;
 

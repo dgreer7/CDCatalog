@@ -1,4 +1,4 @@
-﻿namespace CDCatalog
+﻿namespace CDCatalog.Forms
 {
     partial class MainForm
     {
@@ -44,6 +44,7 @@
             this.genreToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.artistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,9 +93,10 @@
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.songToolStripMenuItem1,
             this.albumnToolStripMenuItem1,
-            this.genreToolStripMenuItem1});
+            this.artistToolStripMenuItem,
+            this.genreToolStripMenuItem1,
+            this.songToolStripMenuItem1});
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
             this.updateToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.updateToolStripMenuItem.Text = "Add";
@@ -110,7 +112,7 @@
             this.albumnToolStripMenuItem1.Name = "albumnToolStripMenuItem1";
             this.albumnToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
             this.albumnToolStripMenuItem1.Text = "Album";
-            ///this.albumnToolStripMenuItem1.Click += new System.EventHandler(this.albumnToolStripMenuItem1_Click);
+            this.albumnToolStripMenuItem1.Click += new System.EventHandler(this.albumnToolStripMenuItem1_Click);
             // 
             // genreToolStripMenuItem1
             // 
@@ -161,6 +163,13 @@
             this.playlistToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.playlistToolStripMenuItem.Text = "Playlist";
             // 
+            // artistToolStripMenuItem
+            // 
+            this.artistToolStripMenuItem.Name = "artistToolStripMenuItem";
+            this.artistToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.artistToolStripMenuItem.Text = "Artist";
+            this.artistToolStripMenuItem.Click += new System.EventHandler(this.artistToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,5 +204,6 @@
         private System.Windows.Forms.ToolStripMenuItem genreToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem generateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem playlistToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem artistToolStripMenuItem;
     }
 }

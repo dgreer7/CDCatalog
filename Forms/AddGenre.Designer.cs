@@ -1,4 +1,4 @@
-﻿namespace CDCatalog
+﻿namespace CDCatalog.Forms
 {
     partial class AddGenre
     {
@@ -61,7 +61,7 @@
             this.addGenrePanel.Controls.Add(this.addSongButton);
             this.addGenrePanel.Controls.Add(this.label3);
             this.addGenrePanel.Controls.Add(this.addSongTxtBoxSongGenre);
-            this.addGenrePanel.Location = new System.Drawing.Point(41, 12);
+            this.addGenrePanel.Location = new System.Drawing.Point(12, 12);
             this.addGenrePanel.Name = "addGenrePanel";
             this.addGenrePanel.Size = new System.Drawing.Size(266, 145);
             this.addGenrePanel.TabIndex = 19;
@@ -79,9 +79,10 @@
             // 
             // AddGenre
             // 
+            this.AcceptButton = this.addSongButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 185);
+            this.ClientSize = new System.Drawing.Size(290, 173);
             this.Controls.Add(this.addGenrePanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddGenre";

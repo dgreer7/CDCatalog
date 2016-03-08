@@ -1,20 +1,19 @@
 ﻿namespace CDCatalog.Forms
 {
     using CDCatalog.Repository;
-    using System;
     using System.Windows.Forms;
 
-    public partial class AddGenre : Form
+    public partial class AddArtist : Form
     {
-        public AddGenre()
+        public AddArtist()
         {
             InitializeComponent();
         }
 
-        private void addSongButton_Click(object sender, EventArgs e)
+        private void addArtistButton_Click(object sender, System.EventArgs e)
         {
             var repository = new CDCatalogRepository();
-            repository.CreateGenre(addSongTxtBoxSongGenre.Text.Trim());
+            repository.CreateArtist(addArtistTxtBoxArtistName.Text.Trim());
             this.Close();
         }
     }
