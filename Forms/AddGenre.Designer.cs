@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddGenre));
             this.label3 = new System.Windows.Forms.Label();
             this.addSongTxtBoxSongGenre = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.addGenrePanel = new System.Windows.Forms.Panel();
             this.addSongButton = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.addGenrePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -55,15 +56,15 @@
             this.addSongTxtBoxSongGenre.Size = new System.Drawing.Size(155, 27);
             this.addSongTxtBoxSongGenre.TabIndex = 17;
             // 
-            // panel1
+            // addGenrePanel
             // 
-            this.panel1.Controls.Add(this.addSongButton);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.addSongTxtBoxSongGenre);
-            this.panel1.Location = new System.Drawing.Point(41, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(266, 145);
-            this.panel1.TabIndex = 19;
+            this.addGenrePanel.Controls.Add(this.addSongButton);
+            this.addGenrePanel.Controls.Add(this.label3);
+            this.addGenrePanel.Controls.Add(this.addSongTxtBoxSongGenre);
+            this.addGenrePanel.Location = new System.Drawing.Point(41, 12);
+            this.addGenrePanel.Name = "addGenrePanel";
+            this.addGenrePanel.Size = new System.Drawing.Size(266, 145);
+            this.addGenrePanel.TabIndex = 19;
             // 
             // addSongButton
             // 
@@ -81,11 +82,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 185);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.addGenrePanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddGenre";
-            this.Text = "AddGenre";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Text = "Add Genre";
+            this.addGenrePanel.ResumeLayout(false);
+            this.addGenrePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -94,7 +96,7 @@
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox addSongTxtBoxSongGenre;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel addGenrePanel;
         private System.Windows.Forms.Button addSongButton;
     }
 }

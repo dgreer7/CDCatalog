@@ -110,6 +110,7 @@
             this.albumnToolStripMenuItem1.Name = "albumnToolStripMenuItem1";
             this.albumnToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
             this.albumnToolStripMenuItem1.Text = "Album";
+            ///this.albumnToolStripMenuItem1.Click += new System.EventHandler(this.albumnToolStripMenuItem1_Click);
             // 
             // genreToolStripMenuItem1
             // 
@@ -131,19 +132,19 @@
             // songToolStripMenuItem2
             // 
             this.songToolStripMenuItem2.Name = "songToolStripMenuItem2";
-            this.songToolStripMenuItem2.Size = new System.Drawing.Size(152, 24);
+            this.songToolStripMenuItem2.Size = new System.Drawing.Size(130, 24);
             this.songToolStripMenuItem2.Text = "Song";
             // 
             // albumnToolStripMenuItem2
             // 
             this.albumnToolStripMenuItem2.Name = "albumnToolStripMenuItem2";
-            this.albumnToolStripMenuItem2.Size = new System.Drawing.Size(152, 24);
+            this.albumnToolStripMenuItem2.Size = new System.Drawing.Size(130, 24);
             this.albumnToolStripMenuItem2.Text = "Albumn";
             // 
             // genreToolStripMenuItem2
             // 
             this.genreToolStripMenuItem2.Name = "genreToolStripMenuItem2";
-            this.genreToolStripMenuItem2.Size = new System.Drawing.Size(152, 24);
+            this.genreToolStripMenuItem2.Size = new System.Drawing.Size(130, 24);
             this.genreToolStripMenuItem2.Text = "Genre";
             // 
             // generateToolStripMenuItem
