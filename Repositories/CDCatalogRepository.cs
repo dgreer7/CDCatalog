@@ -49,7 +49,18 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                throw new NotImplementedException();
+                var song = new Song();
+                song.Title = songTitle;
+                song.Artist = artist;
+                song.Genre = genre;
+                song.TrackLengthSeconds = songLengthSeconds;
+                song.Rating = songRating;
+                song.Album = album;
+                song.TrackNumber = albumTrackNumber;
+                                
+                context.Songs.Add(song);
+                context.SaveChanges();
+                return song;
             }
         }
 
@@ -142,6 +153,7 @@
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
                 //will require modificaiton to db as Album doesn't have genere property
+                //Is this needed??
                 throw new NotImplementedException();
             }
         }

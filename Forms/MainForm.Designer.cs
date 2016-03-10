@@ -106,6 +106,7 @@
             this.songToolStripMenuItem1.Name = "songToolStripMenuItem1";
             this.songToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
             this.songToolStripMenuItem1.Text = "Song";
+            this.songToolStripMenuItem1.Click += new System.EventHandler(this.songToolStripMenuItem1_Click);
             // 
             // albumnToolStripMenuItem1
             // 

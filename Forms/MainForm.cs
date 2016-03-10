@@ -28,5 +28,11 @@
             var addArtist = new AddArtist();
             addArtist.Show();
         }
+
+        private void songToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var addSong = new AddSong();
+            addSong.Show();
+        }
     }
 }
