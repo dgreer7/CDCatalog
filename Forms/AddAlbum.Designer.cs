@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAlbum));
-            this.addGenrePanel = new System.Windows.Forms.Panel();
+            this.addSongPanel = new System.Windows.Forms.Panel();
             this.addAlbumComboBoxArtist = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.addAlbumLabelAlbumYear = new System.Windows.Forms.Label();
@@ -40,25 +40,25 @@
             this.addAlbumLabelAlbumName = new System.Windows.Forms.Label();
             this.addAlbumTxtBoxAlbumName = new System.Windows.Forms.TextBox();
             this.addAlbumButtonAddArtist = new System.Windows.Forms.Button();
-            this.addGenrePanel.SuspendLayout();
+            this.addSongPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // addGenrePanel
+            // addSongPanel
             // 
-            this.addGenrePanel.Controls.Add(this.addAlbumButtonAddArtist);
-            this.addGenrePanel.Controls.Add(this.addAlbumComboBoxArtist);
-            this.addGenrePanel.Controls.Add(this.label4);
-            this.addGenrePanel.Controls.Add(this.addAlbumLabelAlbumYear);
-            this.addGenrePanel.Controls.Add(this.addAlbumTextBoxAlbumYear);
-            this.addGenrePanel.Controls.Add(this.label1);
-            this.addGenrePanel.Controls.Add(this.addAlbumTextBoxRating);
-            this.addGenrePanel.Controls.Add(this.addAlbumButton);
-            this.addGenrePanel.Controls.Add(this.addAlbumLabelAlbumName);
-            this.addGenrePanel.Controls.Add(this.addAlbumTxtBoxAlbumName);
-            this.addGenrePanel.Location = new System.Drawing.Point(12, 12);
-            this.addGenrePanel.Name = "addGenrePanel";
-            this.addGenrePanel.Size = new System.Drawing.Size(343, 193);
-            this.addGenrePanel.TabIndex = 20;
+            this.addSongPanel.Controls.Add(this.addAlbumButtonAddArtist);
+            this.addSongPanel.Controls.Add(this.addAlbumComboBoxArtist);
+            this.addSongPanel.Controls.Add(this.label4);
+            this.addSongPanel.Controls.Add(this.addAlbumLabelAlbumYear);
+            this.addSongPanel.Controls.Add(this.addAlbumTextBoxAlbumYear);
+            this.addSongPanel.Controls.Add(this.label1);
+            this.addSongPanel.Controls.Add(this.addAlbumTextBoxRating);
+            this.addSongPanel.Controls.Add(this.addAlbumButton);
+            this.addSongPanel.Controls.Add(this.addAlbumLabelAlbumName);
+            this.addSongPanel.Controls.Add(this.addAlbumTxtBoxAlbumName);
+            this.addSongPanel.Location = new System.Drawing.Point(12, 12);
+            this.addSongPanel.Name = "addSongPanel";
+            this.addSongPanel.Size = new System.Drawing.Size(343, 193);
+            this.addSongPanel.TabIndex = 20;
             // 
             // addAlbumComboBoxArtist
             // 
@@ -171,19 +171,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(367, 217);
-            this.Controls.Add(this.addGenrePanel);
+            this.Controls.Add(this.addSongPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddAlbum";
             this.Text = "Add Album";
-            this.addGenrePanel.ResumeLayout(false);
-            this.addGenrePanel.PerformLayout();
+            this.addSongPanel.ResumeLayout(false);
+            this.addSongPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel addGenrePanel;
+        private System.Windows.Forms.Panel addSongPanel;
         private System.Windows.Forms.Button addAlbumButton;
         private System.Windows.Forms.Label addAlbumLabelAlbumName;
         private System.Windows.Forms.TextBox addAlbumTxtBoxAlbumName;
