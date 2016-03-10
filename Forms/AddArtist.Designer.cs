@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddArtist));
             this.addGenrePanel = new System.Windows.Forms.Panel();
             this.addArtistButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -83,8 +84,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 171);
             this.Controls.Add(this.addGenrePanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddArtist";
-            this.Text = "AddArtist";
+            this.Text = "Add Artist";
             this.addGenrePanel.ResumeLayout(false);
             this.addGenrePanel.PerformLayout();
             this.ResumeLayout(false);

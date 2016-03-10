@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAlbum));
             this.addGenrePanel = new System.Windows.Forms.Panel();
+            this.addAlbumComboBoxArtist = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.addAlbumLabelAlbumYear = new System.Windows.Forms.Label();
             this.addAlbumTextBoxAlbumYear = new System.Windows.Forms.TextBox();
@@ -38,12 +39,13 @@
             this.addAlbumButton = new System.Windows.Forms.Button();
             this.addAlbumLabelAlbumName = new System.Windows.Forms.Label();
             this.addAlbumTxtBoxAlbumName = new System.Windows.Forms.TextBox();
-            this.addAlbumComboBoxArtist = new System.Windows.Forms.ComboBox();
+            this.addAlbumButtonAddArtist = new System.Windows.Forms.Button();
             this.addGenrePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // addGenrePanel
             // 
+            this.addGenrePanel.Controls.Add(this.addAlbumButtonAddArtist);
             this.addGenrePanel.Controls.Add(this.addAlbumComboBoxArtist);
             this.addGenrePanel.Controls.Add(this.label4);
             this.addGenrePanel.Controls.Add(this.addAlbumLabelAlbumYear);
@@ -55,8 +57,18 @@
             this.addGenrePanel.Controls.Add(this.addAlbumTxtBoxAlbumName);
             this.addGenrePanel.Location = new System.Drawing.Point(12, 12);
             this.addGenrePanel.Name = "addGenrePanel";
-            this.addGenrePanel.Size = new System.Drawing.Size(352, 193);
+            this.addGenrePanel.Size = new System.Drawing.Size(343, 193);
             this.addGenrePanel.TabIndex = 20;
+            // 
+            // addAlbumComboBoxArtist
+            // 
+            this.addAlbumComboBoxArtist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.addAlbumComboBoxArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAlbumComboBoxArtist.FormattingEnabled = true;
+            this.addAlbumComboBoxArtist.Location = new System.Drawing.Point(144, 114);
+            this.addAlbumComboBoxArtist.Name = "addAlbumComboBoxArtist";
+            this.addAlbumComboBoxArtist.Size = new System.Drawing.Size(147, 28);
+            this.addAlbumComboBoxArtist.TabIndex = 3;
             // 
             // label4
             // 
@@ -80,12 +92,13 @@
             this.addAlbumLabelAlbumYear.TabIndex = 23;
             this.addAlbumLabelAlbumYear.Text = "Album Year";
             // 
-            // addAlbumTxtBoxAlbumYear
+            // addAlbumTextBoxAlbumYear
             // 
             this.addAlbumTextBoxAlbumYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAlbumTextBoxAlbumYear.Location = new System.Drawing.Point(157, 46);
+            this.addAlbumTextBoxAlbumYear.Location = new System.Drawing.Point(144, 46);
             this.addAlbumTextBoxAlbumYear.Margin = new System.Windows.Forms.Padding(2);
-            this.addAlbumTextBoxAlbumYear.Name = "addAlbumTxtBoxAlbumYear";
+            this.addAlbumTextBoxAlbumYear.MaxLength = 4;
+            this.addAlbumTextBoxAlbumYear.Name = "addAlbumTextBoxAlbumYear";
             this.addAlbumTextBoxAlbumYear.Size = new System.Drawing.Size(147, 27);
             this.addAlbumTextBoxAlbumYear.TabIndex = 1;
             // 
@@ -103,8 +116,9 @@
             // addAlbumTextBoxRating
             // 
             this.addAlbumTextBoxRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAlbumTextBoxRating.Location = new System.Drawing.Point(157, 80);
+            this.addAlbumTextBoxRating.Location = new System.Drawing.Point(144, 80);
             this.addAlbumTextBoxRating.Margin = new System.Windows.Forms.Padding(2);
+            this.addAlbumTextBoxRating.MaxLength = 1;
             this.addAlbumTextBoxRating.Name = "addAlbumTextBoxRating";
             this.addAlbumTextBoxRating.Size = new System.Drawing.Size(147, 27);
             this.addAlbumTextBoxRating.TabIndex = 2;
@@ -112,9 +126,9 @@
             // addAlbumButton
             // 
             this.addAlbumButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAlbumButton.Location = new System.Drawing.Point(102, 160);
+            this.addAlbumButton.Location = new System.Drawing.Point(93, 160);
             this.addAlbumButton.Name = "addAlbumButton";
-            this.addAlbumButton.Size = new System.Drawing.Size(155, 30);
+            this.addAlbumButton.Size = new System.Drawing.Size(157, 30);
             this.addAlbumButton.TabIndex = 5;
             this.addAlbumButton.Text = "Add";
             this.addAlbumButton.UseVisualStyleBackColor = true;
@@ -134,27 +148,29 @@
             // addAlbumTxtBoxAlbumName
             // 
             this.addAlbumTxtBoxAlbumName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAlbumTxtBoxAlbumName.Location = new System.Drawing.Point(157, 12);
+            this.addAlbumTxtBoxAlbumName.Location = new System.Drawing.Point(144, 12);
             this.addAlbumTxtBoxAlbumName.Margin = new System.Windows.Forms.Padding(2);
             this.addAlbumTxtBoxAlbumName.Name = "addAlbumTxtBoxAlbumName";
             this.addAlbumTxtBoxAlbumName.Size = new System.Drawing.Size(147, 27);
             this.addAlbumTxtBoxAlbumName.TabIndex = 0;
             // 
-            // addAlbumComboBoxArtist
+            // addAlbumButtonAddArtist
             // 
-            this.addAlbumComboBoxArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAlbumComboBoxArtist.FormattingEnabled = true;
-            this.addAlbumComboBoxArtist.Location = new System.Drawing.Point(157, 114);
-            this.addAlbumComboBoxArtist.Name = "addAlbumComboBoxArtist";
-            this.addAlbumComboBoxArtist.Size = new System.Drawing.Size(147, 28);
-            this.addAlbumComboBoxArtist.TabIndex = 3;
+            this.addAlbumButtonAddArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAlbumButtonAddArtist.Location = new System.Drawing.Point(297, 115);
+            this.addAlbumButtonAddArtist.Name = "addAlbumButtonAddArtist";
+            this.addAlbumButtonAddArtist.Size = new System.Drawing.Size(32, 28);
+            this.addAlbumButtonAddArtist.TabIndex = 26;
+            this.addAlbumButtonAddArtist.Text = "...";
+            this.addAlbumButtonAddArtist.UseVisualStyleBackColor = true;
+            this.addAlbumButtonAddArtist.Click += new System.EventHandler(this.addAlbumButtonAddArtist_Click);
             // 
             // AddAlbum
             // 
             this.AcceptButton = this.addAlbumButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 217);
+            this.ClientSize = new System.Drawing.Size(367, 217);
             this.Controls.Add(this.addGenrePanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddAlbum";
@@ -177,5 +193,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox addAlbumTextBoxRating;
         private System.Windows.Forms.ComboBox addAlbumComboBoxArtist;
+        private System.Windows.Forms.Button addAlbumButtonAddArtist;
     }
 }

@@ -11,16 +11,19 @@
         public AddAlbum()
         {
             InitializeComponent();
-            addAlbumTextBoxRating.MaxLength = 1;
-            addAlbumTextBoxAlbumYear.MaxLength = 4;
-            addAlbumComboBoxArtist.DataSource = repository.GetAllArtists();
-            addAlbumComboBoxArtist.DisplayMember = "ArtistName";
-            addAlbumComboBoxArtist.ValueMember = "ArtistId";
+            InitializeArtistComboBox();
 
 #if DEBUG
             addAlbumTxtBoxAlbumName.Text = "My Favorite band";
             addAlbumTextBoxAlbumYear.Text = "2006";
 #endif
+        }
+
+        private void InitializeArtistComboBox()
+        {
+            addAlbumComboBoxArtist.DataSource = repository.GetAllArtists();
+            addAlbumComboBoxArtist.DisplayMember = "ArtistName";
+            addAlbumComboBoxArtist.ValueMember = "ArtistId";
         }
 
         private void addAlbumButton_Click(object sender, System.EventArgs e)
@@ -31,10 +34,14 @@
 
             if (formHelper.NotNull(requiredFields))
             {
-                var artist = repository.GetArtistByID((int)addAlbumComboBoxArtist.SelectedValue);
+                //pulls the selected artist from the dropdown
+                var artist = (Artist)addAlbumComboBoxArtist.SelectedItem;
+                //use helper to store album year
                 var year = formHelper.GetIntFromTextBox(addAlbumTextBoxAlbumYear);
-                
-                repository.CreateAlbum(addAlbumTxtBoxAlbumName.Text.Trim(), artist, year, 2);
+                //use helper to album rating, defaults to 0 if not filled.
+                var rating = formHelper.GetIntFromTextBox(addAlbumTextBoxRating) != -1 ? formHelper.GetIntFromTextBox(addAlbumTextBoxRating) : 0;
+
+                repository.CreateAlbum(addAlbumTxtBoxAlbumName.Text.Trim(), artist, year, rating);
                 Close();
             }
             else
@@ -42,6 +49,18 @@
                 addAlbumLabelAlbumName.ForeColor = System.Drawing.Color.Red;
                 addAlbumLabelAlbumYear.ForeColor = System.Drawing.Color.Red;
                 MessageBox.Show("Required field missing.");
+            }
+        }
+
+        private void addAlbumButtonAddArtist_Click(object sender, System.EventArgs e)
+        {
+            var addArtist = new AddArtist();
+            addArtist.ShowDialog();
+            
+            if (addArtist.CreatedArtist != null)
+            {
+                InitializeArtistComboBox();
+                addAlbumComboBoxArtist.SelectedValue = addArtist.CreatedArtist.ArtistId;
             }
         }
     }
