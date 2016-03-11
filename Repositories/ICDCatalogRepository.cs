@@ -20,24 +20,25 @@
 
         void UpdateAlbumRating(string albumTitle, int albumRating);
 
-        List<Album> SearchAlbumsByAlbumTitle(string albumTitle);
-        List<Album> SearchAlbumsByArtistName(string artistName);
-        List<Album> SearchAlbumsByGenreName(string genreName);
+        IList<Album> SearchAlbumsByAlbumTitle(string albumTitle);
+        IList<Album> SearchAlbumsByArtistName(string artistName);
+        IList<Album> SearchAlbumsByGenreName(string genreName);
 
-        List<Song> SearchSongsBySongTitle(string songTitle);
-        List<Song> SearchSongsByArtistName(string artistName);
-        List<Song> SearchSongsByGenreName(string genreName);
+        IList<Song> SearchSongsBySongTitle(string songTitle);
+        IList<Song> SearchSongsByArtistName(string artistName);
+        IList<Song> SearchSongsByGenreName(string genreName);
+        IList<Genre> SearchGenreByGenreName(string genreName);
         
 
-        List<Artist> GetAllArtists();
-        List<Genre> GetAllGenres();
-        List<Album> GetAllAlbums();
+        IList<Artist> GetAllArtists();
+        IList<Genre> GetAllGenres();
+        IList<Album> GetAllAlbums();
 
         Song GetSongByID(int songId);
         Album GetAlbumByID(int albumId);
         Artist GetArtistByID(int aritstID);
-        List<Song> GetSongsByAlbumID(int albumId);
+        IList<Song> GetSongsByAlbumID(int albumId);
 
-        List<Song> GeneratePlaylist(int lengthMinutes);
+        IList<Song> GeneratePlaylist(int lengthMinutes);
     }
 }

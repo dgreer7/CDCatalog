@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,7 +82,6 @@
             this.findSongToolStripMenuItem.Name = "findSongToolStripMenuItem";
             this.findSongToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.findSongToolStripMenuItem.Text = "Song";
-            this.findSongToolStripMenuItem.Click += new System.EventHandler(this.songToolStripMenuItem_Click);
             // 
             // findAlbumToolStripMenuItem
             // 
@@ -92,6 +94,7 @@
             this.findGenreToolStripMenuItem.Name = "findGenreToolStripMenuItem";
             this.findGenreToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.findGenreToolStripMenuItem.Text = "Genre";
+            this.findGenreToolStripMenuItem.Click += new System.EventHandler(this.findGenreToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
@@ -145,19 +148,19 @@
             // updateSongToolStripMenuItem
             // 
             this.updateSongToolStripMenuItem.Name = "updateSongToolStripMenuItem";
-            this.updateSongToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.updateSongToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.updateSongToolStripMenuItem.Text = "Song";
             // 
             // updateAlbumToolStripMenuItem
             // 
             this.updateAlbumToolStripMenuItem.Name = "updateAlbumToolStripMenuItem";
-            this.updateAlbumToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.updateAlbumToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.updateAlbumToolStripMenuItem.Text = "Album";
             // 
             // updateGenreToolStripMenuItem
             // 
             this.updateGenreToolStripMenuItem.Name = "updateGenreToolStripMenuItem";
-            this.updateGenreToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.updateGenreToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.updateGenreToolStripMenuItem.Text = "Genre";
             // 
             // generateToolStripMenuItem
@@ -171,14 +174,38 @@
             // playlistToolStripMenuItem
             // 
             this.playlistToolStripMenuItem.Name = "playlistToolStripMenuItem";
-            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.playlistToolStripMenuItem.Text = "Playlist";
             // 
             // mainFormDataGridView
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mainFormDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.mainFormDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mainFormDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.mainFormDataGridView.Location = new System.Drawing.Point(0, 31);
             this.mainFormDataGridView.Name = "mainFormDataGridView";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mainFormDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.mainFormDataGridView.Size = new System.Drawing.Size(488, 341);
             this.mainFormDataGridView.TabIndex = 1;
             // 

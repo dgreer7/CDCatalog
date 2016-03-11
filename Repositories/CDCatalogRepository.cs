@@ -64,7 +64,7 @@
             }
         }
 
-        public List<Song> GeneratePlaylist(int lengthMinutes)
+        public IList<Song> GeneratePlaylist(int lengthMinutes)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -88,7 +88,7 @@
             }
         }
 
-        public List<Album> GetAllAlbums()
+        public IList<Album> GetAllAlbums()
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -96,19 +96,15 @@
             }
         }
 
-        public List<Artist> GetAllArtists()
+        public IList<Artist> GetAllArtists()
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                //return context.Set<Artist>().ToList();
                 return context.Artists.OrderBy(a => a.ArtistName).ToList();
-                //return (from artist in context.Artists
-                //        orderby artist.ArtistName
-                //        select artist).ToList();
             }
         }
 
-        public List<Genre> GetAllGenres()
+        public IList<Genre> GetAllGenres()
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -124,7 +120,7 @@
             }
         }
 
-        public List<Song> GetSongsByAlbumID(int albumId)
+        public IList<Song> GetSongsByAlbumID(int albumId)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -132,7 +128,7 @@
             }
         }
 
-        public List<Album> SearchAlbumsByAlbumTitle(string albumTitle)
+        public IList<Album> SearchAlbumsByAlbumTitle(string albumTitle)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -140,7 +136,7 @@
             }
         }
 
-        public List<Album> SearchAlbumsByArtistName(string artistName)
+        public IList<Album> SearchAlbumsByArtistName(string artistName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -148,7 +144,7 @@
             }
         }
 
-        public List<Album> SearchAlbumsByGenreName(string genreName)
+        public IList<Album> SearchAlbumsByGenreName(string genreName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -158,7 +154,7 @@
             }
         }
 
-        public List<Song> SearchSongsByArtistName(string artistName)
+        public IList<Song> SearchSongsByArtistName(string artistName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -166,7 +162,7 @@
             }
         }
 
-        public List<Song> SearchSongsByGenreName(string genreName)
+        public IList<Song> SearchSongsByGenreName(string genreName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -174,11 +170,19 @@
             }
         }
 
-        public List<Song> SearchSongsBySongTitle(string songTitle)
+        public IList<Song> SearchSongsBySongTitle(string songTitle)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
                 return context.Songs.Where(s => s.Title.ToLower() == songTitle.ToLower()).ToList();
+            }
+        }
+
+        public IList<Genre> SearchGenreByGenreName(string genreName)
+        {
+            using (CDCatalogEntities context = new CDCatalogEntities())
+            {
+                return context.Genres.Where(g => g.GenreName.Contains(genreName)).OrderBy(g => g.GenreName).ToList();
             }
         }
 

@@ -6,7 +6,7 @@
 
     class FormHelper
     {
-        internal bool NotNull(List<TextBox> nonNullableTextBoxes)
+        internal bool TextBoxNotNull(IList<TextBox> nonNullableTextBoxes)
         {
             foreach (TextBox txtBox in nonNullableTextBoxes)
             {

@@ -34,7 +34,7 @@
             var formHelper = new FormHelper();
             var requiredFields = new List<TextBox> {addAlbumTxtBoxAlbumName, addAlbumTextBoxAlbumYear};
 
-            if (formHelper.NotNull(requiredFields))
+            if (formHelper.TextBoxNotNull(requiredFields))
             {
                 //pulls the selected artist from the dropdown
                 var artist = (Artist)addAlbumComboBoxArtist.SelectedItem;
