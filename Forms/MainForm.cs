@@ -10,6 +10,9 @@
             InitializeComponent();
             KeepDataGridSizedWithWindow();
             mainFormDataGridView.RowHeadersVisible = false;
+#if DEBUG
+            Text = (int)(new DateTime(2016, 03, 23) - DateTime.Now).TotalDays + " days left!!";
+#endif
         }
 
         private void KeepDataGridSizedWithWindow()
