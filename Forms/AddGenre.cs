@@ -6,6 +6,8 @@
 
     public partial class AddGenre : Form
     {
+        public Genre CreatedGenre { get; private set; }
+
         public AddGenre()
         {
             InitializeComponent();
@@ -14,8 +16,8 @@
         private void addSongButton_Click(object sender, EventArgs e)
         {
             var repository = new CDCatalogRepository();
-            repository.CreateGenre(addSongTxtBoxSongGenre.Text.Trim());
-            this.Close();
+            CreatedGenre = repository.CreateGenre(addSongTxtBoxSongGenre.Text.Trim());
+            Close();
         }
     }
 }

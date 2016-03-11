@@ -6,6 +6,7 @@
 
     public partial class AddAlbum : Form
     {
+        public Album CreatedAlbum { get; private set; }
         CDCatalogRepository repository = new CDCatalogRepository();
 
         public AddAlbum()
@@ -14,8 +15,9 @@
             InitializeArtistComboBox();
 
 #if DEBUG
+            var rand = new System.Random();
             addAlbumTxtBoxAlbumName.Text = "My Favorite band";
-            addAlbumTextBoxAlbumYear.Text = "2006";
+            addAlbumTextBoxAlbumYear.Text = rand.Next(1878, System.DateTime.Today.Year).ToString();
 #endif
         }
 
@@ -41,7 +43,7 @@
                 //use helper to album rating, defaults to 0 if not filled.
                 var rating = formHelper.GetIntFromTextBox(addAlbumTextBoxRating) != -1 ? formHelper.GetIntFromTextBox(addAlbumTextBoxRating) : 0;
 
-                repository.CreateAlbum(addAlbumTxtBoxAlbumName.Text.Trim(), artist, year, rating);
+                CreatedAlbum = repository.CreateAlbum(addAlbumTxtBoxAlbumName.Text.Trim(), artist, year, rating);
                 Close();
             }
             else

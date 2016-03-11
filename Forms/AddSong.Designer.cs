@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSong));
             this.addSongPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addSongCheckBoxSongToAlbum = new System.Windows.Forms.CheckBox();
+            this.addSongButtonAddGenre = new System.Windows.Forms.Button();
             this.addSongComboBoxGenre = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.addSongLabelSongTrackNumber = new System.Windows.Forms.Label();
@@ -48,19 +49,17 @@
             this.addSongButton = new System.Windows.Forms.Button();
             this.addSongLabelSongTitle = new System.Windows.Forms.Label();
             this.addSongTextBoxSongTitle = new System.Windows.Forms.TextBox();
-            this.addSongCheckBoxSongToAlbum = new System.Windows.Forms.CheckBox();
             this.addSongPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // addSongPanel
             // 
             this.addSongPanel.Controls.Add(this.addSongCheckBoxSongToAlbum);
-            this.addSongPanel.Controls.Add(this.button1);
+            this.addSongPanel.Controls.Add(this.addSongButtonAddGenre);
             this.addSongPanel.Controls.Add(this.addSongComboBoxGenre);
             this.addSongPanel.Controls.Add(this.label3);
             this.addSongPanel.Controls.Add(this.addSongLabelSongTrackNumber);
             this.addSongPanel.Controls.Add(this.addSongTextBoxSongTrackNumber);
-            this.addSongPanel.Controls.Add(this.addSongButtonAddAlbum);
             this.addSongPanel.Controls.Add(this.addSongComboBoxAlbum);
             this.addSongPanel.Controls.Add(this.addSongLabelSongAlbum);
             this.addSongPanel.Controls.Add(this.addSongButtonAddArtist);
@@ -73,20 +72,37 @@
             this.addSongPanel.Controls.Add(this.addSongButton);
             this.addSongPanel.Controls.Add(this.addSongLabelSongTitle);
             this.addSongPanel.Controls.Add(this.addSongTextBoxSongTitle);
+            this.addSongPanel.Controls.Add(this.addSongButtonAddAlbum);
             this.addSongPanel.Location = new System.Drawing.Point(12, 12);
             this.addSongPanel.Name = "addSongPanel";
             this.addSongPanel.Size = new System.Drawing.Size(343, 307);
             this.addSongPanel.TabIndex = 22;
             // 
-            // button1
+            // addSongCheckBoxSongToAlbum
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(297, 106);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 28);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addSongCheckBoxSongToAlbum.AutoSize = true;
+            this.addSongCheckBoxSongToAlbum.Checked = true;
+            this.addSongCheckBoxSongToAlbum.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.addSongCheckBoxSongToAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addSongCheckBoxSongToAlbum.Location = new System.Drawing.Point(6, 153);
+            this.addSongCheckBoxSongToAlbum.Name = "addSongCheckBoxSongToAlbum";
+            this.addSongCheckBoxSongToAlbum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.addSongCheckBoxSongToAlbum.Size = new System.Drawing.Size(183, 26);
+            this.addSongCheckBoxSongToAlbum.TabIndex = 35;
+            this.addSongCheckBoxSongToAlbum.Text = "Add Song to Album";
+            this.addSongCheckBoxSongToAlbum.UseVisualStyleBackColor = true;
+            this.addSongCheckBoxSongToAlbum.CheckedChanged += new System.EventHandler(this.addSongCheckBoxSong_CheckedChanged);
+            // 
+            // addSongButtonAddGenre
+            // 
+            this.addSongButtonAddGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addSongButtonAddGenre.Location = new System.Drawing.Point(297, 106);
+            this.addSongButtonAddGenre.Name = "addSongButtonAddGenre";
+            this.addSongButtonAddGenre.Size = new System.Drawing.Size(32, 28);
+            this.addSongButtonAddGenre.TabIndex = 33;
+            this.addSongButtonAddGenre.Text = "...";
+            this.addSongButtonAddGenre.UseVisualStyleBackColor = true;
+            this.addSongButtonAddGenre.Click += new System.EventHandler(this.addSongButtonAddGenre_Click);
             // 
             // addSongComboBoxGenre
             // 
@@ -139,6 +155,7 @@
             this.addSongButtonAddAlbum.TabIndex = 6;
             this.addSongButtonAddAlbum.Text = "...";
             this.addSongButtonAddAlbum.UseVisualStyleBackColor = true;
+            this.addSongButtonAddAlbum.Click += new System.EventHandler(this.addSongButtonAddAlbum_Click);
             // 
             // addSongComboBoxAlbum
             // 
@@ -161,15 +178,16 @@
             this.addSongLabelSongAlbum.TabIndex = 28;
             this.addSongLabelSongAlbum.Text = "Album";
             // 
-            // addArtistButtonAddArtist
+            // addSongButtonAddArtist
             // 
             this.addSongButtonAddArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addSongButtonAddArtist.Location = new System.Drawing.Point(297, 195);
-            this.addSongButtonAddArtist.Name = "addArtistButtonAddArtist";
+            this.addSongButtonAddArtist.Name = "addSongButtonAddArtist";
             this.addSongButtonAddArtist.Size = new System.Drawing.Size(32, 28);
             this.addSongButtonAddArtist.TabIndex = 8;
             this.addSongButtonAddArtist.Text = "...";
             this.addSongButtonAddArtist.UseVisualStyleBackColor = true;
+            this.addSongButtonAddArtist.Click += new System.EventHandler(this.addSongButtonAddArtist_Click);
             // 
             // addSongComboBoxArtist
             // 
@@ -265,21 +283,6 @@
             this.addSongTextBoxSongTitle.Size = new System.Drawing.Size(147, 27);
             this.addSongTextBoxSongTitle.TabIndex = 0;
             // 
-            // addSongCheckBoxSong
-            // 
-            this.addSongCheckBoxSongToAlbum.AutoSize = true;
-            this.addSongCheckBoxSongToAlbum.Checked = true;
-            this.addSongCheckBoxSongToAlbum.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.addSongCheckBoxSongToAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongCheckBoxSongToAlbum.Location = new System.Drawing.Point(6, 153);
-            this.addSongCheckBoxSongToAlbum.Name = "addSongCheckBoxSong";
-            this.addSongCheckBoxSongToAlbum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.addSongCheckBoxSongToAlbum.Size = new System.Drawing.Size(183, 26);
-            this.addSongCheckBoxSongToAlbum.TabIndex = 35;
-            this.addSongCheckBoxSongToAlbum.Text = "Add Song to Album";
-            this.addSongCheckBoxSongToAlbum.UseVisualStyleBackColor = true;
-            this.addSongCheckBoxSongToAlbum.CheckedChanged += new System.EventHandler(this.addSongCheckBoxSong_CheckedChanged);
-            // 
             // AddSong
             // 
             this.AcceptButton = this.addSongButton;
@@ -314,7 +317,7 @@
         private System.Windows.Forms.Button addSongButton;
         private System.Windows.Forms.Label addSongLabelSongTitle;
         private System.Windows.Forms.TextBox addSongTextBoxSongTitle;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addSongButtonAddGenre;
         private System.Windows.Forms.ComboBox addSongComboBoxGenre;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox addSongCheckBoxSongToAlbum;

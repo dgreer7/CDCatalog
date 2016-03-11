@@ -19,9 +19,11 @@
             addSongButtonAddArtist.Visible = false;
 
 #if DEBUG
+            var rand = new System.Random();
+            rand.Next(18);
             addSongTextBoxSongTitle.Text = "Awesome Song";
-            addSongTextBoxSongTrackNumber.Text = "1";
-            addSongTextBoxSongLength.Text = "120";
+            addSongTextBoxSongTrackNumber.Text = rand.Next(18).ToString();
+            addSongTextBoxSongLength.Text = rand.Next(105, 1000).ToString();
 #endif
         }
 
@@ -106,6 +108,42 @@
             addSongTextBoxSongTrackNumber.Visible = !addSongTextBoxSongTrackNumber.Visible;
             addSongLabelSongTrackNumber.Visible = !addSongLabelSongTrackNumber.Visible;
             addSongButtonAddArtist.Visible = !addSongButtonAddArtist.Visible;
+        }
+
+        private void addSongButtonAddGenre_Click(object sender, System.EventArgs e)
+        {
+            var addGenre = new AddGenre();
+            addGenre.ShowDialog();
+
+            if (addGenre.CreatedGenre != null)
+            {
+                InitializeGenreComboBox();
+                addSongComboBoxGenre.SelectedValue = addGenre.CreatedGenre.GenreId;
+            }
+        }
+
+        private void addSongButtonAddAlbum_Click(object sender, System.EventArgs e)
+        {
+            var addAlbum = new AddAlbum();
+            addAlbum.ShowDialog();
+
+            if (addAlbum.CreatedAlbum != null)
+            {
+                InitializeAlbumComboBox();
+                addSongComboBoxAlbum.SelectedValue = addAlbum.CreatedAlbum.AlbumId;
+            }
+        }
+
+        private void addSongButtonAddArtist_Click(object sender, System.EventArgs e)
+        {
+            var addArtist = new AddArtist();
+            addArtist.ShowDialog();
+
+            if (addArtist.CreatedArtist != null)
+            {
+                InitializeArtistComboBox();
+                addSongComboBoxArtist.SelectedValue = addArtist.CreatedArtist.ArtistId;
+            }
         }
     }
 }

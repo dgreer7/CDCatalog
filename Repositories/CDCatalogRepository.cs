@@ -51,11 +51,11 @@
             {
                 var song = new Song();
                 song.Title = songTitle;
-                song.Artist = artist;
-                song.Genre = genre;
+                song.ArtistId = artist.ArtistId;
+                song.GenreId = genre.GenreId;
                 song.TrackLengthSeconds = songLengthSeconds;
                 song.Rating = songRating;
-                song.Album = album;
+                song.AlbumId = album.AlbumId;
                 song.TrackNumber = albumTrackNumber;
                                 
                 context.Songs.Add(song);
