@@ -71,10 +71,10 @@
             // addArtistTxtBoxArtistName
             // 
             this.addArtistTxtBoxArtistName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addArtistTxtBoxArtistName.Location = new System.Drawing.Point(52, 56);
+            this.addArtistTxtBoxArtistName.Location = new System.Drawing.Point(2, 56);
             this.addArtistTxtBoxArtistName.Margin = new System.Windows.Forms.Padding(2);
             this.addArtistTxtBoxArtistName.Name = "addArtistTxtBoxArtistName";
-            this.addArtistTxtBoxArtistName.Size = new System.Drawing.Size(155, 27);
+            this.addArtistTxtBoxArtistName.Size = new System.Drawing.Size(262, 27);
             this.addArtistTxtBoxArtistName.TabIndex = 0;
             // 
             // AddArtist

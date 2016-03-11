@@ -34,5 +34,22 @@
             var addSong = new AddSong();
             addSong.Show();
         }
+
+        private void songToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            //Upon resizing of form, keep datagrid sized with the window
+            KeepDataGridSizedWithWindow();
+        }
+
+        private void KeepDataGridSizedWithWindow()
+        {
+            mainFormDataGridView.Width = ClientSize.Width;
+            mainFormDataGridView.Height = ClientSize.Height;
+        }
     }
 }

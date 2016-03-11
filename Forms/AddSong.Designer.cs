@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.addSongLabelSongTrackNumber = new System.Windows.Forms.Label();
             this.addSongTextBoxSongTrackNumber = new System.Windows.Forms.TextBox();
-            this.addSongButtonAddAlbum = new System.Windows.Forms.Button();
             this.addSongComboBoxAlbum = new System.Windows.Forms.ComboBox();
             this.addSongLabelSongAlbum = new System.Windows.Forms.Label();
             this.addSongButtonAddArtist = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@
             this.addSongButton = new System.Windows.Forms.Button();
             this.addSongLabelSongTitle = new System.Windows.Forms.Label();
             this.addSongTextBoxSongTitle = new System.Windows.Forms.TextBox();
+            this.addSongButtonAddAlbum = new System.Windows.Forms.Button();
             this.addSongPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             this.addSongPanel.Controls.Add(this.addSongButtonAddAlbum);
             this.addSongPanel.Location = new System.Drawing.Point(12, 12);
             this.addSongPanel.Name = "addSongPanel";
-            this.addSongPanel.Size = new System.Drawing.Size(343, 307);
+            this.addSongPanel.Size = new System.Drawing.Size(555, 307);
             this.addSongPanel.TabIndex = 22;
             // 
             // addSongCheckBoxSongToAlbum
@@ -96,7 +96,7 @@
             // addSongButtonAddGenre
             // 
             this.addSongButtonAddGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongButtonAddGenre.Location = new System.Drawing.Point(297, 106);
+            this.addSongButtonAddGenre.Location = new System.Drawing.Point(520, 106);
             this.addSongButtonAddGenre.Name = "addSongButtonAddGenre";
             this.addSongButtonAddGenre.Size = new System.Drawing.Size(32, 28);
             this.addSongButtonAddGenre.TabIndex = 33;
@@ -111,7 +111,7 @@
             this.addSongComboBoxGenre.FormattingEnabled = true;
             this.addSongComboBoxGenre.Location = new System.Drawing.Point(144, 106);
             this.addSongComboBoxGenre.Name = "addSongComboBoxGenre";
-            this.addSongComboBoxGenre.Size = new System.Drawing.Size(147, 28);
+            this.addSongComboBoxGenre.Size = new System.Drawing.Size(370, 28);
             this.addSongComboBoxGenre.TabIndex = 32;
             // 
             // label3
@@ -143,19 +143,8 @@
             this.addSongTextBoxSongTrackNumber.Margin = new System.Windows.Forms.Padding(2);
             this.addSongTextBoxSongTrackNumber.MaxLength = 4;
             this.addSongTextBoxSongTrackNumber.Name = "addSongTextBoxSongTrackNumber";
-            this.addSongTextBoxSongTrackNumber.Size = new System.Drawing.Size(147, 27);
+            this.addSongTextBoxSongTrackNumber.Size = new System.Drawing.Size(370, 27);
             this.addSongTextBoxSongTrackNumber.TabIndex = 4;
-            // 
-            // addSongButtonAddAlbum
-            // 
-            this.addSongButtonAddAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongButtonAddAlbum.Location = new System.Drawing.Point(297, 196);
-            this.addSongButtonAddAlbum.Name = "addSongButtonAddAlbum";
-            this.addSongButtonAddAlbum.Size = new System.Drawing.Size(32, 28);
-            this.addSongButtonAddAlbum.TabIndex = 6;
-            this.addSongButtonAddAlbum.Text = "...";
-            this.addSongButtonAddAlbum.UseVisualStyleBackColor = true;
-            this.addSongButtonAddAlbum.Click += new System.EventHandler(this.addSongButtonAddAlbum_Click);
             // 
             // addSongComboBoxAlbum
             // 
@@ -164,7 +153,7 @@
             this.addSongComboBoxAlbum.FormattingEnabled = true;
             this.addSongComboBoxAlbum.Location = new System.Drawing.Point(144, 196);
             this.addSongComboBoxAlbum.Name = "addSongComboBoxAlbum";
-            this.addSongComboBoxAlbum.Size = new System.Drawing.Size(147, 28);
+            this.addSongComboBoxAlbum.Size = new System.Drawing.Size(370, 28);
             this.addSongComboBoxAlbum.TabIndex = 5;
             // 
             // addSongLabelSongAlbum
@@ -181,7 +170,7 @@
             // addSongButtonAddArtist
             // 
             this.addSongButtonAddArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongButtonAddArtist.Location = new System.Drawing.Point(297, 195);
+            this.addSongButtonAddArtist.Location = new System.Drawing.Point(520, 195);
             this.addSongButtonAddArtist.Name = "addSongButtonAddArtist";
             this.addSongButtonAddArtist.Size = new System.Drawing.Size(32, 28);
             this.addSongButtonAddArtist.TabIndex = 8;
@@ -196,7 +185,7 @@
             this.addSongComboBoxArtist.FormattingEnabled = true;
             this.addSongComboBoxArtist.Location = new System.Drawing.Point(144, 195);
             this.addSongComboBoxArtist.Name = "addSongComboBoxArtist";
-            this.addSongComboBoxArtist.Size = new System.Drawing.Size(147, 28);
+            this.addSongComboBoxArtist.Size = new System.Drawing.Size(370, 28);
             this.addSongComboBoxArtist.TabIndex = 7;
             // 
             // addSongLabelSongArtist
@@ -228,7 +217,7 @@
             this.addSongTextBoxSongLength.Margin = new System.Windows.Forms.Padding(2);
             this.addSongTextBoxSongLength.MaxLength = 3;
             this.addSongTextBoxSongLength.Name = "addSongTextBoxSongLength";
-            this.addSongTextBoxSongLength.Size = new System.Drawing.Size(147, 27);
+            this.addSongTextBoxSongLength.Size = new System.Drawing.Size(370, 27);
             this.addSongTextBoxSongLength.TabIndex = 3;
             // 
             // label1
@@ -249,15 +238,15 @@
             this.addSongTextBoxRating.Margin = new System.Windows.Forms.Padding(2);
             this.addSongTextBoxRating.MaxLength = 1;
             this.addSongTextBoxRating.Name = "addSongTextBoxRating";
-            this.addSongTextBoxRating.Size = new System.Drawing.Size(147, 27);
+            this.addSongTextBoxRating.Size = new System.Drawing.Size(370, 27);
             this.addSongTextBoxRating.TabIndex = 1;
             // 
             // addSongButton
             // 
             this.addSongButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongButton.Location = new System.Drawing.Point(96, 272);
+            this.addSongButton.Location = new System.Drawing.Point(199, 271);
             this.addSongButton.Name = "addSongButton";
-            this.addSongButton.Size = new System.Drawing.Size(152, 30);
+            this.addSongButton.Size = new System.Drawing.Size(155, 33);
             this.addSongButton.TabIndex = 9;
             this.addSongButton.Text = "Add";
             this.addSongButton.UseVisualStyleBackColor = true;
@@ -280,15 +269,26 @@
             this.addSongTextBoxSongTitle.Location = new System.Drawing.Point(144, 12);
             this.addSongTextBoxSongTitle.Margin = new System.Windows.Forms.Padding(2);
             this.addSongTextBoxSongTitle.Name = "addSongTextBoxSongTitle";
-            this.addSongTextBoxSongTitle.Size = new System.Drawing.Size(147, 27);
+            this.addSongTextBoxSongTitle.Size = new System.Drawing.Size(370, 27);
             this.addSongTextBoxSongTitle.TabIndex = 0;
+            // 
+            // addSongButtonAddAlbum
+            // 
+            this.addSongButtonAddAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addSongButtonAddAlbum.Location = new System.Drawing.Point(520, 196);
+            this.addSongButtonAddAlbum.Name = "addSongButtonAddAlbum";
+            this.addSongButtonAddAlbum.Size = new System.Drawing.Size(32, 28);
+            this.addSongButtonAddAlbum.TabIndex = 6;
+            this.addSongButtonAddAlbum.Text = "...";
+            this.addSongButtonAddAlbum.UseVisualStyleBackColor = true;
+            this.addSongButtonAddAlbum.Click += new System.EventHandler(this.addSongButtonAddAlbum_Click);
             // 
             // AddSong
             // 
             this.AcceptButton = this.addSongButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 331);
+            this.ClientSize = new System.Drawing.Size(579, 331);
             this.Controls.Add(this.addSongPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddSong";

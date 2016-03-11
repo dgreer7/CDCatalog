@@ -40,7 +40,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(69, 21);
+            this.label3.Location = new System.Drawing.Point(69, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 22);
@@ -50,10 +50,10 @@
             // addSongTxtBoxSongGenre
             // 
             this.addSongTxtBoxSongGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongTxtBoxSongGenre.Location = new System.Drawing.Point(52, 56);
+            this.addSongTxtBoxSongGenre.Location = new System.Drawing.Point(2, 43);
             this.addSongTxtBoxSongGenre.Margin = new System.Windows.Forms.Padding(2);
             this.addSongTxtBoxSongGenre.Name = "addSongTxtBoxSongGenre";
-            this.addSongTxtBoxSongGenre.Size = new System.Drawing.Size(155, 27);
+            this.addSongTxtBoxSongGenre.Size = new System.Drawing.Size(262, 27);
             this.addSongTxtBoxSongGenre.TabIndex = 17;
             // 
             // addGenrePanel
@@ -63,13 +63,13 @@
             this.addGenrePanel.Controls.Add(this.addSongTxtBoxSongGenre);
             this.addGenrePanel.Location = new System.Drawing.Point(12, 12);
             this.addGenrePanel.Name = "addGenrePanel";
-            this.addGenrePanel.Size = new System.Drawing.Size(266, 145);
+            this.addGenrePanel.Size = new System.Drawing.Size(266, 121);
             this.addGenrePanel.TabIndex = 19;
             // 
             // addSongButton
             // 
             this.addSongButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongButton.Location = new System.Drawing.Point(52, 97);
+            this.addSongButton.Location = new System.Drawing.Point(56, 87);
             this.addSongButton.Name = "addSongButton";
             this.addSongButton.Size = new System.Drawing.Size(155, 30);
             this.addSongButton.TabIndex = 19;
@@ -82,7 +82,7 @@
             this.AcceptButton = this.addSongButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 173);
+            this.ClientSize = new System.Drawing.Size(290, 146);
             this.Controls.Add(this.addGenrePanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddGenre";
