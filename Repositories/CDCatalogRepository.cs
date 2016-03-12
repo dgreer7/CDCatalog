@@ -55,7 +55,7 @@
                 song.GenreId = genre.GenreId;
                 song.TrackLengthSeconds = songLengthSeconds;
                 song.Rating = songRating;
-                song.AlbumId = album.AlbumId;
+                song.AlbumId = album?.AlbumId;
                 song.TrackNumber = albumTrackNumber;
                                 
                 context.Songs.Add(song);
@@ -193,6 +193,8 @@
                 //TODO: Handle album not found
                 var album = GetAlbumByID(SearchAlbumsByAlbumTitle(albumTitle).First().AlbumId);
                 album.Rating = albumRating;
+
+                context.SaveChanges();
             }
         }
 
@@ -205,8 +207,13 @@
                 if (album == null)
                     song = GetSongByID(SearchSongsBySongTitle(songTitle).First().SongID);
                 else
-                    song = GetSongByID(album.AlbumId);
+                {
+                    var songs = SearchSongsBySongTitle(songTitle);
+                    song = GetSongByID((songs.Where(s => s.AlbumId == album.AlbumId).FirstOrDefault()).SongID);
+                }
                 song.Rating = songRating;
+
+                context.SaveChanges();
             }
         }
     }
