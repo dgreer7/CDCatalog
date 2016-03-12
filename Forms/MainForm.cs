@@ -59,15 +59,18 @@
             if (dialogResult == DialogResult.OK)
             {
                 mainFormDataGridView.DataSource = findGenre.FoundGenres;
-                mainFormDataGridView.Columns.Remove("GenreId");
-                mainFormDataGridView.Columns.Remove("Songs");
                 for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
                 {
-                    string headerName = mainFormDataGridView.Columns[i].HeaderText;
-                    if (headerName == "GenreName")
+                    string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
+                    if (columnHeaderName == "GenreName")
                     {
                         mainFormDataGridView.Columns[i].HeaderText = "Genre Name";
                         mainFormDataGridView.Columns[i].Width = mainFormDataGridView.Width;
+                    }
+                    else
+                    {
+                        mainFormDataGridView.Columns.Remove(columnHeaderName);
+                        i--;
                     }
                 }
             }
@@ -80,18 +83,26 @@
 
             if (dialogResult == DialogResult.OK)
             {
-                //mainFormDataGridView.DataSource = findGenre.FoundGenres;
-                //mainFormDataGridView.Columns.Remove("GenreId");
-                //mainFormDataGridView.Columns.Remove("Songs");
-                //for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
-                //{
-                //    string headerName = mainFormDataGridView.Columns[i].HeaderText;
-                //    if (headerName == "GenreName")
-                //    {
-                //        mainFormDataGridView.Columns[i].HeaderText = "Genre Name";
-                //        mainFormDataGridView.Columns[i].Width = mainFormDataGridView.Width;
-                //    }
-                //}
+                mainFormDataGridView.DataSource = findAlbum.FoundAlbums;
+                //mainFormDataGridView.Columns.           
+                for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
+                {
+                    string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
+                    if (columnHeaderName == "Title" || columnHeaderName == "Year" || columnHeaderName == "Rating" || columnHeaderName == "ArtistName")
+                    {
+                        if (columnHeaderName == "ArtistName")
+                        {
+                            mainFormDataGridView.Columns[i].HeaderText = "Artist";
+                        }
+                            mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    }
+                    else
+                    {
+                        mainFormDataGridView.Columns.Remove(columnHeaderName);
+                        i--;
+                    }
+                    mainFormDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
             }
         }
     }
