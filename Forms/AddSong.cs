@@ -68,8 +68,10 @@
 
                 //use helper to album rating, defaults to 0 if not filled.
                 var rating = formHelper.GetIntFromTextBox(addSongTextBoxRating) != -1 ? formHelper.GetIntFromTextBox(addSongTextBoxRating) : 0;
+                var trackLength = formHelper.GetIntFromTextBox(addSongTextBoxSongLength);
+                var trackNumber = formHelper.GetIntFromTextBox(addSongTextBoxSongTrackNumber);
 
-                repository.CreateSong(addSongTextBoxSongTitle.Text, artist, genre, 120, 0, album, 0);
+                repository.CreateSong(addSongTextBoxSongTitle.Text, artist, genre, trackLength, rating, album, trackNumber);
                 Close();
             }
             else
