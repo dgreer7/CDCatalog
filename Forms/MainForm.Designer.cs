@@ -88,6 +88,7 @@
             this.findAlbumToolStripMenuItem.Name = "findAlbumToolStripMenuItem";
             this.findAlbumToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.findAlbumToolStripMenuItem.Text = "Album";
+            this.findAlbumToolStripMenuItem.Click += new System.EventHandler(this.findAlbumToolStripMenuItem_Click);
             // 
             // findGenreToolStripMenuItem
             // 
@@ -110,28 +111,28 @@
             // addAlbumToolStripMenuItem
             // 
             this.addAlbumToolStripMenuItem.Name = "addAlbumToolStripMenuItem";
-            this.addAlbumToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.addAlbumToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.addAlbumToolStripMenuItem.Text = "Album";
             this.addAlbumToolStripMenuItem.Click += new System.EventHandler(this.albumnToolStripMenuItem1_Click);
             // 
             // addArtistToolStripMenuItem
             // 
             this.addArtistToolStripMenuItem.Name = "addArtistToolStripMenuItem";
-            this.addArtistToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.addArtistToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.addArtistToolStripMenuItem.Text = "Artist";
             this.addArtistToolStripMenuItem.Click += new System.EventHandler(this.artistToolStripMenuItem_Click);
             // 
             // addGenreToolStripMenuItem
             // 
             this.addGenreToolStripMenuItem.Name = "addGenreToolStripMenuItem";
-            this.addGenreToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.addGenreToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.addGenreToolStripMenuItem.Text = "Genre";
             this.addGenreToolStripMenuItem.Click += new System.EventHandler(this.genreToolStripMenuItem1_Click);
             // 
             // addSongToolStripMenuItem
             // 
             this.addSongToolStripMenuItem.Name = "addSongToolStripMenuItem";
-            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.addSongToolStripMenuItem.Text = "Song";
             this.addSongToolStripMenuItem.Click += new System.EventHandler(this.songToolStripMenuItem1_Click);
             // 

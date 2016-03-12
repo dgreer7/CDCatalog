@@ -72,5 +72,27 @@
                 }
             }
         }
+
+        private void findAlbumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var findAlbum = new FindAlbum();
+            var dialogResult = findAlbum.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                //mainFormDataGridView.DataSource = findGenre.FoundGenres;
+                //mainFormDataGridView.Columns.Remove("GenreId");
+                //mainFormDataGridView.Columns.Remove("Songs");
+                //for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
+                //{
+                //    string headerName = mainFormDataGridView.Columns[i].HeaderText;
+                //    if (headerName == "GenreName")
+                //    {
+                //        mainFormDataGridView.Columns[i].HeaderText = "Genre Name";
+                //        mainFormDataGridView.Columns[i].Width = mainFormDataGridView.Width;
+                //    }
+                //}
+            }
+        }
     }
 }
