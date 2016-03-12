@@ -92,7 +92,7 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.Set<Album>().ToList();
+                return context.Albums.OrderBy(a => a.Title).ToList();
             }
         }
 
@@ -108,7 +108,7 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.Set<Genre>().ToList();
+                return context.Genres.OrderBy(g => g.GenreName).ToList();
             }
         }
 
