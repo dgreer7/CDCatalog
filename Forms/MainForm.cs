@@ -84,7 +84,6 @@
             if (dialogResult == DialogResult.OK)
             {
                 mainFormDataGridView.DataSource = findAlbum.FoundAlbums;
-                //mainFormDataGridView.Columns.           
                 for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
                 {
                     string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
@@ -102,6 +101,35 @@
                         i--;
                     }
                     mainFormDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+            }
+        }
+
+        private void findSongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var findSong = new FindSong();
+            var dialogResult = findSong.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                mainFormDataGridView.DataSource = findSong.FoundSongs;
+                for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
+                {
+                    //string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
+                    //if (columnHeaderName == "Title" || columnHeaderName == "Year" || columnHeaderName == "Rating" || columnHeaderName == "ArtistName")
+                    //{
+                    //    if (columnHeaderName == "ArtistName")
+                    //    {
+                    //        mainFormDataGridView.Columns[i].HeaderText = "Artist";
+                    //    }
+                    //    mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    //}
+                    //else
+                    //{
+                    //    mainFormDataGridView.Columns.Remove(columnHeaderName);
+                    //    i--;
+                    //}
+                    //mainFormDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
         }

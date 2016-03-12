@@ -116,6 +116,12 @@
     <Compile Include="Forms\FindGenre.Designer.cs">
       <DependentUpon>FindGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FindSong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FindSong.Designer.cs">
+      <DependentUpon>FindSong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\CDCatalogRepository.cs" />
     <Compile Include="Connector.cs" />
     <Compile Include="Repositories\ICDCatalogRepository.cs" />
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FindGenre.resx">
       <DependentUpon>FindGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FindSong.resx">
+      <DependentUpon>FindSong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OldMainForm.resx">
       <DependentUpon>OldMainForm.cs</DependentUpon>

@@ -82,6 +82,7 @@
             this.findSongToolStripMenuItem.Name = "findSongToolStripMenuItem";
             this.findSongToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.findSongToolStripMenuItem.Text = "Song";
+            this.findSongToolStripMenuItem.Click += new System.EventHandler(this.findSongToolStripMenuItem_Click);
             // 
             // findAlbumToolStripMenuItem
             // 
