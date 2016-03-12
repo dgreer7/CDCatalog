@@ -88,7 +88,7 @@
             this.addSongCheckBoxSongToAlbum.Name = "addSongCheckBoxSongToAlbum";
             this.addSongCheckBoxSongToAlbum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.addSongCheckBoxSongToAlbum.Size = new System.Drawing.Size(183, 26);
-            this.addSongCheckBoxSongToAlbum.TabIndex = 35;
+            this.addSongCheckBoxSongToAlbum.TabIndex = 5;
             this.addSongCheckBoxSongToAlbum.Text = "Add Song to Album";
             this.addSongCheckBoxSongToAlbum.UseVisualStyleBackColor = true;
             this.addSongCheckBoxSongToAlbum.CheckedChanged += new System.EventHandler(this.addSongCheckBoxSong_CheckedChanged);
@@ -99,7 +99,7 @@
             this.addSongButtonAddGenre.Location = new System.Drawing.Point(520, 106);
             this.addSongButtonAddGenre.Name = "addSongButtonAddGenre";
             this.addSongButtonAddGenre.Size = new System.Drawing.Size(32, 28);
-            this.addSongButtonAddGenre.TabIndex = 33;
+            this.addSongButtonAddGenre.TabIndex = 4;
             this.addSongButtonAddGenre.Text = "...";
             this.addSongButtonAddGenre.UseVisualStyleBackColor = true;
             this.addSongButtonAddGenre.Click += new System.EventHandler(this.addSongButtonAddGenre_Click);
@@ -112,7 +112,7 @@
             this.addSongComboBoxGenre.Location = new System.Drawing.Point(144, 106);
             this.addSongComboBoxGenre.Name = "addSongComboBoxGenre";
             this.addSongComboBoxGenre.Size = new System.Drawing.Size(370, 28);
-            this.addSongComboBoxGenre.TabIndex = 32;
+            this.addSongComboBoxGenre.TabIndex = 3;
             // 
             // label3
             // 
@@ -144,7 +144,7 @@
             this.addSongTextBoxSongTrackNumber.MaxLength = 4;
             this.addSongTextBoxSongTrackNumber.Name = "addSongTextBoxSongTrackNumber";
             this.addSongTextBoxSongTrackNumber.Size = new System.Drawing.Size(370, 27);
-            this.addSongTextBoxSongTrackNumber.TabIndex = 4;
+            this.addSongTextBoxSongTrackNumber.TabIndex = 8;
             // 
             // addSongComboBoxAlbum
             // 
@@ -154,7 +154,7 @@
             this.addSongComboBoxAlbum.Location = new System.Drawing.Point(144, 196);
             this.addSongComboBoxAlbum.Name = "addSongComboBoxAlbum";
             this.addSongComboBoxAlbum.Size = new System.Drawing.Size(370, 28);
-            this.addSongComboBoxAlbum.TabIndex = 5;
+            this.addSongComboBoxAlbum.TabIndex = 6;
             // 
             // addSongLabelSongAlbum
             // 
@@ -173,7 +173,7 @@
             this.addSongButtonAddArtist.Location = new System.Drawing.Point(520, 195);
             this.addSongButtonAddArtist.Name = "addSongButtonAddArtist";
             this.addSongButtonAddArtist.Size = new System.Drawing.Size(32, 28);
-            this.addSongButtonAddArtist.TabIndex = 8;
+            this.addSongButtonAddArtist.TabIndex = 7;
             this.addSongButtonAddArtist.Text = "...";
             this.addSongButtonAddArtist.UseVisualStyleBackColor = true;
             this.addSongButtonAddArtist.Click += new System.EventHandler(this.addSongButtonAddArtist_Click);
@@ -218,7 +218,7 @@
             this.addSongTextBoxSongLength.MaxLength = 3;
             this.addSongTextBoxSongLength.Name = "addSongTextBoxSongLength";
             this.addSongTextBoxSongLength.Size = new System.Drawing.Size(370, 27);
-            this.addSongTextBoxSongLength.TabIndex = 3;
+            this.addSongTextBoxSongLength.TabIndex = 2;
             // 
             // label1
             // 
@@ -278,7 +278,7 @@
             this.addSongButtonAddAlbum.Location = new System.Drawing.Point(520, 196);
             this.addSongButtonAddAlbum.Name = "addSongButtonAddAlbum";
             this.addSongButtonAddAlbum.Size = new System.Drawing.Size(32, 28);
-            this.addSongButtonAddAlbum.TabIndex = 6;
+            this.addSongButtonAddAlbum.TabIndex = 7;
             this.addSongButtonAddAlbum.Text = "...";
             this.addSongButtonAddAlbum.UseVisualStyleBackColor = true;
             this.addSongButtonAddAlbum.Click += new System.EventHandler(this.addSongButtonAddAlbum_Click);
