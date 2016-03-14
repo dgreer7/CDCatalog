@@ -193,7 +193,7 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.AlbumViews.Where(a => a.Artist_Name.ToLower() == artistName.ToLower()).ToList();
+                return context.AlbumViews.Where(a => a.Artist_Name.ToLower() == artistName.ToLower()).OrderByDescending(a => a.Rating).ToList();
             }
         }
 
@@ -201,7 +201,7 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.SongViews.Where(s => s.Artist.ToLower() == artistName.ToLower()).ToList();
+                return context.SongViews.Where(s => s.Artist.ToLower() == artistName.ToLower()).OrderByDescending(s => s.Rating).ToList();
             }
         }
 
@@ -209,7 +209,7 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.SongViews.Where(s => s.Genre.ToLower() == genreName.ToLower()).ToList();
+                return context.SongViews.Where(s => s.Genre.ToLower() == genreName.ToLower()).OrderByDescending(s => s.Rating).ToList();
             }
         }
 
