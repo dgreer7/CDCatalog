@@ -6,6 +6,8 @@
 
     class CDCatalogRepository : ICDCatalogRepository
     {
+        private const int playlistMarginInSeconds = 60;
+
         public Album CreateAlbum(string albumTitle, Artist albumArtist, int albumYear, int albumRating)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
@@ -14,7 +16,7 @@
                 album.Title = albumTitle;
                 album.Year = albumYear;
                 album.Rating = albumRating;
-                album.ArtistId =  albumArtist.ArtistId;
+                album.ArtistId = albumArtist.ArtistId;
                 context.Albums.Add(album);
                 context.SaveChanges();
                 return album;
@@ -57,7 +59,7 @@
                 song.Rating = songRating;
                 song.AlbumId = album?.AlbumId;
                 song.TrackNumber = albumTrackNumber;
-                                
+
                 context.Songs.Add(song);
                 context.SaveChanges();
                 return song;
@@ -68,7 +70,50 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                throw new NotImplementedException();
+                var targetLengthInSeconds = lengthMinutes * 60;
+                //Load all songs into a list to work from
+                var fullSongList = GetAllSongs();
+                //Create playlist that will have songs added to it
+                List<Song> playlist = new List<Song>();
+                //Create object to be used for random number generation
+                var rand = new Random();
+                //variable to keep track of playlist length
+                var playlistLengthInSeconds = 0;
+                //variable to insure that infinate loop does not occur
+                var numberOfIterations = 0;
+
+                //Perform functions so long as playlist is under the desired length and there are songs that can still be added
+                while (playlistLengthInSeconds < targetLengthInSeconds - playlistMarginInSeconds && fullSongList.Count != 0)
+                {
+                    //generate index at random
+                    int index = rand.Next(fullSongList.Count);
+                    //add song at that index to playlist
+                    playlist.Add(fullSongList[index]);
+                    //update playlist length accordingly
+                    playlistLengthInSeconds += fullSongList[index].TrackLengthSeconds;
+                    //remove track from song list source
+                    fullSongList.RemoveAt(index);
+
+                    //will remove a random song from the playlist if it is too long
+                    while (playlistLengthInSeconds > targetLengthInSeconds + playlistMarginInSeconds)
+                    {
+                        //generate index at random
+                        index = rand.Next(playlist.Count);
+                        //add song back to list of songs to choose from
+                        fullSongList.Add(playlist[index]);
+                        //remove track length from playlist
+                        playlistLengthInSeconds -= playlist[index].TrackLengthSeconds;
+                        //remove song from playl
+                        playlist.RemoveAt(index);
+                    }
+
+                    numberOfIterations++;
+                    if (numberOfIterations > 999)
+                        break;
+                    
+                }
+
+                return playlist;
             }
         }
 
@@ -109,6 +154,14 @@
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
                 return context.Genres.OrderBy(g => g.GenreName).ToList();
+            }
+        }
+
+        public IList<Song> GetAllSongs()
+        {
+            using (CDCatalogEntities context = new CDCatalogEntities())
+            {
+                return context.Songs.OrderBy(s => s.Rating).ToList();
             }
         }
 

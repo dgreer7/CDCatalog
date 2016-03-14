@@ -133,5 +133,16 @@
                 }
             }
         }
+
+        private void playlistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var createPlaylist = new CreatePlaylist();
+            var dialogResult = createPlaylist.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                mainFormDataGridView.DataSource = createPlaylist.Playlist;
+            }
+        }
     }
 }

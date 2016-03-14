@@ -104,6 +104,12 @@
     <Compile Include="Forms\AddSong.Designer.cs">
       <DependentUpon>AddSong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CreatePlaylist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CreatePlaylist.Designer.cs">
+      <DependentUpon>CreatePlaylist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FindAlbum.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddSong.resx">
       <DependentUpon>AddSong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CreatePlaylist.resx">
+      <DependentUpon>CreatePlaylist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FindAlbum.resx">
       <DependentUpon>FindAlbum.cs</DependentUpon>

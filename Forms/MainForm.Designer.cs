@@ -176,8 +176,9 @@
             // playlistToolStripMenuItem
             // 
             this.playlistToolStripMenuItem.Name = "playlistToolStripMenuItem";
-            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.playlistToolStripMenuItem.Text = "Playlist";
+            this.playlistToolStripMenuItem.Click += new System.EventHandler(this.playlistToolStripMenuItem_Click);
             // 
             // mainFormDataGridView
             // 
