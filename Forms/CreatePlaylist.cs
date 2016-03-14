@@ -23,7 +23,7 @@
         {
             var formHelper = new FormHelper();
 
-            if (formHelper.TextBoxNotNull(new List<TextBox>() { createPlaylistTextBox }))
+            if (formHelper.TextBoxHasContents(createPlaylistTextBox))
             {
                 var songLengthMinutes = formHelper.GetIntFromTextBox(createPlaylistTextBox);
 

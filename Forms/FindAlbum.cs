@@ -45,7 +45,7 @@
         {
             var formHelper = new FormHelper();
 
-            if (findAlbumRadioButtonByAlbumName.Checked && formHelper.TextBoxNotNull(new List<TextBox> { findAlbumTxtBoxAlbumName }))
+            if (findAlbumRadioButtonByAlbumName.Checked && formHelper.TextBoxHasContents(findAlbumTxtBoxAlbumName))
             {
                 FoundAlbums = repository.SearchAlbumsByAlbumTitle(findAlbumTxtBoxAlbumName.Text);
                 if (FoundAlbums.Count == 0)

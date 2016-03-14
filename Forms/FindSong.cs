@@ -60,7 +60,7 @@
         {
             var formHelper = new FormHelper();
 
-            if (findSongRadioButtonBySongTitle.Checked && formHelper.TextBoxNotNull(new List<TextBox> { findSongTextBoxSongTitle }))
+            if (findSongRadioButtonBySongTitle.Checked && formHelper.TextBoxHasContents(findSongTextBoxSongTitle))
             {
                 FoundSongs = repository.SearchSongsBySongTitle(findSongTextBoxSongTitle.Text.Trim());
             }

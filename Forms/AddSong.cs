@@ -57,7 +57,7 @@
             if (addSongTextBoxSongTrackNumber.Visible)
                 requiredFields.Add(addSongTextBoxSongTrackNumber);
 
-            if (formHelper.TextBoxNotNull(requiredFields))
+            if (formHelper.TextBoxHasContents(requiredFields))
             {
                 Artist artist;
                 Album album;

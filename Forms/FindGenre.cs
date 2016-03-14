@@ -23,7 +23,7 @@
         {
             var formHelper = new FormHelper();
 
-            if (formHelper.TextBoxNotNull(new List<TextBox> { FindGenreTextBox }))
+            if (formHelper.TextBoxHasContents(FindGenreTextBox))
             {
                 FoundGenres = repository.SearchGenreByGenreName(FindGenreTextBox.Text);
                 Close();
