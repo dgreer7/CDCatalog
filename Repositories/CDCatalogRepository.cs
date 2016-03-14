@@ -197,6 +197,14 @@
             }
         }
 
+        public IList<Artist> SearchArtistByExactArtistName(string artistName)
+        {
+            using (CDCatalogEntities context = new CDCatalogEntities())
+            {
+                return context.Artists.Where(a => a.ArtistName.ToLower() == artistName.ToLower()).ToList();
+            }
+        }
+
         public IList<SongView> SearchSongsByArtistName(string artistName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())

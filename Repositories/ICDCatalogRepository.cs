@@ -23,9 +23,12 @@
         IList<AlbumView> SearchAlbumsByAlbumTitle(string albumTitle);
         IList<AlbumView> SearchAlbumsByArtistName(string artistName);
 
+        IList<Artist> SearchArtistByExactArtistName(string artistName);
+
         IList<SongView> SearchSongsBySongTitle(string songTitle);
         IList<SongView> SearchSongsByArtistName(string artistName);
         IList<SongView> SearchSongsByGenreName(string genreName);
+
         IList<Genre> SearchGenreByGenreName(string genreName);
 
         IList<AlbumView> GetAllAlbums();
