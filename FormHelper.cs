@@ -43,7 +43,6 @@
             }
             catch (Exception)
             {
-                MessageBox.Show("Value provided must be a number.");
                 return -1;
             }
             
