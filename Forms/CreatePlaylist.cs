@@ -6,7 +6,7 @@
 
     public partial class CreatePlaylist : Form
     {
-        public IList<Song> Playlist { get; private set; }
+        public IList<SongView> Playlist { get; private set; }
 
         CDCatalogRepository repository = new CDCatalogRepository();
 

@@ -63,7 +63,7 @@
             this.generateToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(488, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(830, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -209,14 +209,14 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.mainFormDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.mainFormDataGridView.Size = new System.Drawing.Size(488, 341);
+            this.mainFormDataGridView.Size = new System.Drawing.Size(830, 341);
             this.mainFormDataGridView.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 373);
+            this.ClientSize = new System.Drawing.Size(830, 373);
             this.Controls.Add(this.mainFormDataGridView);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

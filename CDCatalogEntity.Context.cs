@@ -19,7 +19,6 @@ namespace CDCatalog
             : base("name=CDCatalogEntities")
         {
             this.Configuration.LazyLoadingEnabled = false;
-            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -31,5 +30,7 @@ namespace CDCatalog
         public virtual DbSet<Artist> Artists { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<Song> Songs { get; set; }
+        public virtual DbSet<AlbumView> AlbumViews { get; set; }
+        public virtual DbSet<SongView> SongViews { get; set; }
     }
 }

@@ -8,7 +8,7 @@
     public partial class FindAlbum : Form
     {
         CDCatalogRepository repository = new CDCatalogRepository();
-        public IList<Album> FoundAlbums { get; private set; }
+        public IList<AlbumView> FoundAlbums { get; private set; }
 
         public FindAlbum()
         {

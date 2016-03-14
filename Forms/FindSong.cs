@@ -8,7 +8,7 @@
     public partial class FindSong : Form
     {
         CDCatalogRepository repository = new CDCatalogRepository();
-        public IList<Song> FoundSongs { get; private set; }
+        public IList<SongView> FoundSongs { get; private set; }
 
         public FindSong()
         {

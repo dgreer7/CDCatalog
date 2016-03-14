@@ -66,7 +66,7 @@
             }
         }
 
-        public IList<Song> GeneratePlaylist(int lengthMinutes)
+        public IList<SongView> GeneratePlaylist(int lengthMinutes)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -74,7 +74,7 @@
                 //Load all songs into a list to work from
                 var fullSongList = GetAllSongs();
                 //Create playlist that will have songs added to it
-                List<Song> playlist = new List<Song>();
+                var playlist = new List<SongView>();
                 //Create object to be used for random number generation
                 var rand = new Random();
                 //variable to keep track of playlist length
@@ -90,7 +90,7 @@
                     //add song at that index to playlist
                     playlist.Add(fullSongList[index]);
                     //update playlist length accordingly
-                    playlistLengthInSeconds += fullSongList[index].TrackLengthSeconds;
+                    playlistLengthInSeconds += fullSongList[index].Track_Length_Seconds;
                     //remove track from song list source
                     fullSongList.RemoveAt(index);
 
@@ -102,7 +102,7 @@
                         //add song back to list of songs to choose from
                         fullSongList.Add(playlist[index]);
                         //remove track length from playlist
-                        playlistLengthInSeconds -= playlist[index].TrackLengthSeconds;
+                        playlistLengthInSeconds -= playlist[index].Track_Length_Seconds;
                         //remove song from playl
                         playlist.RemoveAt(index);
                     }
@@ -133,11 +133,11 @@
             }
         }
 
-        public IList<Album> GetAllAlbums()
+        public IList<AlbumView> GetAllAlbums()
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.Albums.OrderBy(a => a.Title).ToList();
+                return context.AlbumViews.OrderBy(a => a.Title).ToList();
             }
         }
 
@@ -157,11 +157,11 @@
             }
         }
 
-        public IList<Song> GetAllSongs()
+        public IList<SongView> GetAllSongs()
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.Songs.OrderBy(s => s.Rating).ToList();
+                return context.SongViews.OrderBy(s => s.Rating).ToList();
             }
         }
 
@@ -181,53 +181,43 @@
             }
         }
 
-        public IList<Album> SearchAlbumsByAlbumTitle(string albumTitle)
+        public IList<AlbumView> SearchAlbumsByAlbumTitle(string albumTitle)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.Albums.Where(a => a.Title.ToLower() == albumTitle.ToLower()).ToList();
+                return context.AlbumViews.Where(a => a.Title.ToLower().Contains(albumTitle.ToLower())).OrderByDescending(a => a.Rating).ToList();
             }
         }
 
-        public IList<Album> SearchAlbumsByArtistName(string artistName)
+        public IList<AlbumView> SearchAlbumsByArtistName(string artistName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.Albums.Where(a => a.Artist.ArtistName.ToLower() == artistName.ToLower()).ToList();
+                return context.AlbumViews.Where(a => a.Artist_Name.ToLower() == artistName.ToLower()).ToList();
             }
         }
 
-        public IList<Album> SearchAlbumsByGenreName(string genreName)
+        public IList<SongView> SearchSongsByArtistName(string artistName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                //will require modificaiton to db as Album doesn't have genere property
-                //Is this needed??
-                throw new NotImplementedException();
+                return context.SongViews.Where(s => s.Artist.ToLower() == artistName.ToLower()).ToList();
             }
         }
 
-        public IList<Song> SearchSongsByArtistName(string artistName)
+        public IList<SongView> SearchSongsByGenreName(string genreName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.Songs.Where(s => s.Artist.ArtistName.ToLower() == artistName.ToLower()).ToList();
+                return context.SongViews.Where(s => s.Genre.ToLower() == genreName.ToLower()).ToList();
             }
         }
 
-        public IList<Song> SearchSongsByGenreName(string genreName)
+        public IList<SongView> SearchSongsBySongTitle(string songTitle)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.Songs.Where(s => s.Genre.GenreName.ToLower() == genreName.ToLower()).ToList();
-            }
-        }
-
-        public IList<Song> SearchSongsBySongTitle(string songTitle)
-        {
-            using (CDCatalogEntities context = new CDCatalogEntities())
-            {
-                return context.Songs.Where(s => s.Title.ToLower() == songTitle.ToLower()).ToList();
+                return context.SongViews.Where(s => s.Title.ToLower().Contains(songTitle.ToLower())).OrderByDescending(s => s.Rating).ToList();
             }
         }
 
@@ -262,7 +252,7 @@
                 else
                 {
                     var songs = SearchSongsBySongTitle(songTitle);
-                    song = GetSongByID((songs.Where(s => s.AlbumId == album.AlbumId).FirstOrDefault()).SongID);
+                    song = GetSongByID((songs.Where(s => s.Album == album.Title).FirstOrDefault()).SongID);
                 }
                 song.Rating = songRating;
 

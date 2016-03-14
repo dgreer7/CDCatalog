@@ -18,7 +18,7 @@
         private void KeepDataGridSizedWithWindow()
         {
             mainFormDataGridView.Width = ClientSize.Width;
-            mainFormDataGridView.Height = ClientSize.Height;
+            mainFormDataGridView.Height = ClientSize.Height-menuStrip1.Height;
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -87,9 +87,9 @@
                 for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
                 {
                     string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
-                    if (columnHeaderName == "Title" || columnHeaderName == "Year" || columnHeaderName == "Rating" || columnHeaderName == "ArtistName")
+                    if (columnHeaderName == "Title" || columnHeaderName == "Year" || columnHeaderName == "Rating" || columnHeaderName == "Artist_Name")
                     {
-                        if (columnHeaderName == "ArtistName")
+                        if (columnHeaderName == "Artist_Name")
                         {
                             mainFormDataGridView.Columns[i].HeaderText = "Artist";
                         }
@@ -113,23 +113,31 @@
             if (dialogResult == DialogResult.OK)
             {
                 mainFormDataGridView.DataSource = findSong.FoundSongs;
+                var titleHeaderIndex = 0;
+
                 for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
                 {
-                    //string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
-                    //if (columnHeaderName == "Title" || columnHeaderName == "Year" || columnHeaderName == "Rating" || columnHeaderName == "ArtistName")
-                    //{
-                    //    if (columnHeaderName == "ArtistName")
-                    //    {
-                    //        mainFormDataGridView.Columns[i].HeaderText = "Artist";
-                    //    }
-                    //    mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                    //}
-                    //else
-                    //{
-                    //    mainFormDataGridView.Columns.Remove(columnHeaderName);
-                    //    i--;
-                    //}
-                    //mainFormDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    
+                    if (mainFormDataGridView.Columns[i].HeaderText == "Track_Length_Seconds")
+                    {
+                        mainFormDataGridView.Columns[i].HeaderText = "Length (Sec)";
+                    }
+
+                    string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
+
+                    if (columnHeaderName == "SongID")
+                    {
+                        mainFormDataGridView.Columns.Remove(columnHeaderName);
+                        i--;
+                    }
+
+                    else if (columnHeaderName == "Title")
+                        titleHeaderIndex = i;
+
+                    else
+                        mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+                    mainFormDataGridView.Columns[titleHeaderIndex].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
         }

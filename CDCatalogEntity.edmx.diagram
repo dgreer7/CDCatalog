@@ -13,6 +13,8 @@
         <AssociationConnector Association="CDCatalogModel.FK_Song_Album" ManuallyRouted="false" />
         <AssociationConnector Association="CDCatalogModel.FK_Song_Artist" ManuallyRouted="false" />
         <AssociationConnector Association="CDCatalogModel.FK_Song_Genre" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CDCatalogModel.AlbumView" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CDCatalogModel.SongView" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
