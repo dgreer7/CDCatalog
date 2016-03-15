@@ -9,6 +9,7 @@
     {
         public Album CreatedAlbum { get; private set; }
         CDCatalogRepository repository = new CDCatalogRepository();
+        FormHelper formHelper = new FormHelper();
 
         public AddAlbum()
         {
@@ -32,49 +33,11 @@
         private void addAlbumButton_Click(object sender, System.EventArgs e)
         {
             //using FormHelper, validate that required fileds are filled with data
-            var formHelper = new FormHelper();
+
             var requiredFields = new List<TextBox> { addAlbumTxtBoxAlbumName, addAlbumTextBoxAlbumYear };
-            var formDataValid = true;
+            int year, rating;
 
-            if (!formHelper.TextBoxHasContents(addAlbumTxtBoxAlbumName))
-            {
-                MessageBox.Show("Please enter an album name.", "Input validation error");
-                addAlbumTxtBoxAlbumName.Focus();
-                formDataValid = false;
-            }
-
-            if (!formHelper.TextBoxHasContents(addAlbumTextBoxAlbumYear))
-            {
-                MessageBox.Show("Please enter the year the album was released.", "Input validation error");
-                addAlbumTextBoxAlbumYear.Focus();
-                formDataValid = false;
-            }
-
-            var year = 0;
-            if (formHelper.TextBoxHasContents(addAlbumTextBoxAlbumYear))
-            {
-                //Validate that year textbox contains an int which is not before 1878 and not after this year
-                if (!int.TryParse(addAlbumTextBoxAlbumYear.Text.Trim(), out year) || year < 1878 || year > System.DateTime.Today.Year)
-                {
-                    MessageBox.Show("Please enter a valid year.", "Input validation error");
-                    addAlbumTextBoxAlbumYear.Focus();
-                    formDataValid = false;
-                }
-            }
-
-            var rating = 0;
-            if (formHelper.TextBoxHasContents(addAlbumTextBoxRating))
-            {
-                //Validate that if rating field contains data, it is within 1 and 5.
-                if (!int.TryParse(addAlbumTextBoxRating.Text.Trim(), out rating) || rating > 5 || rating < 1)
-                {
-                    MessageBox.Show("Rating can only be between 1 and 5", "Input validation error");
-                    addAlbumTextBoxRating.Focus();
-                    formDataValid = false;
-                }
-            }
-
-            if (formDataValid)
+            if (IsFormDataValid(out year, out rating))
             {
                 //pulls the selected artist from the dropdown
                 var artist = (Artist)addAlbumComboBoxArtist.SelectedItem;
@@ -106,6 +69,57 @@
                 InitializeArtistComboBox();
                 addAlbumComboBoxArtist.SelectedValue = addArtist.CreatedArtist.ArtistId;
             }
+        }
+
+        /// <summary>
+        /// Will check that all forms required for creating an album contain valid data.
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="rating"></param>
+        /// <returnsBoolean></returns>
+        private bool IsFormDataValid(out int year, out int rating)
+        {
+            var formDataValid = true;
+            //Using FormHelper to check that textbox contains a name.
+            if (!formHelper.TextBoxHasContents(addAlbumTxtBoxAlbumName))
+            {
+                MessageBox.Show("Please enter an album name.", "Input validation error");
+                addAlbumTxtBoxAlbumName.Focus();
+                formDataValid = false;
+            }
+
+            if (!formHelper.TextBoxHasContents(addAlbumTextBoxAlbumYear))
+            {
+                MessageBox.Show("Please enter the year the album was released.", "Input validation error");
+                addAlbumTextBoxAlbumYear.Focus();
+                formDataValid = false;
+            }
+
+            year = 0;
+            if (formHelper.TextBoxHasContents(addAlbumTextBoxAlbumYear))
+            {
+                //Validate that year textbox contains an int which is not before 1878 and not after this year
+                if (!int.TryParse(addAlbumTextBoxAlbumYear.Text.Trim(), out year) || year < 1878 || year > System.DateTime.Today.Year)
+                {
+                    MessageBox.Show("Please enter a valid year.", "Input validation error");
+                    addAlbumTextBoxAlbumYear.Focus();
+                    formDataValid = false;
+                }
+            }
+
+            rating = 0;
+            if (formHelper.TextBoxHasContents(addAlbumTextBoxRating))
+            {
+                //Validate that if rating field contains data, it is within 1 and 5.
+                if (!int.TryParse(addAlbumTextBoxRating.Text.Trim(), out rating) || rating > 5 || rating < 1)
+                {
+                    MessageBox.Show("Rating can only be between 1 and 5", "Input validation error");
+                    addAlbumTextBoxRating.Focus();
+                    formDataValid = false;
+                }
+            }
+
+            return formDataValid;
         }
     }
 }
