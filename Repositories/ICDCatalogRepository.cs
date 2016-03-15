@@ -32,7 +32,7 @@
 
         IList<Genre> SearchGenreByGenreName(string genreName);
 
-        IList<AlbumView> GetAllAlbums();
+        IList<Album> GetAllAlbums();
         IList<Artist> GetAllArtists();
         IList<Genre> GetAllGenres();
         IList<SongView> GetAllSongs();

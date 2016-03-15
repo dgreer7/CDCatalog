@@ -1,12 +1,14 @@
 ﻿namespace CDCatalog.Forms
 {
     using CDCatalog.Repository;
-    using System.Collections.Generic;
     using System.Windows.Forms;
 
     public partial class AddSong : Form
     {
         CDCatalogRepository repository = new CDCatalogRepository();
+        FormHelper formHelper = new FormHelper();
+        private const int MINSONGLENGTH = 20;
+        private const int MAXSONGLENGTH = 999;
 
         public AddSong()
         {
@@ -50,38 +52,72 @@
 
         private void addSongButton_Click(object sender, System.EventArgs e)
         {
-            //using FormHelper, validate that required fileds are filled with data
-            var formHelper = new FormHelper();
-            var requiredFields = new List<TextBox> { addSongTextBoxSongTitle, addSongTextBoxSongLength };
-
-            if (addSongTextBoxSongTrackNumber.Visible)
-                requiredFields.Add(addSongTextBoxSongTrackNumber);
-
-            if (formHelper.TextBoxHasContents(requiredFields))
+            int rating, songLength, trackNumber;
+            if (IsFormDataValid(out rating, out songLength, out trackNumber))
             {
                 Artist artist;
                 Album album;
                 var genre = (Genre)addSongComboBoxGenre.SelectedItem;
 
-                
                 GetArtistAndAlbum(out artist, out album);
 
-                //use helper to album rating, defaults to 0 if not filled.
-                var rating = formHelper.GetIntFromTextBox(addSongTextBoxRating) != -1 ? formHelper.GetIntFromTextBox(addSongTextBoxRating) : 0;
-                var trackLength = formHelper.GetIntFromTextBox(addSongTextBoxSongLength);
-                var trackNumber = formHelper.GetIntFromTextBox(addSongTextBoxSongTrackNumber);
-
-                repository.CreateSong(addSongTextBoxSongTitle.Text, artist, genre, trackLength, rating, album, trackNumber);
+                repository.CreateSong(addSongTextBoxSongTitle.Text, artist, genre, songLength, rating, album, trackNumber);
                 Close();
             }
-            else
+        }
+
+        private bool IsFormDataValid(out int rating, out int songLength, out int trackNumber)
+        {
+            var formDataValid = true;
+
+            //Data validation for song title textbox
+            if (!formHelper.TextBoxHasContents(addSongTextBoxSongTitle))
             {
-                addSongLabelSongTitle.ForeColor = System.Drawing.Color.Red;
-                addSongLabelSongLength.ForeColor = System.Drawing.Color.Red;
-                if (addSongTextBoxSongTrackNumber.Visible)
-                    addSongLabelSongTrackNumber.ForeColor = System.Drawing.Color.Red;
-                MessageBox.Show("Required field missing.");
+                MessageBox.Show("Please enter a song name.", "Input validation error");
+                addSongTextBoxSongTitle.Focus();
+                formDataValid = false;
             }
+
+            //Data validation for song length
+            if (!formHelper.TextBoxHasContents(addSongTextBoxSongLength))
+            {
+                MessageBox.Show("Please enter the song length in seconds.", "Input validation error");
+                addSongTextBoxSongLength.Focus();
+                formDataValid = false;
+            }
+
+            //Data validation for track number if adding to album
+            trackNumber = 0;
+            if (addSongTextBoxSongTrackNumber.Visible && !formHelper.TextBoxHasContents(addSongTextBoxSongTrackNumber) 
+                && int.TryParse(addSongTextBoxSongTrackNumber.Text.Trim(), out trackNumber) && trackNumber == 0)
+            {
+                MessageBox.Show("Please enter the track number which must be greater than 0.", "Input validation error");
+                addSongTextBoxSongTrackNumber.Focus();
+                formDataValid = false;
+            }
+
+            //Validate that if song length field contains data as is withing app config set mins and max.
+            songLength = 0;
+            if (!formHelper.TextBoxHasContents(addSongTextBoxSongLength) || !int.TryParse(addSongTextBoxSongLength.Text.Trim(), out songLength) || songLength < MINSONGLENGTH || songLength > MAXSONGLENGTH)
+            {
+                MessageBox.Show(string.Format("Song length can only be between {0} and {1} seconds.", MINSONGLENGTH, MAXSONGLENGTH), "Input validation error");
+                addSongTextBoxSongLength.Focus();
+                formDataValid = false;
+            }
+
+            rating = 0;
+            if (formHelper.TextBoxHasContents(addSongTextBoxRating))
+            {
+                //Validate that if rating field contains data, it is within 1 and 5.
+                if (!int.TryParse(addSongTextBoxRating.Text.Trim(), out rating) || rating > 5 || rating < 1)
+                {
+                    MessageBox.Show("Rating can only be between 1 and 5", "Input validation error");
+                    addSongTextBoxRating.Focus();
+                    formDataValid = false;
+                }
+            }
+
+            return formDataValid;
         }
 
         private void GetArtistAndAlbum(out Artist artist, out Album album)

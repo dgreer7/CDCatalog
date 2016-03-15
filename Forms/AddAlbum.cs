@@ -30,47 +30,6 @@
             addAlbumComboBoxArtist.ValueMember = "ArtistId";
         }
 
-        private void addAlbumButton_Click(object sender, System.EventArgs e)
-        {
-            //using FormHelper, validate that required fileds are filled with data
-
-            var requiredFields = new List<TextBox> { addAlbumTxtBoxAlbumName, addAlbumTextBoxAlbumYear };
-            int year, rating;
-
-            if (IsFormDataValid(out year, out rating))
-            {
-                //pulls the selected artist from the dropdown
-                var artist = (Artist)addAlbumComboBoxArtist.SelectedItem;
-                var newAlbum = addAlbumTxtBoxAlbumName.Text.Trim();
-                //check if album with above artist already exists before adding a new one
-                var albums = repository.SearchAlbumsByAlbumTitleExclusive(newAlbum);
-                //check if matching album name also has a matching artist name
-                var albumsWithMatchingArtist = albums.Where(a => a.Artist_Name == artist.ArtistName).ToList();
-                if (albums.Count == 0 || albumsWithMatchingArtist.Count == 0)
-                {
-                    CreatedAlbum = repository.CreateAlbum(newAlbum, artist, year, rating);
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("You wanted to add " + newAlbum + ", but " + albums[0].Title + " by " + albumsWithMatchingArtist.First().Artist_Name + " already exsists.", "Album/aritst must be unique");
-                    addAlbumTxtBoxAlbumName.Focus();
-                }
-            }
-        }
-
-        private void addAlbumButtonAddArtist_Click(object sender, System.EventArgs e)
-        {
-            var addArtist = new AddArtist();
-            addArtist.ShowDialog();
-
-            if (addArtist.CreatedArtist != null)
-            {
-                InitializeArtistComboBox();
-                addAlbumComboBoxArtist.SelectedValue = addArtist.CreatedArtist.ArtistId;
-            }
-        }
-
         /// <summary>
         /// Will check that all forms required for creating an album contain valid data.
         /// </summary>
@@ -120,6 +79,47 @@
             }
 
             return formDataValid;
+        }
+
+        private void addAlbumButton_Click(object sender, System.EventArgs e)
+        {
+            //using FormHelper, validate that required fileds are filled with data
+
+            var requiredFields = new List<TextBox> { addAlbumTxtBoxAlbumName, addAlbumTextBoxAlbumYear };
+            int year, rating;
+
+            if (IsFormDataValid(out year, out rating))
+            {
+                //pulls the selected artist from the dropdown
+                var artist = (Artist)addAlbumComboBoxArtist.SelectedItem;
+                var newAlbum = addAlbumTxtBoxAlbumName.Text.Trim();
+                //check if album with above artist already exists before adding a new one
+                var albums = repository.SearchAlbumsByAlbumTitleExclusive(newAlbum);
+                //check if matching album name also has a matching artist name
+                var albumsWithMatchingArtist = albums.Where(a => a.Artist_Name == artist.ArtistName).ToList();
+                if (albums.Count == 0 || albumsWithMatchingArtist.Count == 0)
+                {
+                    CreatedAlbum = repository.CreateAlbum(newAlbum, artist, year, rating);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("You wanted to add " + newAlbum + ", but " + albums[0].Title + " by " + albumsWithMatchingArtist.First().Artist_Name + " already exsists.", "Album/aritst must be unique");
+                    addAlbumTxtBoxAlbumName.Focus();
+                }
+            }
+        }
+
+        private void addAlbumButtonAddArtist_Click(object sender, System.EventArgs e)
+        {
+            var addArtist = new AddArtist();
+            addArtist.ShowDialog();
+
+            if (addArtist.CreatedArtist != null)
+            {
+                InitializeArtistComboBox();
+                addAlbumComboBoxArtist.SelectedValue = addArtist.CreatedArtist.ArtistId;
+            }
         }
     }
 }

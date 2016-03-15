@@ -133,11 +133,11 @@
             }
         }
 
-        public IList<AlbumView> GetAllAlbums()
+        public IList<Album> GetAllAlbums()
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.AlbumViews.OrderBy(a => a.Title).ToList();
+                return context.Albums.OrderBy(a => a.Title).ToList();
             }
         }
 
