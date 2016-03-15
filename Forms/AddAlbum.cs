@@ -2,6 +2,7 @@
 {
     using CDCatalog.Repository;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Windows.Forms;
 
     public partial class AddAlbum : Form
@@ -32,7 +33,7 @@
         {
             //using FormHelper, validate that required fileds are filled with data
             var formHelper = new FormHelper();
-            var requiredFields = new List<TextBox> {addAlbumTxtBoxAlbumName, addAlbumTextBoxAlbumYear};
+            var requiredFields = new List<TextBox> { addAlbumTxtBoxAlbumName, addAlbumTextBoxAlbumYear };
             var formDataValid = true;
 
             if (!formHelper.TextBoxHasContents(addAlbumTxtBoxAlbumName))
@@ -48,7 +49,7 @@
                 addAlbumTextBoxAlbumYear.Focus();
                 formDataValid = false;
             }
-            
+
             var year = 0;
             if (formHelper.TextBoxHasContents(addAlbumTextBoxAlbumYear))
             {
@@ -77,10 +78,21 @@
             {
                 //pulls the selected artist from the dropdown
                 var artist = (Artist)addAlbumComboBoxArtist.SelectedItem;
-
-                //TODO: check if album with above artist already exists before entering
-                CreatedAlbum = repository.CreateAlbum(addAlbumTxtBoxAlbumName.Text.Trim(), artist, year, rating);
-                Close();
+                var newAlbum = addAlbumTxtBoxAlbumName.Text.Trim();
+                //check if album with above artist already exists before adding a new one
+                var albums = repository.SearchAlbumsByAlbumTitleExclusive(newAlbum);
+                //check if matching album name also has a matching artist name
+                var albumsWithMatchingArtist = albums.Where(a => a.Artist_Name == artist.ArtistName).ToList();
+                if (albums.Count == 0 || albumsWithMatchingArtist.Count == 0)
+                {
+                    CreatedAlbum = repository.CreateAlbum(newAlbum, artist, year, rating);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("You wanted to add " + newAlbum + ", but " + albums[0].Title + " by " + albumsWithMatchingArtist.First().Artist_Name + " already exsists.", "Album/aritst must be unique");
+                    addAlbumTxtBoxAlbumName.Focus();
+                }
             }
         }
 
@@ -88,7 +100,7 @@
         {
             var addArtist = new AddArtist();
             addArtist.ShowDialog();
-            
+
             if (addArtist.CreatedArtist != null)
             {
                 InitializeArtistComboBox();

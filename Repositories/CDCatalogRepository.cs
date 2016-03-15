@@ -189,6 +189,14 @@
             }
         }
 
+        public IList<AlbumView> SearchAlbumsByAlbumTitleExclusive(string albumTitle)
+        {
+            using (CDCatalogEntities context = new CDCatalogEntities())
+            {
+                return context.AlbumViews.Where(a => a.Title.ToLower() == albumTitle.ToLower()).OrderByDescending(a => a.Rating).ToList();
+            }
+        }
+
         public IList<AlbumView> SearchAlbumsByArtistName(string artistName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
