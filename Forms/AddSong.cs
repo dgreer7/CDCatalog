@@ -1,6 +1,7 @@
 ﻿namespace CDCatalog.Forms
 {
     using CDCatalog.Repository;
+    using System.Linq;
     using System.Windows.Forms;
 
     public partial class AddSong : Form
@@ -57,12 +58,27 @@
             {
                 Artist artist;
                 Album album;
+                var songTitle = addSongTextBoxSongTitle.Text;
                 var genre = (Genre)addSongComboBoxGenre.SelectedItem;
 
                 GetArtistAndAlbum(out artist, out album);
-
-                repository.CreateSong(addSongTextBoxSongTitle.Text, artist, genre, songLength, rating, album, trackNumber);
-                Close();
+                //Get any possible matching songs with the same name
+                var songs = repository.SearchSongsBySongTitleExclusive(songTitle);
+                //If there were any song matches, determine if they have same artist
+                var songsWithMatchingArtist = songs.Where(s => s.Artist == artist.ArtistName).ToList();
+                //will not add song if same name with same artist has been found
+                if (songsWithMatchingArtist.Count == 0)
+                {
+                    repository.CreateSong(songTitle, artist, genre, songLength, rating, album, trackNumber);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("You wanted to add {0}, but {1} by {2} already exists.", 
+                        songTitle, songsWithMatchingArtist.First().Title, songsWithMatchingArtist.First().Artist),
+                        "Song/aritst must be unique");
+                    addSongTextBoxSongTitle.Focus();
+                }
             }
         }
 

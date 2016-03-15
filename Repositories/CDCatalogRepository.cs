@@ -237,6 +237,14 @@
             }
         }
 
+        public IList<SongView> SearchSongsBySongTitleExclusive(string songTitle)
+        {
+            using (CDCatalogEntities context = new CDCatalogEntities())
+            {
+                return context.SongViews.Where(s => s.Title.ToLower() == songTitle.ToLower()).OrderByDescending(s => s.Rating).ToList();
+            }
+        }
+
         public IList<Genre> SearchGenreByGenreName(string genreName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())

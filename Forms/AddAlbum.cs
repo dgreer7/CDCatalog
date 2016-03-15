@@ -97,14 +97,17 @@
                 var albums = repository.SearchAlbumsByAlbumTitleExclusive(newAlbum);
                 //check if matching album name also has a matching artist name
                 var albumsWithMatchingArtist = albums.Where(a => a.Artist_Name == artist.ArtistName).ToList();
-                if (albums.Count == 0 || albumsWithMatchingArtist.Count == 0)
+                //will not add album if same name with same artist has been found
+                if (albumsWithMatchingArtist.Count == 0)
                 {
                     CreatedAlbum = repository.CreateAlbum(newAlbum, artist, year, rating);
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("You wanted to add " + newAlbum + ", but " + albums[0].Title + " by " + albumsWithMatchingArtist.First().Artist_Name + " already exsists.", "Album/aritst must be unique");
+                    MessageBox.Show(string.Format("You wanted to add {0}, but {1} by {2} already exists.",
+                        newAlbum, albumsWithMatchingArtist.First().Title, albumsWithMatchingArtist.First().Artist_Name),
+                        "Album/aritst must be unique");
                     addAlbumTxtBoxAlbumName.Focus();
                 }
             }

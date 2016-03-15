@@ -27,6 +27,7 @@
         IList<Artist> SearchArtistByExactArtistName(string artistName);
 
         IList<SongView> SearchSongsBySongTitle(string songTitle);
+        IList<SongView> SearchSongsBySongTitleExclusive(string songTitle);
         IList<SongView> SearchSongsByArtistName(string artistName);
         IList<SongView> SearchSongsByGenreName(string genreName);
 
