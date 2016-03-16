@@ -21,7 +21,7 @@
         void UpdateAlbumRating(string albumTitle, int albumRating);
 
         IList<AlbumView> SearchAlbumsByAlbumTitle(string albumTitle);
-        IList<AlbumView> SearchAlbumsByAlbumTitleExclusive(string albumTitle);
+        IList<Album> SearchAlbumsByAlbumTitleExclusive(string albumTitle);
         IList<AlbumView> SearchAlbumsByArtistName(string artistName);
 
         IList<Artist> SearchArtistByExactArtistName(string artistName);

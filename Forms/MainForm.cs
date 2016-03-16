@@ -152,5 +152,45 @@
                 mainFormDataGridView.DataSource = createPlaylist.Playlist;
             }
         }
+
+        private void ratingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mainFormDataGridView.RowCount == 0)
+            {
+                MessageBox.Show("Please find either a song or album to update.");
+            }
+            else if (mainFormDataGridView.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Please select the song or album to update.");
+            }
+            else
+            {
+                //will get the type of data stored in the datagridview
+                var selectedValue = mainFormDataGridView.SelectedRows[0].DataBoundItem;
+                if (selectedValue.GetType() == typeof(SongView))
+                {
+                    //case selected line as a SongView
+                    var selectedSong = selectedValue as SongView;
+
+                    var updateSong = new UpdateSong(selectedSong.Title, selectedSong.Album);
+                    var dialogResult = updateSong.ShowDialog();
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        mainFormDataGridView.DataSource = null;
+                        mainFormDataGridView.Rows.Clear();
+                        mainFormDataGridView.Refresh();
+                    }
+                }
+                else if (selectedValue.GetType() == typeof(AlbumView))
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Please find either a song or album to update", "Data validation error"));
+                }
+            }
+        }
     }
 }

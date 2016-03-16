@@ -189,11 +189,11 @@
             }
         }
 
-        public IList<AlbumView> SearchAlbumsByAlbumTitleExclusive(string albumTitle)
+        public IList<Album> SearchAlbumsByAlbumTitleExclusive(string albumTitle)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.AlbumViews.Where(a => a.Title.ToLower() == albumTitle.ToLower()).OrderByDescending(a => a.Rating).ToList();
+                return context.Albums.Where(a => a.Title.ToLower() == albumTitle.ToLower()).OrderByDescending(a => a.Rating).ToList();
             }
         }
 
@@ -269,7 +269,6 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                //TODO: Handle song not found
                 Song song;
                 if (album == null)
                     song = GetSongByID(SearchSongsBySongTitle(songTitle).First().SongID);
@@ -280,6 +279,9 @@
                 }
                 song.Rating = songRating;
 
+                context.Songs.Attach(song);
+                var entry = context.Entry(song);
+                entry.Property(e => e.Rating).IsModified = true;
                 context.SaveChanges();
             }
         }

@@ -43,12 +43,10 @@
             this.addGenreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateAlbumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateGenreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainFormDataGridView = new System.Windows.Forms.DataGridView();
+            this.ratingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainFormDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -140,30 +138,10 @@
             // updateToolStripMenuItem1
             // 
             this.updateToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateSongToolStripMenuItem,
-            this.updateAlbumToolStripMenuItem,
-            this.updateGenreToolStripMenuItem});
+            this.ratingToolStripMenuItem});
             this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
             this.updateToolStripMenuItem1.Size = new System.Drawing.Size(70, 24);
             this.updateToolStripMenuItem1.Text = "Update";
-            // 
-            // updateSongToolStripMenuItem
-            // 
-            this.updateSongToolStripMenuItem.Name = "updateSongToolStripMenuItem";
-            this.updateSongToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
-            this.updateSongToolStripMenuItem.Text = "Song";
-            // 
-            // updateAlbumToolStripMenuItem
-            // 
-            this.updateAlbumToolStripMenuItem.Name = "updateAlbumToolStripMenuItem";
-            this.updateAlbumToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
-            this.updateAlbumToolStripMenuItem.Text = "Album";
-            // 
-            // updateGenreToolStripMenuItem
-            // 
-            this.updateGenreToolStripMenuItem.Name = "updateGenreToolStripMenuItem";
-            this.updateGenreToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
-            this.updateGenreToolStripMenuItem.Text = "Genre";
             // 
             // generateToolStripMenuItem
             // 
@@ -176,7 +154,7 @@
             // playlistToolStripMenuItem
             // 
             this.playlistToolStripMenuItem.Name = "playlistToolStripMenuItem";
-            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.playlistToolStripMenuItem.Text = "Playlist";
             this.playlistToolStripMenuItem.Click += new System.EventHandler(this.playlistToolStripMenuItem_Click);
             // 
@@ -200,6 +178,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.mainFormDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.mainFormDataGridView.Location = new System.Drawing.Point(0, 31);
+            this.mainFormDataGridView.MultiSelect = false;
             this.mainFormDataGridView.Name = "mainFormDataGridView";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -209,8 +188,16 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.mainFormDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.mainFormDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.mainFormDataGridView.Size = new System.Drawing.Size(830, 341);
             this.mainFormDataGridView.TabIndex = 1;
+            // 
+            // ratingToolStripMenuItem
+            // 
+            this.ratingToolStripMenuItem.Name = "ratingToolStripMenuItem";
+            this.ratingToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.ratingToolStripMenuItem.Text = "Rating";
+            this.ratingToolStripMenuItem.Click += new System.EventHandler(this.ratingToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -244,12 +231,10 @@
         private System.Windows.Forms.ToolStripMenuItem addAlbumToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addGenreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem updateSongToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateAlbumToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateGenreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem playlistToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addArtistToolStripMenuItem;
         private System.Windows.Forms.DataGridView mainFormDataGridView;
+        private System.Windows.Forms.ToolStripMenuItem ratingToolStripMenuItem;
     }
 }

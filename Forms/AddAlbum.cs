@@ -96,7 +96,7 @@
                 //check if album with above artist already exists before adding a new one
                 var albums = repository.SearchAlbumsByAlbumTitleExclusive(newAlbum);
                 //check if matching album name also has a matching artist name
-                var albumsWithMatchingArtist = albums.Where(a => a.Artist_Name == artist.ArtistName).ToList();
+                var albumsWithMatchingArtist = albums.Where(a => a.Artist.ArtistName == artist.ArtistName).ToList();
                 //will not add album if same name with same artist has been found
                 if (albumsWithMatchingArtist.Count == 0)
                 {
@@ -106,7 +106,7 @@
                 else
                 {
                     MessageBox.Show(string.Format("You wanted to add {0}, but {1} by {2} already exists.",
-                        newAlbum, albumsWithMatchingArtist.First().Title, albumsWithMatchingArtist.First().Artist_Name),
+                        newAlbum, albumsWithMatchingArtist.First().Title, albumsWithMatchingArtist.First().Artist.ArtistName),
                         "Album/aritst must be unique");
                     addAlbumTxtBoxAlbumName.Focus();
                 }
