@@ -25,7 +25,7 @@
             else
             {
                 var newArtist = addArtistTxtBoxArtistName.Text.Trim();
-                var artists = repository.SearchArtistByExactArtistName(newArtist);
+                var artists = repository.SearchArtistByArtistNameExclusive(newArtist);
 
                 if (artists.Count > 0)
                 {

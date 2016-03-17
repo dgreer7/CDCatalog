@@ -169,7 +169,7 @@
                 var selectedValue = mainFormDataGridView.SelectedRows[0].DataBoundItem;
                 if (selectedValue.GetType() == typeof(SongView))
                 {
-                    //case selected line as a SongView
+                    //cast selected line as a SongView
                     var selectedSong = selectedValue as SongView;
 
                     var updateSong = new UpdateSong(selectedSong.Title, selectedSong.Album);
@@ -177,6 +177,7 @@
 
                     if (dialogResult == DialogResult.OK)
                     {
+                        //Clear the datagridview
                         mainFormDataGridView.DataSource = null;
                         mainFormDataGridView.Rows.Clear();
                         mainFormDataGridView.Refresh();
@@ -184,7 +185,19 @@
                 }
                 else if (selectedValue.GetType() == typeof(AlbumView))
                 {
+                    //cast selected line as a AlbumView
+                    var selectedAlbum = selectedValue as AlbumView;
 
+                    var albumView = new UpdateAlbum(selectedAlbum.Title, selectedAlbum.Artist_Name);
+                    var dialogResult = albumView.ShowDialog();
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        //Clear the datagridview
+                        mainFormDataGridView.DataSource = null;
+                        mainFormDataGridView.Rows.Clear();
+                        mainFormDataGridView.Refresh();
+                    }
                 }
                 else
                 {

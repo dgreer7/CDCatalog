@@ -26,14 +26,15 @@
 
             if (int.TryParse(updateSongTextBox.Text.Trim(), out songRating) && songRating >= 0 && songRating <= 5)
             {
-                var album = repository.SearchAlbumsByAlbumTitleExclusive(AlbumTitleOfSong);
-                repository.UpdateSongRating(SongTitleToUpdate, songRating, album[0]);
+                var albums = repository.SearchAlbumsByAlbumTitleExclusive(AlbumTitleOfSong);
+                repository.UpdateSongRating(SongTitleToUpdate, songRating, albums[0]);
                 Close();
             }
             else
             {
                 MessageBox.Show("Please enter a rating can only be between 1 and 5", "Input validation error");
                 updateSongTextBox.Focus();
+                DialogResult = DialogResult.None;
             }
         }
     }

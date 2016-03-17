@@ -18,13 +18,13 @@
 
         void UpdateSongRating(string songTitle, int songRating, Album album = null);
 
-        void UpdateAlbumRating(string albumTitle, int albumRating);
+        void UpdateAlbumRating(string albumTitle, int albumRating, string artistName = null);
 
         IList<AlbumView> SearchAlbumsByAlbumTitle(string albumTitle);
         IList<Album> SearchAlbumsByAlbumTitleExclusive(string albumTitle);
         IList<AlbumView> SearchAlbumsByArtistName(string artistName);
 
-        IList<Artist> SearchArtistByExactArtistName(string artistName);
+        IList<Artist> SearchArtistByArtistNameExclusive(string artistName);
 
         IList<SongView> SearchSongsBySongTitle(string songTitle);
         IList<SongView> SearchSongsBySongTitleExclusive(string songTitle);

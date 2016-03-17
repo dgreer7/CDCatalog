@@ -205,7 +205,7 @@
             }
         }
 
-        public IList<Artist> SearchArtistByExactArtistName(string artistName)
+        public IList<Artist> SearchArtistByArtistNameExclusive(string artistName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
@@ -253,14 +253,26 @@
             }
         }
 
-        public void UpdateAlbumRating(string albumTitle, int albumRating)
+        public void UpdateAlbumRating(string albumTitle, int albumRating, string artistName = null)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
                 //TODO: Handle album not found
-                var album = GetAlbumByID(SearchAlbumsByAlbumTitle(albumTitle).First().AlbumId);
+                Album album;
+                if (artistName == null)
+                {
+                    album = GetAlbumByID(SearchAlbumsByAlbumTitle(albumTitle).First().AlbumId);
+                }
+                else
+                {
+                    var albums = SearchAlbumsByAlbumTitle(albumTitle).ToList();
+                    album = GetAlbumByID(albums.Where(a => a.Artist_Name == artistName).FirstOrDefault().AlbumId);
+                }
                 album.Rating = albumRating;
 
+                context.Albums.Attach(album);
+                var entry = context.Entry(album);
+                entry.Property(e => e.Rating).IsModified = true;
                 context.SaveChanges();
             }
         }
