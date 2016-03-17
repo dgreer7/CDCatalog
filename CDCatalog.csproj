@@ -147,14 +147,7 @@
       <DependentUpon>CDCatalogEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\CDCatalogRepository.cs" />
-    <Compile Include="Connector.cs" />
     <Compile Include="Repositories\ICDCatalogRepository.cs" />
-    <Compile Include="OldMainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OldMainForm.Designer.cs">
-      <DependentUpon>OldMainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,9 +191,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateSong.resx">
       <DependentUpon>UpdateSong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OldMainForm.resx">
-      <DependentUpon>OldMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
