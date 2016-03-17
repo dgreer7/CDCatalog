@@ -73,7 +73,10 @@
                 FoundSongs = repository.SearchSongsByGenreName(((Genre)findSongComboBoxGenre.SelectedItem).GenreName);
             }
             if (FoundSongs.Count == 0)
+            {
                 MessageBox.Show("Unable to locate any matching songs.");
+                DialogResult = DialogResult.None;
+            }
             else
                 Close();
         }

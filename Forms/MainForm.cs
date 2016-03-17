@@ -37,7 +37,7 @@
 
         }
 
-        private void genreToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void addGenreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -50,7 +50,7 @@
             }
         }
 
-        private void albumnToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void addAlbumToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -64,7 +64,7 @@
 
         }
 
-        private void artistToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addArtistToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {

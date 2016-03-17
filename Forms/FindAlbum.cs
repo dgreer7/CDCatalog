@@ -49,15 +49,21 @@
             {
                 FoundAlbums = repository.SearchAlbumsByAlbumTitle(findAlbumTxtBoxAlbumName.Text);
                 if (FoundAlbums.Count == 0)
+                { 
                     MessageBox.Show("Unable to locate any matching albumns.");
-                else
-                    Close();
+                    DialogResult = DialogResult.None;
+                }
+            else
+                Close();
             }
             else
             {
                 FoundAlbums = repository.SearchAlbumsByArtistName(((Artist)findAlbumComboBoxArtist.SelectedItem).ArtistName);
                 if (FoundAlbums.Count == 0)
+                {
                     MessageBox.Show("Unable to locate any matching albumns.");
+                    DialogResult = DialogResult.None;
+                }
                 else
                     Close();
             }

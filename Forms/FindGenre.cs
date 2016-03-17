@@ -29,7 +29,10 @@
                 Close();
             }
             else
+            {
                 MessageBox.Show("Unable to locate any matching genres.");
+                DialogResult = DialogResult.None;
+            }
 
         }
     }
