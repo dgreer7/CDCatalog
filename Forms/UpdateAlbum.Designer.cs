@@ -72,6 +72,7 @@
             this.updateAlbumTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateAlbumTextBox.Location = new System.Drawing.Point(26, 52);
             this.updateAlbumTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.updateAlbumTextBox.MaxLength = 1;
             this.updateAlbumTextBox.Name = "updateAlbumTextBox";
             this.updateAlbumTextBox.Size = new System.Drawing.Size(127, 27);
             this.updateAlbumTextBox.TabIndex = 0;

@@ -67,7 +67,7 @@
                 else
                     Close();
             }
-                
+                //TODO: Move Close(); to here
         }
     }
 }

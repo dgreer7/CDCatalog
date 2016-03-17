@@ -26,14 +26,21 @@
             if (formHelper.TextBoxHasContents(FindGenreTextBox))
             {
                 FoundGenres = repository.SearchGenreByGenreName(FindGenreTextBox.Text);
-                Close();
+                if (FoundGenres.Count < 0)
+                {
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Unable to locate any matching genres.");
+                    DialogResult = DialogResult.None;
+                }
             }
             else
             {
-                MessageBox.Show("Unable to locate any matching genres.");
+                MessageBox.Show("Please enter a genre.", "Data validation error");
                 DialogResult = DialogResult.None;
             }
-
         }
     }
 }

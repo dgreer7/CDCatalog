@@ -20,7 +20,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Holy cow, I can't believe you managed to screw this up so bad.\n" + ex.GetBaseException().Message, "Thanks a lot!");
+                MessageBox.Show("Holy cow, I can't believe you managed to screw this up this bad.\n" + ex.GetBaseException().Message, "Thanks a lot!");
             }
         }
     }
