@@ -1,6 +1,7 @@
 ﻿namespace CDCatalog.Forms
 {
     using CDCatalog.Repository;
+    using System.Configuration;
     using System.Linq;
     using System.Windows.Forms;
 
@@ -8,8 +9,10 @@
     {
         CDCatalogRepository repository = new CDCatalogRepository();
         FormHelper formHelper = new FormHelper();
-        private const int MINSONGLENGTH = 20;
-        private const int MAXSONGLENGTH = 999;
+
+        //Pulls configuration from app.config as whether to allow songs without an album to be added.
+        bool allowSongWithoutAlbum = bool.Parse(ConfigurationManager.AppSettings["AllowSongWithoutAlbum"]);
+
 
         public AddSong()
         {
@@ -17,6 +20,8 @@
             InitializeGenreComboBox();
             InitializeAlbumComboBox();
             InitializeArtistComboBox();
+            //Uses configuration to show/hide option to add song without album
+            addSongCheckBoxSongToAlbum.Visible = allowSongWithoutAlbum;
             addSongComboBoxArtist.Visible = false;
             addSongLabelSongArtist.Visible = false;
             addSongButtonAddArtist.Visible = false;
@@ -84,6 +89,13 @@
 
         private bool IsFormDataValid(out int rating, out int songLength, out int trackNumber)
         {
+            int minSongLength, maxSongLength;
+            if (!int.TryParse(ConfigurationManager.AppSettings["MinSongLength"], out minSongLength))
+                minSongLength = 20;
+            if (!int.TryParse(ConfigurationManager.AppSettings["MaxSongLength"], out maxSongLength))
+                maxSongLength = 20;
+
+
             var formDataValid = true;
 
             //Data validation for song title textbox
@@ -102,10 +114,10 @@
                 formDataValid = false;
             }
 
-            //Data validation for track number if adding to album
+            //Data validation for track number if visible, valid number contained in the text field, and it's is not zero.
             trackNumber = 0;
-            if (addSongTextBoxSongTrackNumber.Visible && !formHelper.TextBoxHasContents(addSongTextBoxSongTrackNumber) 
-                && int.TryParse(addSongTextBoxSongTrackNumber.Text.Trim(), out trackNumber) && trackNumber == 0)
+            if (addSongTextBoxSongTrackNumber.Visible 
+                && !int.TryParse(addSongTextBoxSongTrackNumber.Text.Trim(), out trackNumber) || trackNumber == 0)
             {
                 MessageBox.Show("Please enter the track number which must be greater than 0.", "Input validation error");
                 addSongTextBoxSongTrackNumber.Focus();
@@ -114,9 +126,9 @@
 
             //Validate that if song length field contains data as is withing app config set mins and max.
             songLength = 0;
-            if (!formHelper.TextBoxHasContents(addSongTextBoxSongLength) || !int.TryParse(addSongTextBoxSongLength.Text.Trim(), out songLength) || songLength < MINSONGLENGTH || songLength > MAXSONGLENGTH)
+            if (!formHelper.TextBoxHasContents(addSongTextBoxSongLength) || !int.TryParse(addSongTextBoxSongLength.Text.Trim(), out songLength) || songLength < minSongLength || songLength > maxSongLength)
             {
-                MessageBox.Show(string.Format("Song length can only be between {0} and {1} seconds.", MINSONGLENGTH, MAXSONGLENGTH), "Input validation error");
+                MessageBox.Show(string.Format("Song length can only be between {0} and {1} seconds.", minSongLength, maxSongLength), "Input validation error");
                 addSongTextBoxSongLength.Focus();
                 formDataValid = false;
             }

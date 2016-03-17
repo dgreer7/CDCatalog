@@ -75,7 +75,7 @@
             this.addSongPanel.Controls.Add(this.addSongButtonAddAlbum);
             this.addSongPanel.Location = new System.Drawing.Point(12, 12);
             this.addSongPanel.Name = "addSongPanel";
-            this.addSongPanel.Size = new System.Drawing.Size(555, 307);
+            this.addSongPanel.Size = new System.Drawing.Size(555, 260);
             this.addSongPanel.TabIndex = 22;
             // 
             // addSongCheckBoxSongToAlbum
@@ -84,7 +84,7 @@
             this.addSongCheckBoxSongToAlbum.Checked = true;
             this.addSongCheckBoxSongToAlbum.CheckState = System.Windows.Forms.CheckState.Checked;
             this.addSongCheckBoxSongToAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongCheckBoxSongToAlbum.Location = new System.Drawing.Point(6, 153);
+            this.addSongCheckBoxSongToAlbum.Location = new System.Drawing.Point(6, 215);
             this.addSongCheckBoxSongToAlbum.Name = "addSongCheckBoxSongToAlbum";
             this.addSongCheckBoxSongToAlbum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.addSongCheckBoxSongToAlbum.Size = new System.Drawing.Size(183, 26);
@@ -129,7 +129,7 @@
             // 
             this.addSongLabelSongTrackNumber.AutoSize = true;
             this.addSongLabelSongTrackNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongLabelSongTrackNumber.Location = new System.Drawing.Point(2, 234);
+            this.addSongLabelSongTrackNumber.Location = new System.Drawing.Point(2, 178);
             this.addSongLabelSongTrackNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addSongLabelSongTrackNumber.Name = "addSongLabelSongTrackNumber";
             this.addSongLabelSongTrackNumber.Size = new System.Drawing.Size(124, 22);
@@ -139,7 +139,7 @@
             // addSongTextBoxSongTrackNumber
             // 
             this.addSongTextBoxSongTrackNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongTextBoxSongTrackNumber.Location = new System.Drawing.Point(144, 229);
+            this.addSongTextBoxSongTrackNumber.Location = new System.Drawing.Point(144, 173);
             this.addSongTextBoxSongTrackNumber.Margin = new System.Windows.Forms.Padding(2);
             this.addSongTextBoxSongTrackNumber.MaxLength = 4;
             this.addSongTextBoxSongTrackNumber.Name = "addSongTextBoxSongTrackNumber";
@@ -151,7 +151,7 @@
             this.addSongComboBoxAlbum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.addSongComboBoxAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addSongComboBoxAlbum.FormattingEnabled = true;
-            this.addSongComboBoxAlbum.Location = new System.Drawing.Point(144, 196);
+            this.addSongComboBoxAlbum.Location = new System.Drawing.Point(144, 140);
             this.addSongComboBoxAlbum.Name = "addSongComboBoxAlbum";
             this.addSongComboBoxAlbum.Size = new System.Drawing.Size(370, 28);
             this.addSongComboBoxAlbum.TabIndex = 6;
@@ -160,7 +160,7 @@
             // 
             this.addSongLabelSongAlbum.AutoSize = true;
             this.addSongLabelSongAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongLabelSongAlbum.Location = new System.Drawing.Point(2, 199);
+            this.addSongLabelSongAlbum.Location = new System.Drawing.Point(2, 143);
             this.addSongLabelSongAlbum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addSongLabelSongAlbum.Name = "addSongLabelSongAlbum";
             this.addSongLabelSongAlbum.Size = new System.Drawing.Size(60, 22);
@@ -170,7 +170,7 @@
             // addSongButtonAddArtist
             // 
             this.addSongButtonAddArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongButtonAddArtist.Location = new System.Drawing.Point(520, 195);
+            this.addSongButtonAddArtist.Location = new System.Drawing.Point(520, 139);
             this.addSongButtonAddArtist.Name = "addSongButtonAddArtist";
             this.addSongButtonAddArtist.Size = new System.Drawing.Size(32, 28);
             this.addSongButtonAddArtist.TabIndex = 7;
@@ -183,7 +183,7 @@
             this.addSongComboBoxArtist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.addSongComboBoxArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addSongComboBoxArtist.FormattingEnabled = true;
-            this.addSongComboBoxArtist.Location = new System.Drawing.Point(144, 195);
+            this.addSongComboBoxArtist.Location = new System.Drawing.Point(144, 139);
             this.addSongComboBoxArtist.Name = "addSongComboBoxArtist";
             this.addSongComboBoxArtist.Size = new System.Drawing.Size(370, 28);
             this.addSongComboBoxArtist.TabIndex = 7;
@@ -192,7 +192,7 @@
             // 
             this.addSongLabelSongArtist.AutoSize = true;
             this.addSongLabelSongArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongLabelSongArtist.Location = new System.Drawing.Point(2, 199);
+            this.addSongLabelSongArtist.Location = new System.Drawing.Point(2, 143);
             this.addSongLabelSongArtist.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addSongLabelSongArtist.Name = "addSongLabelSongArtist";
             this.addSongLabelSongArtist.Size = new System.Drawing.Size(51, 22);
@@ -244,7 +244,7 @@
             // addSongButton
             // 
             this.addSongButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongButton.Location = new System.Drawing.Point(199, 271);
+            this.addSongButton.Location = new System.Drawing.Point(199, 215);
             this.addSongButton.Name = "addSongButton";
             this.addSongButton.Size = new System.Drawing.Size(155, 33);
             this.addSongButton.TabIndex = 9;
@@ -275,7 +275,7 @@
             // addSongButtonAddAlbum
             // 
             this.addSongButtonAddAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSongButtonAddAlbum.Location = new System.Drawing.Point(520, 196);
+            this.addSongButtonAddAlbum.Location = new System.Drawing.Point(520, 140);
             this.addSongButtonAddAlbum.Name = "addSongButtonAddAlbum";
             this.addSongButtonAddAlbum.Size = new System.Drawing.Size(32, 28);
             this.addSongButtonAddAlbum.TabIndex = 7;
@@ -288,7 +288,7 @@
             this.AcceptButton = this.addSongButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 331);
+            this.ClientSize = new System.Drawing.Size(579, 281);
             this.Controls.Add(this.addSongPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddSong";

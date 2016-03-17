@@ -1,13 +1,14 @@
-﻿namespace CDCatalog.Repository
+﻿
+
+namespace CDCatalog.Repository
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
 
     class CDCatalogRepository : ICDCatalogRepository
     {
-        private const int playlistMarginInSeconds = 60;
-
         public Album CreateAlbum(string albumTitle, Artist albumArtist, int albumYear, int albumRating)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
@@ -70,6 +71,11 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
+                //Pulls the accepted margin of tolarance in seconds from the app.config. If it cannot get the value, will default to 60
+                int marginInSeconds;
+                if (!int.TryParse(ConfigurationManager.AppSettings["GeneratePlaylistMarginInSeconds"], out marginInSeconds))
+                    marginInSeconds = 60;
+
                 var targetLengthInSeconds = lengthMinutes * 60;
                 //Load all songs into a list to work from
                 var fullSongList = GetAllSongs();
@@ -83,7 +89,7 @@
                 var numberOfIterations = 0;
 
                 //Perform functions so long as playlist is under the desired length and there are songs that can still be added
-                while (playlistLengthInSeconds < targetLengthInSeconds - playlistMarginInSeconds && fullSongList.Count != 0)
+                while (playlistLengthInSeconds < targetLengthInSeconds - marginInSeconds && fullSongList.Count != 0)
                 {
                     //generate index at random
                     int index = rand.Next(fullSongList.Count);
@@ -95,7 +101,7 @@
                     fullSongList.RemoveAt(index);
 
                     //will remove a random song from the playlist if it is too long
-                    while (playlistLengthInSeconds > targetLengthInSeconds + playlistMarginInSeconds)
+                    while (playlistLengthInSeconds > targetLengthInSeconds + marginInSeconds)
                     {
                         //generate index at random
                         index = rand.Next(playlist.Count);
