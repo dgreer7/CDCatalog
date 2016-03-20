@@ -42,8 +42,6 @@
           <Property Name="Rating" Type="int" />
           <Property Name="AlbumId" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'CDCatalog.dbo.AlbumView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AlbumView">
           <Key>
             <PropertyRef Name="AlbumId" />
@@ -54,8 +52,6 @@ warning 6002: The table/view 'CDCatalog.dbo.AlbumView' does not have a primary k
           <Property Name="Rating" Type="int" />
           <Property Name="AlbumId" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'CDCatalog.dbo.SongView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SongView">
           <Key>
             <PropertyRef Name="SongID" />
