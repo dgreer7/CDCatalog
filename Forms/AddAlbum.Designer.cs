@@ -66,7 +66,7 @@
             this.addAlbumButtonAddArtist.Location = new System.Drawing.Point(474, 113);
             this.addAlbumButtonAddArtist.Name = "addAlbumButtonAddArtist";
             this.addAlbumButtonAddArtist.Size = new System.Drawing.Size(32, 28);
-            this.addAlbumButtonAddArtist.TabIndex = 26;
+            this.addAlbumButtonAddArtist.TabIndex = 4;
             this.addAlbumButtonAddArtist.Text = "...";
             this.addAlbumButtonAddArtist.UseVisualStyleBackColor = true;
             this.addAlbumButtonAddArtist.Click += new System.EventHandler(this.addAlbumButtonAddArtist_Click);

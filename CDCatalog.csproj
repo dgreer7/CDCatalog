@@ -60,13 +60,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Album.cs">
-      <DependentUpon>CDCatalogEntity.tt</DependentUpon>
+      <DependentUpon>CDCatalog.tt</DependentUpon>
     </Compile>
     <Compile Include="AlbumView.cs">
-      <DependentUpon>CDCatalogEntity.tt</DependentUpon>
+      <DependentUpon>CDCatalog.tt</DependentUpon>
     </Compile>
     <Compile Include="Artist.cs">
-      <DependentUpon>CDCatalogEntity.tt</DependentUpon>
+      <DependentUpon>CDCatalog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CDCatalog.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDCatalog.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CDCatalog.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDCatalog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CDCatalog.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDCatalog.edmx</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddAlbum.cs">
       <SubType>Form</SubType>
@@ -85,21 +100,6 @@
     </Compile>
     <Compile Include="Forms\AddGenre.Designer.cs">
       <DependentUpon>AddGenre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CDCatalogEntity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CDCatalogEntity.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CDCatalogEntity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CDCatalogEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CDCatalogEntity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CDCatalogEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="FormHelper.cs" />
     <Compile Include="Forms\AddSong.cs">
@@ -145,7 +145,7 @@
       <DependentUpon>UpdateSong.cs</DependentUpon>
     </Compile>
     <Compile Include="Genre.cs">
-      <DependentUpon>CDCatalogEntity.tt</DependentUpon>
+      <DependentUpon>CDCatalog.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\CDCatalogRepository.cs" />
     <Compile Include="Repositories\ICDCatalogRepository.cs" />
@@ -158,10 +158,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Song.cs">
-      <DependentUpon>CDCatalogEntity.tt</DependentUpon>
+      <DependentUpon>CDCatalog.tt</DependentUpon>
     </Compile>
     <Compile Include="SongView.cs">
-      <DependentUpon>CDCatalogEntity.tt</DependentUpon>
+      <DependentUpon>CDCatalog.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\AddAlbum.resx">
       <DependentUpon>AddAlbum.cs</DependentUpon>
@@ -206,12 +206,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="CDCatalogEntity.edmx">
+    <EntityDeploy Include="CDCatalog.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CDCatalogEntity.Designer.cs</LastGenOutput>
+      <LastGenOutput>CDCatalog.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CDCatalogEntity.edmx.diagram">
-      <DependentUpon>CDCatalogEntity.edmx</DependentUpon>
+    <None Include="CDCatalog.edmx.diagram">
+      <DependentUpon>CDCatalog.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -228,19 +228,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CDCatalogEntity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CDCatalogEntity.edmx</DependentUpon>
-      <LastGenOutput>CDCatalogEntity.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="CDCatalogEntity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CDCatalogEntity.edmx</DependentUpon>
-      <LastGenOutput>CDCatalogEntity.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="CDCatalog.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CDCatalog.edmx</DependentUpon>
+      <LastGenOutput>CDCatalog.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CDCatalog.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CDCatalog.edmx</DependentUpon>
+      <LastGenOutput>CDCatalog.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

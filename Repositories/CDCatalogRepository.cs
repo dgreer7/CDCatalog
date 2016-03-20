@@ -255,7 +255,7 @@ namespace CDCatalog.Repository
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.Genres.Where(g => g.GenreName.Contains(genreName)).OrderBy(g => g.GenreName).ToList();
+                return context.Genres.Where(g => g.GenreName.Contains(genreName.ToLower())).OrderBy(g => g.GenreName).ToList();
             }
         }
 

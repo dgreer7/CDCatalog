@@ -122,6 +122,7 @@
             {
                 InitializeArtistComboBox();
                 addAlbumComboBoxArtist.SelectedValue = addArtist.CreatedArtist.ArtistId;
+                addAlbumButton.Focus();
             }
         }
     }

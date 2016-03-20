@@ -26,7 +26,7 @@
             if (formHelper.TextBoxHasContents(FindGenreTextBox))
             {
                 FoundGenres = repository.SearchGenreByGenreName(FindGenreTextBox.Text);
-                if (FoundGenres.Count < 0)
+                if (FoundGenres.Count > 0)
                 {
                     Close();
                 }

@@ -101,6 +101,8 @@
 
                 if (dialogResult == DialogResult.OK)
                 {
+                    //Clear datagrid to prevent any collisions
+                    ClearDataGrid();
                     mainFormDataGridView.DataSource = findGenre.FoundGenres;
                     for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
                     {
@@ -108,7 +110,7 @@
                         if (columnHeaderName == "GenreName")
                         {
                             mainFormDataGridView.Columns[i].HeaderText = "Genre Name";
-                            mainFormDataGridView.Columns[i].Width = mainFormDataGridView.Width;
+                            mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
                         else
                         {
@@ -133,6 +135,8 @@
 
                 if (dialogResult == DialogResult.OK)
                 {
+                    //Clear datagrid to prevent any collisions
+                    ClearDataGrid();
                     mainFormDataGridView.DataSource = findAlbum.FoundAlbums;
                     for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
                     {
@@ -169,6 +173,8 @@
 
                 if (dialogResult == DialogResult.OK)
                 {
+                    //Clear datagrid to prevent any collisions
+                    ClearDataGrid();
                     mainFormDataGridView.DataSource = findSong.FoundSongs;
                     var titleHeaderIndex = 0;
 
@@ -213,6 +219,8 @@
 
                 if (dialogResult == DialogResult.OK)
                 {
+                    //Clear datagrid to prevent any collisions
+                    ClearDataGrid();
                     mainFormDataGridView.DataSource = createPlaylist.Playlist;
                 }
             }
@@ -265,9 +273,7 @@
                         if (dialogResult == DialogResult.OK)
                         {
                             //Clear the datagridview
-                            mainFormDataGridView.DataSource = null;
-                            mainFormDataGridView.Rows.Clear();
-                            mainFormDataGridView.Refresh();
+                            ClearDataGrid();
                         }
                     }
                     else
@@ -281,6 +287,16 @@
             {
                 MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
             }
+        }
+
+        private void ClearDataGrid()
+        {
+            //Sets datasource to null
+            mainFormDataGridView.DataSource = null;
+            //removes all rows
+            mainFormDataGridView.Rows.Clear();
+            //refreashes to ready for new data
+            mainFormDataGridView.Refresh();
         }
     }
 }
