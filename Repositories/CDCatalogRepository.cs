@@ -167,7 +167,7 @@ namespace CDCatalog.Repository
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                return context.SongViews.OrderBy(s => s.Rating).ToList();
+                return context.SongViews.OrderByDescending(s => s.Rating).ToList();
             }
         }
 

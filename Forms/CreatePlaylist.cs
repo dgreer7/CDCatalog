@@ -6,6 +6,7 @@
 
     public partial class CreatePlaylist : Form
     {
+        //Property which will contain the playlist
         public IList<SongView> Playlist { get; private set; }
 
         CDCatalogRepository repository = new CDCatalogRepository();
@@ -22,13 +23,19 @@
         private void createPlaylistButton_Click(object sender, System.EventArgs e)
         {
             var formHelper = new FormHelper();
+            int playlistLengthInMinutes;
 
-            if (formHelper.TextBoxHasContents(createPlaylistTextBox))
+            //Check that a number was entered into the textbox
+            if (int.TryParse(createPlaylistTextBox.Text.Trim(), out playlistLengthInMinutes))
             {
-                var songLengthMinutes = formHelper.GetIntFromTextBox(createPlaylistTextBox);
-
-                Playlist = repository.GeneratePlaylist(songLengthMinutes);
+                Playlist = repository.GeneratePlaylist(playlistLengthInMinutes);
                 Close();
+            }
+            else
+            {
+                //if no number entered, display error message and prevent form from closing.
+                MessageBox.Show("Please enter the number of minutes you'd like the playlist to be in length.", "Input validation error");
+                DialogResult = DialogResult.None;
             }
         }
     }
