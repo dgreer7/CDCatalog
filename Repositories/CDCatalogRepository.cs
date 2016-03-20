@@ -239,6 +239,9 @@ namespace CDCatalog.Repository
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
+                //if nothing is passed in, all songs will be returned
+                if (string.IsNullOrEmpty(songTitle))
+                    return GetAllSongs();
                 return context.SongViews.Where(s => s.Title.ToLower().Contains(songTitle.ToLower())).OrderByDescending(s => s.Rating).ToList();
             }
         }

@@ -185,6 +185,7 @@
             {
                 InitializeGenreComboBox();
                 addSongComboBoxGenre.SelectedValue = addGenre.CreatedGenre.GenreId;
+                addSongComboBoxAlbum.Focus();
             }
         }
 
@@ -197,6 +198,7 @@
             {
                 InitializeAlbumComboBox();
                 addSongComboBoxAlbum.SelectedValue = addAlbum.CreatedAlbum.AlbumId;
+                addSongTextBoxSongTrackNumber.Focus();
             }
         }
 
@@ -209,6 +211,7 @@
             {
                 InitializeArtistComboBox();
                 addSongComboBoxArtist.SelectedValue = addArtist.CreatedArtist.ArtistId;
+                addSongButton.Focus();
             }
         }
     }

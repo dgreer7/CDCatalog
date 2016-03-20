@@ -24,6 +24,7 @@
 
         private void ShowCorectFields()
         {
+            //will set fields visible if radio button is checked for that element
             findSongLabelSongTitle.Visible = findSongRadioButtonBySongTitle.Checked;
             findSongTextBoxSongTitle.Visible = findSongRadioButtonBySongTitle.Checked;
             findSongLabelGenre.Visible = findSongRadioButtonByGenre.Checked;
@@ -34,6 +35,7 @@
 
         private void InitializeArtistComboBox()
         {
+            //Sets datasource, display and it's corrisponding value
             findSongComboBoxArtist.DataSource = repository.GetAllArtists();
             findSongComboBoxArtist.DisplayMember = "ArtistName";
             findSongComboBoxArtist.ValueMember = "ArtistId";
@@ -41,6 +43,7 @@
 
         private void InitializeGenreComboBox()
         {
+            //Sets datasource, display and it's corrisponding value
             findSongComboBoxGenre.DataSource = repository.GetAllGenres();
             findSongComboBoxGenre.DisplayMember = "GenreName";
             findSongComboBoxGenre.ValueMember = "GenreId";
@@ -48,11 +51,13 @@
 
         private void findSongRadioButtonBySongTitle_CheckedChanged(object sender, EventArgs e)
         {
+            //Update display if radio button is changed
             ShowCorectFields();
         }
 
         private void findSongRadioButtonByGenre_CheckedChanged(object sender, EventArgs e)
         {
+            //Update display if radio button is changed
             ShowCorectFields();
         }
 
@@ -60,18 +65,22 @@
         {
             var formHelper = new FormHelper();
 
-            if (findSongRadioButtonBySongTitle.Checked && formHelper.TextBoxHasContents(findSongTextBoxSongTitle))
+            //if searching by song title 
+            if (findSongRadioButtonBySongTitle.Checked)
             {
                 FoundSongs = repository.SearchSongsBySongTitle(findSongTextBoxSongTitle.Text.Trim());
             }
+            //if searching by aritst
             else if (findSongRadioButtonByArtist.Checked)
             {
                 FoundSongs = repository.SearchSongsByArtistName(((Artist)findSongComboBoxArtist.SelectedItem).ArtistName);
             }
+            //if searching by genre
             else
             {
                 FoundSongs = repository.SearchSongsByGenreName(((Genre)findSongComboBoxGenre.SelectedItem).GenreName);
             }
+            //if no results were returnd show message box and prevent dialog from closing
             if (FoundSongs.Count == 0)
             {
                 MessageBox.Show("Unable to locate any matching songs.");
