@@ -5,21 +5,25 @@
 
     public partial class MainForm : Form
     {
+        //Set general error message should exception occur
         private const string ERRORMESSAGE = "Way to go, you broke it.\n";
 
         public MainForm()
         {
             InitializeComponent();
             KeepDataGridSizedWithWindow();
+            //supresses row header on datagrid
             mainFormDataGridView.RowHeadersVisible = false;
 #if DEBUG
             Text = (int)(new DateTime(2016, 03, 23) - DateTime.Now).TotalDays + " days left!!";
 #endif
         }
 
+        //will keep the datagrid sized with the window
         private void KeepDataGridSizedWithWindow()
         {
             mainFormDataGridView.Width = ClientSize.Width;
+            //datagrid height is equal to client height less the menustrip height
             mainFormDataGridView.Height = ClientSize.Height - menuStrip1.Height;
         }
 
@@ -32,7 +36,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
+                DisplayErrorMessageBox(ex);
             }
 
         }
@@ -46,7 +50,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
+                DisplayErrorMessageBox(ex);
             }
         }
 
@@ -59,7 +63,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
+                DisplayErrorMessageBox(ex);
             }
 
         }
@@ -73,7 +77,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
+                DisplayErrorMessageBox(ex);
             }
 
         }
@@ -87,7 +91,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
+                DisplayErrorMessageBox(ex);
             }
 
         }
@@ -99,21 +103,26 @@
                 var findGenre = new FindGenre();
                 var dialogResult = findGenre.ShowDialog();
 
+                //check to see if user completed the dialog box and therefore FoundGenres should not be null
                 if (dialogResult == DialogResult.OK)
                 {
                     //Clear datagrid to prevent any collisions
                     ClearDataGrid();
+                    //sets datagrid to get information from the results of the findGenre form
                     mainFormDataGridView.DataSource = findGenre.FoundGenres;
+                    //iterates through data headers
                     for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
                     {
                         string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
                         if (columnHeaderName == "GenreName")
                         {
+                            //update the name and fill the view with only this column
                             mainFormDataGridView.Columns[i].HeaderText = "Genre Name";
                             mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         }
                         else
                         {
+                            //remove the column from view
                             mainFormDataGridView.Columns.Remove(columnHeaderName);
                             i--;
                         }
@@ -122,7 +131,7 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
+                DisplayErrorMessageBox(ex);
             }
         }
 
@@ -133,11 +142,14 @@
                 var findAlbum = new FindAlbum();
                 var dialogResult = findAlbum.ShowDialog();
 
+                //check to see if user completed the dialog box and therefore FoundGenres should not be null
                 if (dialogResult == DialogResult.OK)
                 {
                     //Clear datagrid to prevent any collisions
                     ClearDataGrid();
+                    //sets datagrid to get information from the results of the findAlbum form
                     mainFormDataGridView.DataSource = findAlbum.FoundAlbums;
+                    //iterates through data headers
                     for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
                     {
                         string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
@@ -147,20 +159,23 @@
                             {
                                 mainFormDataGridView.Columns[i].HeaderText = "Artist";
                             }
+                            //size column to fit around data in cells
                             mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                         }
                         else
                         {
+                            //remove the column from view
                             mainFormDataGridView.Columns.Remove(columnHeaderName);
                             i--;
                         }
+                        //gives extra space to title column
                         mainFormDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
+                DisplayErrorMessageBox(ex);
             }
         }
 
@@ -171,42 +186,19 @@
                 var findSong = new FindSong();
                 var dialogResult = findSong.ShowDialog();
 
+                //check to see if user completed the dialog box and therefore FoundGenres should not be null
                 if (dialogResult == DialogResult.OK)
                 {
                     //Clear datagrid to prevent any collisions
                     ClearDataGrid();
+                    //sets datagrid to get information from the results of the findSong form
                     mainFormDataGridView.DataSource = findSong.FoundSongs;
-                    var titleHeaderIndex = 0;
-
-                    for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
-                    {
-
-                        if (mainFormDataGridView.Columns[i].HeaderText == "Track_Length_Seconds")
-                        {
-                            mainFormDataGridView.Columns[i].HeaderText = "Length (Sec)";
-                        }
-
-                        string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
-
-                        if (columnHeaderName == "SongID")
-                        {
-                            mainFormDataGridView.Columns.Remove(columnHeaderName);
-                            i--;
-                        }
-
-                        else if (columnHeaderName == "Title")
-                            titleHeaderIndex = i;
-
-                        else
-                            mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-
-                        mainFormDataGridView.Columns[titleHeaderIndex].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    }
+                    UpdateDataGridForShowingSongData();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
+                DisplayErrorMessageBox(ex);
             }
         }
 
@@ -221,12 +213,14 @@
                 {
                     //Clear datagrid to prevent any collisions
                     ClearDataGrid();
+                    //sets datagrid to get information from the results of the createPlaylist form
                     mainFormDataGridView.DataSource = createPlaylist.Playlist;
+                    UpdateDataGridForShowingSongData();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
+                DisplayErrorMessageBox(ex);
             }
         }
 
@@ -285,8 +279,13 @@
 
             catch (Exception ex)
             {
-                MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
+                DisplayErrorMessageBox(ex);
             }
+        }
+
+        private void DisplayErrorMessageBox(Exception ex)
+        {
+            MessageBox.Show(ERRORMESSAGE + ex.GetBaseException().Message, "Nice job!");
         }
 
         private void ClearDataGrid()
@@ -297,6 +296,41 @@
             mainFormDataGridView.Rows.Clear();
             //refreashes to ready for new data
             mainFormDataGridView.Refresh();
+        }
+
+        private void UpdateDataGridForShowingSongData()
+        {
+            var titleHeaderIndex = 0;
+
+            //iterates through data headers
+            for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
+            {
+                //rename header for track length
+                if (mainFormDataGridView.Columns[i].HeaderText == "Track_Length_Seconds")
+                {
+                    mainFormDataGridView.Columns[i].HeaderText = "Length (Sec)";
+                }
+                //sets the header name to variable
+                string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
+
+                if (columnHeaderName == "SongID")
+                {
+                    //removes column from view and decrements i as the count is adjusted by the removal
+                    mainFormDataGridView.Columns.Remove(columnHeaderName);
+                    i--;
+                }
+
+                //marks the title header index
+                else if (columnHeaderName == "Title")
+                    titleHeaderIndex = i;
+
+                else
+                    //size column to fit around data in cells
+                    mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+                //gives extra space to title column
+                mainFormDataGridView.Columns[titleHeaderIndex].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
         }
     }
 }
