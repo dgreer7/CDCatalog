@@ -1,6 +1,6 @@
 ﻿namespace CDCatalog
 {
-    class AlbumSongResult
+    public class AlbumSongResult
     {
         public string Type { get; private set; }
         public string Title { get; private set; }
