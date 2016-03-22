@@ -147,6 +147,8 @@
     <Compile Include="Genre.cs">
       <DependentUpon>CDCatalog.tt</DependentUpon>
     </Compile>
+    <Compile Include="Processor\ProcessSongAlbumAggregator.cs" />
+    <Compile Include="Processor\IProcessSongAlbumAggregator.cs" />
     <Compile Include="Repositories\CDCatalogRepository.cs" />
     <Compile Include="Repositories\ICDCatalogRepository.cs" />
     <Compile Include="Forms\MainForm.cs">
@@ -210,6 +212,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CDCatalog.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Compile Include="AlbumSongResult.cs" />
     <None Include="CDCatalog.edmx.diagram">
       <DependentUpon>CDCatalog.edmx</DependentUpon>
     </None>

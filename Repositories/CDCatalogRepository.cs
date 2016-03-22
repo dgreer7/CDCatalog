@@ -1,6 +1,4 @@
-﻿
-
-namespace CDCatalog.Repository
+﻿namespace CDCatalog.Repository
 {
     using System;
     using System.Collections.Generic;
@@ -208,6 +206,21 @@ namespace CDCatalog.Repository
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
                 return context.AlbumViews.Where(a => a.Artist_Name.ToLower() == artistName.ToLower()).OrderByDescending(a => a.Rating).ToList();
+            }
+        }
+
+        public IList<AlbumView> SearchAlbumsByGenreName(string genre)
+        {
+            using (CDCatalogEntities context = new CDCatalogEntities())
+            {
+                var results = new List<AlbumView>();
+                var matchingSongs = SearchSongsByGenreName(genre);
+                foreach (var match in matchingSongs)
+                {
+                    results.AddRange(context.AlbumViews.Where(a => a.Title == match.Album));
+                }
+                results = results.Distinct().ToList();
+                return results;
             }
         }
 
