@@ -106,14 +106,6 @@
                 formDataValid = false;
             }
 
-            //Data validation for song length
-            if (!formHelper.TextBoxHasContents(addSongTextBoxSongLength))
-            {
-                MessageBox.Show("Please enter the song length in seconds.", "Input validation error");
-                addSongTextBoxSongLength.Focus();
-                formDataValid = false;
-            }
-
             //Data validation for track number if visible, valid number contained in the text field, and it's is not zero.
             trackNumber = 0;
             if (addSongTextBoxSongTrackNumber.Visible 
