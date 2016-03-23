@@ -17,7 +17,7 @@
         /// Will locate list of songs or albums containing any matching to provided string.
         /// </summary>
         /// <param name="title"></param>
-        /// <returns>IList;&ltAlbumSongResult;&gt</returns>
+        /// <returns>List of AlbumSongResult</returns>
         public IList<AlbumSongResult> FindSongOrAlbumByTitle(string title)
         {
             Results.Clear();
@@ -33,7 +33,7 @@
         /// Will locate list of songs or albums containing any matching to provided string.
         /// </summary>
         /// <param name="artist"></param>
-        /// <returns></returns>
+        /// <returns>List of AlbumSongResult</returns>
         public IList<AlbumSongResult> FindSongOrAlbumByArtist(string artist)
         {
             Results.Clear();
@@ -45,6 +45,11 @@
             return Results;
         }
 
+        /// <summary>
+        /// Will locate list of songs or albums containing any matching to provided string
+        /// </summary>
+        /// <param name="genre"></param>
+        /// <returns>List of AlbumSongResult</returns>
         public IList<AlbumSongResult> FindSongOrAlbumByGenre(string genre)
         {
             Results.Clear();

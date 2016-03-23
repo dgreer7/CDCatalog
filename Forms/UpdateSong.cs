@@ -14,6 +14,11 @@
             SongTitleToUpdate = songTitle;
             AlbumTitleOfSong = albumName;
             InitializeComponent();
+            SetUpLabelText();
+        }
+
+        private void SetUpLabelText()
+        {
             if (AlbumTitleOfSong != null)
                 updateSongLabel.Text = string.Format("Update rating of {0} by {1}:", SongTitleToUpdate, AlbumTitleOfSong);
             else
@@ -27,9 +32,12 @@
 
             int songRating = 0;
 
+            //Check if textbox has an int and it is between 0 and 5 (inclusive)
             if (int.TryParse(updateSongTextBox.Text.Trim(), out songRating) && songRating >= 0 && songRating <= 5)
             {
+                //if AlbumTitle not provided assing null to album
                 var albums = AlbumTitleOfSong != null ? repository.SearchAlbumsByAlbumTitleExclusive(AlbumTitleOfSong) : null;
+                //Send update to reposistory based on whether album name provided
                 if (AlbumTitleOfSong == null)
                     repository.UpdateSongRating(SongTitleToUpdate, songRating);
 
