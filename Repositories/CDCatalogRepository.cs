@@ -177,6 +177,14 @@
             }
         }
 
+        public SongView GetSongViewByID(int songId)
+        {
+            using (CDCatalogEntities context = new CDCatalogEntities())
+            {
+                return context.SongViews.FirstOrDefault(s => s.SongID == songId);
+            }
+        }
+
         public IList<Song> GetSongsByAlbumID(int albumId)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())

@@ -40,6 +40,7 @@
         IList<SongView> GetAllSongs();
 
         Song GetSongByID(int songId);
+        SongView GetSongViewByID(int songId);
         Album GetAlbumByID(int albumId);
         Artist GetArtistByID(int aritstID);
         IList<Song> GetSongsByAlbumID(int albumId);

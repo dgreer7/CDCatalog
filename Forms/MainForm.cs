@@ -216,7 +216,30 @@
                     ClearDataGrid();
                     //sets datagrid to get information from the results of the findSong form
                     mainFormDataGridView.DataSource = findSong.FoundAlbumsAndSongs;
-                    UpdateDataGridForShowingSongData();
+                    var titleHeaderIndex = 0;
+
+                    //iterates through data headers
+                    for (int i = 0; i < mainFormDataGridView.Columns.Count; i++)
+                    {
+                        //sets the header name to variable used later to check against
+                        string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;
+
+                        if (columnHeaderName == "ItemID")
+                        {
+                            //removes column from view and decrements i as the count is adjusted by the removal
+                            mainFormDataGridView.Columns.Remove(columnHeaderName);
+                            i--;
+                        }
+
+                        //gives extra space to title column
+                        else if (columnHeaderName == "Title")
+                            mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                        else
+                            //size column to fit around data in cells
+                            mainFormDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    }
+                    viewToolStripMenuItem.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -307,7 +330,7 @@
                         }
                         else if (selectedAlbumOrSong.Type == "Album")
                         {
-                            var albumView = new UpdateAlbum(selectedAlbumOrSong.Title, selectedAlbumOrSong.ArtistName);
+                            var albumView = new UpdateAlbum(selectedAlbumOrSong.Title, selectedAlbumOrSong.Artist);
                             dialogResult = albumView.ShowDialog();
                         }
                         else
@@ -347,6 +370,8 @@
             mainFormDataGridView.Rows.Clear();
             //refreashes to ready for new data
             mainFormDataGridView.Refresh();
+            //removes the view option from the menu
+            viewToolStripMenuItem.Visible = false;
         }
 
         private void UpdateDataGridForShowingSongData()
@@ -382,6 +407,26 @@
                 //gives extra space to title column
                 mainFormDataGridView.Columns[titleHeaderIndex].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
+        }
+
+        private void moreInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mainFormDataGridView.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Please select the song or album you wish to view in detail.");
+            }
+            else
+            {
+                var selectedValue = mainFormDataGridView.SelectedRows[0].DataBoundItem;
+                //cast selected line as a AlbumView
+                var selectedAlbumOrSong = selectedValue as AlbumSongResult;
+                if (selectedAlbumOrSong.Type == "Song")
+                {
+                    var displaySongInfo = new DisplaySongInfo(selectedAlbumOrSong.ItemID);
+                    displaySongInfo.Show();
+                }
+            }
+
         }
     }
 }
