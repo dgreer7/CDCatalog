@@ -242,6 +242,21 @@
             }
         }
 
+        public IList<SongView> SearchSongsByAlbumID(int albumId)
+        {
+            using (CDCatalogEntities context = new CDCatalogEntities())
+            {
+                var songsInAlbum = context.Songs.Where(s => s.AlbumId == albumId).ToList();
+                var songViewInAlbum = new List<SongView>();
+                foreach (var song in songsInAlbum)
+                {
+                    songViewInAlbum.Add(GetSongViewByID(song.SongID));
+                }
+                return songViewInAlbum;
+            }
+        }
+
+
         public IList<SongView> SearchSongsByArtistName(string artistName)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
