@@ -129,6 +129,14 @@
             }
         }
 
+        public AlbumView GetAlbumViewByID(int albumId)
+        {
+            using (CDCatalogEntities context = new CDCatalogEntities())
+            {
+                return context.AlbumViews.FirstOrDefault(a => a.AlbumId == albumId);
+            }
+        }
+
         public Artist GetArtistByID(int artistID)
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
@@ -304,7 +312,6 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
-                //TODO: Handle album not found
                 Album album;
                 if (artistName == null)
                 {
