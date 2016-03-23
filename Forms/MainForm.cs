@@ -425,6 +425,15 @@
                     var displaySongInfo = new DisplaySongInfo(selectedAlbumOrSong.ItemID);
                     displaySongInfo.Show();
                 }
+                else if (selectedAlbumOrSong.Type == "Album")
+                {
+                    var displayAlbumInfo = new DisplayAlbumInfo(selectedAlbumOrSong.ItemID);
+                    displayAlbumInfo.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Please select an artist or album");
+                }
             }
 
         }

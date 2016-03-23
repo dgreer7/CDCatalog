@@ -260,6 +260,7 @@
                 {
                     songViewInAlbum.Add(GetSongViewByID(song.SongID));
                 }
+                songViewInAlbum = songViewInAlbum.OrderBy(s => s.Track).ToList();
                 return songViewInAlbum;
             }
         }
