@@ -34,9 +34,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findAlbumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findGenreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findAlbumOrSongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addAlbumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addArtistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,33 +69,41 @@
             // findToolStripMenuItem
             // 
             this.findToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.findSongToolStripMenuItem,
             this.findAlbumToolStripMenuItem,
-            this.findGenreToolStripMenuItem});
+            this.findGenreToolStripMenuItem,
+            this.findSongToolStripMenuItem,
+            this.findAlbumOrSongToolStripMenuItem});
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
             this.findToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.findToolStripMenuItem.Text = "Find";
             // 
-            // findSongToolStripMenuItem
-            // 
-            this.findSongToolStripMenuItem.Name = "findSongToolStripMenuItem";
-            this.findSongToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.findSongToolStripMenuItem.Text = "Song";
-            this.findSongToolStripMenuItem.Click += new System.EventHandler(this.findSongToolStripMenuItem_Click);
-            // 
             // findAlbumToolStripMenuItem
             // 
             this.findAlbumToolStripMenuItem.Name = "findAlbumToolStripMenuItem";
-            this.findAlbumToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.findAlbumToolStripMenuItem.Text = "Album";
+            this.findAlbumToolStripMenuItem.Size = new System.Drawing.Size(201, 24);
+            this.findAlbumToolStripMenuItem.Text = "Albums";
             this.findAlbumToolStripMenuItem.Click += new System.EventHandler(this.findAlbumToolStripMenuItem_Click);
             // 
             // findGenreToolStripMenuItem
             // 
             this.findGenreToolStripMenuItem.Name = "findGenreToolStripMenuItem";
-            this.findGenreToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.findGenreToolStripMenuItem.Text = "Genre";
+            this.findGenreToolStripMenuItem.Size = new System.Drawing.Size(201, 24);
+            this.findGenreToolStripMenuItem.Text = "Genres";
             this.findGenreToolStripMenuItem.Click += new System.EventHandler(this.findGenreToolStripMenuItem_Click);
+            // 
+            // findSongToolStripMenuItem
+            // 
+            this.findSongToolStripMenuItem.Name = "findSongToolStripMenuItem";
+            this.findSongToolStripMenuItem.Size = new System.Drawing.Size(201, 24);
+            this.findSongToolStripMenuItem.Text = "Songs";
+            this.findSongToolStripMenuItem.Click += new System.EventHandler(this.findSongToolStripMenuItem_Click);
+            // 
+            // findAlbumOrSongToolStripMenuItem
+            // 
+            this.findAlbumOrSongToolStripMenuItem.Name = "findAlbumOrSongToolStripMenuItem";
+            this.findAlbumOrSongToolStripMenuItem.Size = new System.Drawing.Size(201, 24);
+            this.findAlbumOrSongToolStripMenuItem.Text = "Albums and Songs";
+            this.findAlbumOrSongToolStripMenuItem.Click += new System.EventHandler(this.findAlbumOrSongToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
@@ -110,28 +119,28 @@
             // addAlbumToolStripMenuItem
             // 
             this.addAlbumToolStripMenuItem.Name = "addAlbumToolStripMenuItem";
-            this.addAlbumToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.addAlbumToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.addAlbumToolStripMenuItem.Text = "Album";
             this.addAlbumToolStripMenuItem.Click += new System.EventHandler(this.addAlbumToolStripMenuItem_Click);
             // 
             // addArtistToolStripMenuItem
             // 
             this.addArtistToolStripMenuItem.Name = "addArtistToolStripMenuItem";
-            this.addArtistToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.addArtistToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.addArtistToolStripMenuItem.Text = "Artist";
             this.addArtistToolStripMenuItem.Click += new System.EventHandler(this.addArtistToolStripMenuItem_Click);
             // 
             // addGenreToolStripMenuItem
             // 
             this.addGenreToolStripMenuItem.Name = "addGenreToolStripMenuItem";
-            this.addGenreToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.addGenreToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.addGenreToolStripMenuItem.Text = "Genre";
             this.addGenreToolStripMenuItem.Click += new System.EventHandler(this.addGenreToolStripMenuItem_Click);
             // 
             // addSongToolStripMenuItem
             // 
             this.addSongToolStripMenuItem.Name = "addSongToolStripMenuItem";
-            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.addSongToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.addSongToolStripMenuItem.Text = "Song";
             this.addSongToolStripMenuItem.Click += new System.EventHandler(this.songToolStripMenuItem1_Click);
             // 
@@ -161,7 +170,7 @@
             // playlistToolStripMenuItem
             // 
             this.playlistToolStripMenuItem.Name = "playlistToolStripMenuItem";
-            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.playlistToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.playlistToolStripMenuItem.Text = "Playlist";
             this.playlistToolStripMenuItem.Click += new System.EventHandler(this.playlistToolStripMenuItem_Click);
             // 
@@ -236,5 +245,6 @@
         private System.Windows.Forms.ToolStripMenuItem addArtistToolStripMenuItem;
         private System.Windows.Forms.DataGridView mainFormDataGridView;
         private System.Windows.Forms.ToolStripMenuItem ratingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findAlbumOrSongToolStripMenuItem;
     }
 }

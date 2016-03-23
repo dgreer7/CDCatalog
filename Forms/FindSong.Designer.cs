@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FindSong));
             this.findSongPanel = new System.Windows.Forms.Panel();
+            this.findSongButton = new System.Windows.Forms.Button();
             this.findSongRadioButtonByArtist = new System.Windows.Forms.RadioButton();
             this.findSongRadioButtonByGenre = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.findSongLabelLocateBy = new System.Windows.Forms.Label();
             this.findSongRadioButtonBySongTitle = new System.Windows.Forms.RadioButton();
             this.findSongComboBoxGenre = new System.Windows.Forms.ComboBox();
             this.findSongLabelGenre = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.findSongLabelArtist = new System.Windows.Forms.Label();
             this.findSongLabelSongTitle = new System.Windows.Forms.Label();
             this.findSongTextBoxSongTitle = new System.Windows.Forms.TextBox();
-            this.findSongButton = new System.Windows.Forms.Button();
             this.findSongPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             this.findSongPanel.Controls.Add(this.findSongButton);
             this.findSongPanel.Controls.Add(this.findSongRadioButtonByArtist);
             this.findSongPanel.Controls.Add(this.findSongRadioButtonByGenre);
-            this.findSongPanel.Controls.Add(this.label1);
+            this.findSongPanel.Controls.Add(this.findSongLabelLocateBy);
             this.findSongPanel.Controls.Add(this.findSongRadioButtonBySongTitle);
             this.findSongPanel.Controls.Add(this.findSongComboBoxGenre);
             this.findSongPanel.Controls.Add(this.findSongLabelGenre);
@@ -61,6 +61,18 @@
             this.findSongPanel.Name = "findSongPanel";
             this.findSongPanel.Size = new System.Drawing.Size(555, 124);
             this.findSongPanel.TabIndex = 23;
+            // 
+            // findSongButton
+            // 
+            this.findSongButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.findSongButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.findSongButton.Location = new System.Drawing.Point(199, 88);
+            this.findSongButton.Name = "findSongButton";
+            this.findSongButton.Size = new System.Drawing.Size(155, 33);
+            this.findSongButton.TabIndex = 39;
+            this.findSongButton.Text = "Find";
+            this.findSongButton.UseVisualStyleBackColor = true;
+            this.findSongButton.Click += new System.EventHandler(this.findSongButton_Click);
             // 
             // findSongRadioButtonByArtist
             // 
@@ -77,7 +89,7 @@
             // 
             this.findSongRadioButtonByGenre.AutoSize = true;
             this.findSongRadioButtonByGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.findSongRadioButtonByGenre.Location = new System.Drawing.Point(332, 10);
+            this.findSongRadioButtonByGenre.Location = new System.Drawing.Point(357, 10);
             this.findSongRadioButtonByGenre.Name = "findSongRadioButtonByGenre";
             this.findSongRadioButtonByGenre.Size = new System.Drawing.Size(67, 22);
             this.findSongRadioButtonByGenre.TabIndex = 35;
@@ -85,23 +97,23 @@
             this.findSongRadioButtonByGenre.UseVisualStyleBackColor = true;
             this.findSongRadioButtonByGenre.CheckedChanged += new System.EventHandler(this.findSongRadioButtonByGenre_CheckedChanged);
             // 
-            // label1
+            // findSongLabelLocateBy
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 22);
-            this.label1.TabIndex = 37;
-            this.label1.Text = "Locate Song by";
+            this.findSongLabelLocateBy.AutoSize = true;
+            this.findSongLabelLocateBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.findSongLabelLocateBy.Location = new System.Drawing.Point(2, 10);
+            this.findSongLabelLocateBy.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.findSongLabelLocateBy.Name = "findSongLabelLocateBy";
+            this.findSongLabelLocateBy.Size = new System.Drawing.Size(211, 22);
+            this.findSongLabelLocateBy.TabIndex = 37;
+            this.findSongLabelLocateBy.Text = "Locate Album or Song by";
             // 
             // findSongRadioButtonBySongTitle
             // 
             this.findSongRadioButtonBySongTitle.AutoSize = true;
             this.findSongRadioButtonBySongTitle.Checked = true;
             this.findSongRadioButtonBySongTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.findSongRadioButtonBySongTitle.Location = new System.Drawing.Point(177, 9);
+            this.findSongRadioButtonBySongTitle.Location = new System.Drawing.Point(232, 10);
             this.findSongRadioButtonBySongTitle.Name = "findSongRadioButtonBySongTitle";
             this.findSongRadioButtonBySongTitle.Size = new System.Drawing.Size(92, 22);
             this.findSongRadioButtonBySongTitle.TabIndex = 36;
@@ -172,18 +184,6 @@
             this.findSongTextBoxSongTitle.Size = new System.Drawing.Size(409, 27);
             this.findSongTextBoxSongTitle.TabIndex = 0;
             // 
-            // findSongButton
-            // 
-            this.findSongButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.findSongButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.findSongButton.Location = new System.Drawing.Point(199, 88);
-            this.findSongButton.Name = "findSongButton";
-            this.findSongButton.Size = new System.Drawing.Size(155, 33);
-            this.findSongButton.TabIndex = 39;
-            this.findSongButton.Text = "Find";
-            this.findSongButton.UseVisualStyleBackColor = true;
-            this.findSongButton.Click += new System.EventHandler(this.findSongButton_Click);
-            // 
             // FindSong
             // 
             this.AcceptButton = this.findSongButton;
@@ -211,7 +211,7 @@
         private System.Windows.Forms.TextBox findSongTextBoxSongTitle;
         private System.Windows.Forms.RadioButton findSongRadioButtonByArtist;
         private System.Windows.Forms.RadioButton findSongRadioButtonByGenre;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label findSongLabelLocateBy;
         private System.Windows.Forms.RadioButton findSongRadioButtonBySongTitle;
         private System.Windows.Forms.Button findSongButton;
     }

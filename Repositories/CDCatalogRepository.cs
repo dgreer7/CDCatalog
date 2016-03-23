@@ -189,6 +189,8 @@
         {
             using (CDCatalogEntities context = new CDCatalogEntities())
             {
+                if (string.IsNullOrEmpty(albumTitle))
+                    return context.Set<AlbumView>().ToList(); ;
                 return context.AlbumViews.Where(a => a.Title.ToLower().Contains(albumTitle.ToLower())).OrderByDescending(a => a.Rating).ToList();
             }
         }

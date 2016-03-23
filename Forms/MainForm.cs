@@ -183,7 +183,7 @@
         {
             try
             {
-                var findSong = new FindSong();
+                var findSong = new FindSong(false);
                 var dialogResult = findSong.ShowDialog();
 
                 //check to see if user completed the dialog box and therefore FoundGenres should not be null
@@ -193,6 +193,29 @@
                     ClearDataGrid();
                     //sets datagrid to get information from the results of the findSong form
                     mainFormDataGridView.DataSource = findSong.FoundSongs;
+                    UpdateDataGridForShowingSongData();
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessageBox(ex);
+            }
+        }
+
+        private void findAlbumOrSongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var findSong = new FindSong(true);
+                var dialogResult = findSong.ShowDialog();
+
+                //check to see if user completed the dialog box and therefore FoundGenres should not be null
+                if (dialogResult == DialogResult.OK)
+                {
+                    //Clear datagrid to prevent any collisions
+                    ClearDataGrid();
+                    //sets datagrid to get information from the results of the findSong form
+                    mainFormDataGridView.DataSource = findSong.FoundAlbumsAndSongs;
                     UpdateDataGridForShowingSongData();
                 }
             }
@@ -270,6 +293,34 @@
                             ClearDataGrid();
                         }
                     }
+                    else if (selectedValue.GetType() == typeof(AlbumSongResult))
+                    {
+                        //cast selected line as a AlbumView
+                        var selectedAlbumOrSong = selectedValue as AlbumSongResult;
+                        //set dialogResult to none
+                        var dialogResult = DialogResult.None;
+
+                        if (selectedAlbumOrSong.Type == "Song")
+                        {
+                            var updateSong = new UpdateSong(selectedAlbumOrSong.Title);
+                            dialogResult = updateSong.ShowDialog();
+                        }
+                        else if (selectedAlbumOrSong.Type == "Album")
+                        {
+                            var albumView = new UpdateAlbum(selectedAlbumOrSong.Title, selectedAlbumOrSong.ArtistName);
+                            dialogResult = albumView.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please find either a song or album to update.");
+                        }
+
+                        if (dialogResult == DialogResult.OK)
+                        {
+                            //Clear the datagridview
+                            ClearDataGrid();
+                        }
+                    }
                     else
                     {
                         MessageBox.Show(string.Format("Please find either a song or album to update", "Data validation error"));
@@ -308,7 +359,7 @@
                 //rename header for track length
                 if (mainFormDataGridView.Columns[i].HeaderText == "Track_Length_Seconds")
                 {
-                    mainFormDataGridView.Columns[i].HeaderText = "Length (Sec)";
+                    mainFormDataGridView.Columns[i].HeaderText = "Length\n(Sec)";
                 }
                 //sets the header name to variable
                 string columnHeaderName = mainFormDataGridView.Columns[i].HeaderText;

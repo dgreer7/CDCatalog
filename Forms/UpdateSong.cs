@@ -14,7 +14,10 @@
             SongTitleToUpdate = songTitle;
             AlbumTitleOfSong = albumName;
             InitializeComponent();
-            updateSongLabel.Text = string.Format("Update rating of {0} by {1}:", SongTitleToUpdate, AlbumTitleOfSong);
+            if (AlbumTitleOfSong != null)
+                updateSongLabel.Text = string.Format("Update rating of {0} by {1}:", SongTitleToUpdate, AlbumTitleOfSong);
+            else
+                updateSongLabel.Text = string.Format("Update rating of {0}:", SongTitleToUpdate);
         }
 
         private void updateSongButton_Click(object sender, System.EventArgs e)
@@ -26,8 +29,12 @@
 
             if (int.TryParse(updateSongTextBox.Text.Trim(), out songRating) && songRating >= 0 && songRating <= 5)
             {
-                var albums = repository.SearchAlbumsByAlbumTitleExclusive(AlbumTitleOfSong);
-                repository.UpdateSongRating(SongTitleToUpdate, songRating, albums[0]);
+                var albums = AlbumTitleOfSong != null ? repository.SearchAlbumsByAlbumTitleExclusive(AlbumTitleOfSong) : null;
+                if (AlbumTitleOfSong == null)
+                    repository.UpdateSongRating(SongTitleToUpdate, songRating);
+
+                else
+                    repository.UpdateSongRating(SongTitleToUpdate, songRating, albums[0]);
                 Close();
             }
             else

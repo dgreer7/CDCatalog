@@ -1,5 +1,6 @@
 ﻿namespace CDCatalog.Forms
 {
+    using CDCatalog.Processor;
     using CDCatalog.Repository;
     using System;
     using System.Collections.Generic;
@@ -9,17 +10,29 @@
     {
         CDCatalogRepository repository = new CDCatalogRepository();
         public IList<SongView> FoundSongs { get; private set; }
+        public IList<AlbumSongResult> FoundAlbumsAndSongs { get; private set; }
+        public bool FindBothSongAndAlbum;
 
-        public FindSong()
+        public FindSong(bool findBothSongAndAlbum)
         {
+            FindBothSongAndAlbum = findBothSongAndAlbum;
             InitializeComponent();
             ShowCorectFields();
             InitializeArtistComboBox();
             InitializeGenreComboBox();
+            AdaptFormToIntendedUse();
 
 #if DEBUG
             findSongTextBoxSongTitle.Text = "Inside";
 #endif
+        }
+
+        private void AdaptFormToIntendedUse()
+        {
+            Text = FindBothSongAndAlbum ? "Find Songs and Albums" : "Find Song";
+            findSongLabelSongTitle.Text = FindBothSongAndAlbum ? "Title" : "Song Title";
+            findSongLabelLocateBy.Text = FindBothSongAndAlbum ? "Locate Album or Song by" : "Locate Song by";
+            findSongRadioButtonBySongTitle.Text = FindBothSongAndAlbum ? "Title" : "Song Title";
         }
 
         private void ShowCorectFields()
@@ -65,29 +78,59 @@
         {
             var formHelper = new FormHelper();
 
-            //if searching by song title 
-            if (findSongRadioButtonBySongTitle.Checked)
+            //Check if form is used to find song or song and album
+            if (FindBothSongAndAlbum)
             {
-                FoundSongs = repository.SearchSongsBySongTitle(findSongTextBoxSongTitle.Text.Trim());
+                var processor = new ProcessSongAlbumAggregator();
+                if (findSongRadioButtonBySongTitle.Checked)
+                {
+                    FoundAlbumsAndSongs = processor.FindSongOrAlbumByTitle(findSongTextBoxSongTitle.Text.Trim());
+                }
+                //if searching by aritst
+                else if (findSongRadioButtonByArtist.Checked)
+                {
+                    FoundAlbumsAndSongs = processor.FindSongOrAlbumByArtist(((Artist)findSongComboBoxArtist.SelectedItem).ArtistName);
+                }
+                //if searching by genre
+                else
+                {
+                    FoundAlbumsAndSongs = processor.FindSongOrAlbumByGenre(((Genre)findSongComboBoxGenre.SelectedItem).GenreName);
+                }
+                //if no results were returnd show message box and prevent dialog from closing
+                if (FoundAlbumsAndSongs.Count == 0)
+                {
+                    MessageBox.Show("Unable to locate any matching Albums or Songs.");
+                    DialogResult = DialogResult.None;
+                }
+                else
+                    Close();
             }
-            //if searching by aritst
-            else if (findSongRadioButtonByArtist.Checked)
-            {
-                FoundSongs = repository.SearchSongsByArtistName(((Artist)findSongComboBoxArtist.SelectedItem).ArtistName);
-            }
-            //if searching by genre
             else
             {
-                FoundSongs = repository.SearchSongsByGenreName(((Genre)findSongComboBoxGenre.SelectedItem).GenreName);
+                //if searching by song title 
+                if (findSongRadioButtonBySongTitle.Checked)
+                {
+                    FoundSongs = repository.SearchSongsBySongTitle(findSongTextBoxSongTitle.Text.Trim());
+                }
+                //if searching by aritst
+                else if (findSongRadioButtonByArtist.Checked)
+                {
+                    FoundSongs = repository.SearchSongsByArtistName(((Artist)findSongComboBoxArtist.SelectedItem).ArtistName);
+                }
+                //if searching by genre
+                else
+                {
+                    FoundSongs = repository.SearchSongsByGenreName(((Genre)findSongComboBoxGenre.SelectedItem).GenreName);
+                }
+                //if no results were returnd show message box and prevent dialog from closing
+                if (FoundSongs.Count == 0)
+                {
+                    MessageBox.Show("Unable to locate any matching songs.");
+                    DialogResult = DialogResult.None;
+                }
+                else
+                    Close();
             }
-            //if no results were returnd show message box and prevent dialog from closing
-            if (FoundSongs.Count == 0)
-            {
-                MessageBox.Show("Unable to locate any matching songs.");
-                DialogResult = DialogResult.None;
-            }
-            else
-                Close();
         }
     }
 }
